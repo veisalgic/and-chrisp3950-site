@@ -3,40 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miller's Bakery — Johnson City's Favorite Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <title>Miller's Bakery — Johnson City</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-light: #e8f5e9;
-      --green-pale:  #f1f8f1;
-      --green-soft:  #c8e6c9;
-      --green-mid:   #a5d6a7;
-      --green-main:  #4caf50;
-      --green-deep:  #2e7d32;
-      --green-dark:  #1b5e20;
-      --sage:        #d4e8d0;
-      --mint:        #e0f2e9;
-      --cream:       #f9fdf9;
-      --warm-white:  #ffffff;
-      --text:        #1b3a1e;
-      --muted:       #5a7d5c;
-      --brown:       #4e7a51;
-      --darkbrown:   #1b5e20;
-      --peach:       #e8f5e9;
-      --rose:        #c8e6c9;
-      --butter:      #f1f8f1;
-      --white:       #ffffff;
+      --rose:    #f9d5d3;
+      --peach:   #fde8d8;
+      --butter:  #fdf3c0;
+      --sage:    #d4e8d0;
+      --lavender:#e8d9f0;
+      --brown:   #7a4f3a;
+      --dark:    #3d2012;
+      --text:    #4a3728;
+      --muted:   #8a7060;
+      --white:   #fffdf9;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--cream);
+      background: var(--white);
       color: var(--text);
-      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -44,21 +35,22 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
-      background: rgba(241, 248, 241, 0.97);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--green-soft);
+      background: rgba(255, 253, 249, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #f0e4d8;
+      padding: 0 2rem;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 2rem;
     }
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--green-deep);
+      color: var(--brown);
       text-decoration: none;
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
@@ -72,12 +64,12 @@
       color: var(--text);
       font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--green-deep); }
+    .nav-links a:hover { color: var(--brown); }
 
     .hamburger {
       display: none;
@@ -86,50 +78,27 @@
       cursor: pointer;
       background: none;
       border: none;
+      padding: 4px;
     }
 
     .hamburger span {
       display: block;
-      width: 24px;
+      width: 26px;
       height: 2px;
-      background: var(--green-deep);
+      background: var(--brown);
       border-radius: 2px;
       transition: all 0.3s;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--cream);
-      padding: 1rem 2rem 1.5rem;
-      border-bottom: 1px solid var(--green-soft);
-      position: fixed;
-      top: 60px; left: 0; right: 0;
-      z-index: 999;
-    }
-
-    .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--green-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(145deg, var(--green-light) 0%, var(--mint) 50%, var(--green-soft) 100%);
+      background: linear-gradient(160deg, var(--rose) 0%, var(--peach) 40%, var(--butter) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem 2rem 4rem;
+      padding: 100px 2rem 60px;
       position: relative;
       overflow: hidden;
     }
@@ -138,8 +107,9 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='2' fill='%23a5d6a7' opacity='0.5'/%3E%3C/svg%3E") repeat;
-      opacity: 0.4;
+      background-image:
+        radial-gradient(circle at 15% 80%, rgba(212,232,208,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 85% 20%, rgba(232,217,240,0.35) 0%, transparent 50%);
     }
 
     .hero-content {
@@ -150,112 +120,138 @@
     .hero-badge {
       display: inline-block;
       background: var(--white);
-      color: var(--green-deep);
-      font-size: 0.8rem;
+      color: var(--brown);
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.4rem 1.2rem;
+      padding: 6px 18px;
       border-radius: 50px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 10px rgba(46,125,50,0.15);
-      animation: fadeDown 0.7s ease both;
+      border: 1.5px solid #e8c8b8;
+      margin-bottom: 1.4rem;
+      animation: fadeUp 0.7s ease both;
     }
 
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 700;
-      color: var(--green-dark);
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-      animation: fadeDown 0.7s 0.15s ease both;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1.1;
+      color: var(--dark);
+      animation: fadeUp 0.8s 0.1s ease both;
     }
 
-    .hero-title span {
-      color: var(--green-deep);
-      position: relative;
+    .hero-title em {
+      font-style: italic;
+      color: var(--brown);
     }
 
     .hero-sub {
+      margin-top: 1.2rem;
       font-size: 1.15rem;
+      font-weight: 300;
       color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 2.2rem;
-      animation: fadeDown 0.7s 0.3s ease both;
+      line-height: 1.7;
+      animation: fadeUp 0.8s 0.2s ease both;
     }
 
-    .hero-cta {
+    .hero-ctas {
+      margin-top: 2.2rem;
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      animation: fadeDown 0.7s 0.45s ease both;
+      animation: fadeUp 0.8s 0.3s ease both;
     }
-
-    .btn {
-      display: inline-block;
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(46,125,50,0.25); }
 
     .btn-primary {
-      background: var(--green-deep);
-      color: var(--white);
+      background: var(--brown);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 18px rgba(122,79,58,0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(122,79,58,0.35);
     }
 
     .btn-outline {
       background: transparent;
-      border: 2px solid var(--green-deep);
-      color: var(--green-deep);
+      color: var(--brown);
+      padding: 13px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      border: 2px solid var(--brown);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--brown);
+      color: #fff;
     }
 
     .hero-hours {
-      margin-top: 2.5rem;
+      margin-top: 2.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid #ecd8cc;
+      border-radius: 50px;
+      padding: 8px 20px;
       font-size: 0.85rem;
       color: var(--muted);
-      animation: fadeDown 0.7s 0.6s ease both;
+      animation: fadeUp 0.8s 0.4s ease both;
     }
 
-    .hero-hours strong { color: var(--green-deep); }
+    .dot {
+      width: 8px; height: 8px;
+      background: #84c97a;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(132,201,122,0.25);
+    }
 
-    /* ── SECTION COMMON ── */
-    section { padding: 5rem 2rem; }
+    /* ── SECTION SHARED ── */
+    section { padding: 90px 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
     .section-label {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--green-deep);
-      margin-bottom: 0.5rem;
+      color: var(--brown);
+      margin-bottom: 0.6rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      font-weight: 700;
-      color: var(--green-dark);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--dark);
+      line-height: 1.2;
       margin-bottom: 1rem;
     }
 
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 560px;
+    .section-desc {
       font-size: 1.05rem;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 600px;
     }
 
     /* ── ABOUT ── */
@@ -266,7 +262,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
     }
 
@@ -274,491 +270,531 @@
       position: relative;
     }
 
-    .about-img-box {
-      background: linear-gradient(135deg, var(--green-light), var(--green-soft));
-      border-radius: 20px;
-      height: 380px;
+    .about-card {
+      background: linear-gradient(135deg, var(--peach), var(--butter));
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 140px; height: 140px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+    }
+
+    .about-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 100px; height: 100px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+    }
+
+    .big-emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--dark);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-card-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.7);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .about-text .section-desc { max-width: 100%; }
+
+    .about-list {
+      margin-top: 1.8rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .check-icon {
+      width: 22px; height: 22px;
+      background: var(--sage);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(46,125,50,0.18);
-      position: relative;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
-    .about-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-
-    .about-badge {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      background: var(--green-light);
-      border: 3px solid var(--white);
-      border-radius: 16px;
-      padding: 1rem 1.4rem;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(46,125,50,0.18);
-    }
-
-    .about-badge strong {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--green-deep);
-    }
-
-    .about-badge span {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .about-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 1.5rem;
-    }
-
-    .feature-tag {
-      background: var(--green-light);
-      color: var(--green-deep);
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-    }
-
-    /* ── MENU / SPECIALTIES ── */
+    /* ── SPECIALTIES ── */
     #specialties {
-      background: var(--cream);
+      background: linear-gradient(180deg, #fff9f5 0%, var(--butter) 100%);
     }
 
     .specialties-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
-    .specialties-header .section-subtitle {
+    .specialties-header .section-desc {
       margin: 0 auto;
-    }
-
-    /* Category section styling */
-    .menu-category {
-      margin-bottom: 4rem;
-    }
-
-    .menu-category-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .menu-category-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--green-dark);
-    }
-
-    .menu-category-divider {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--green-soft), transparent);
-      border-radius: 2px;
     }
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
-    .card {
+    .spec-card {
       background: var(--white);
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(46,125,50,0.08);
+      padding: 2.2rem 1.8rem;
+      border: 1.5px solid #f0e4d8;
       transition: transform 0.25s, box-shadow 0.25s;
       position: relative;
+      overflow: hidden;
     }
 
-    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(46,125,50,0.16); }
+    .spec-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 20px 20px 0 0;
+    }
 
-    .card-photo {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .spec-card:nth-child(1)::before { background: linear-gradient(90deg, var(--rose), var(--peach)); }
+    .spec-card:nth-child(2)::before { background: linear-gradient(90deg, var(--butter), var(--sage)); }
+    .spec-card:nth-child(3)::before { background: linear-gradient(90deg, var(--lavender), var(--rose)); }
+
+    .spec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(122,79,58,0.12);
+    }
+
+    .spec-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
       display: block;
     }
 
-    .card-photo-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--green-light), var(--green-soft));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-    }
-
-    .card-top-bar {
-      height: 4px;
-      border-radius: 0;
-    }
-
-    .card-body {
-      padding: 1.4rem 1.6rem 1.8rem;
-    }
-
-    .card-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
-
-    .card h4 {
+    .spec-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: var(--green-dark);
-      margin-bottom: 0.4rem;
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
     }
 
-    .card p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-
-    .card-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--green-deep);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.25rem 0.7rem;
-      border-radius: 50px;
+    .spec-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    .card-badge.gf {
-      background: var(--green-main);
+    /* ── HOW TO ORDER ── */
+    #order {
+      background: var(--white);
     }
 
-    /* ── VISIT ── */
-    #visit {
-      background: linear-gradient(135deg, var(--green-light) 0%, var(--mint) 100%);
-    }
-
-    .visit-grid {
+    .order-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .visit-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      color: var(--green-dark);
-      margin-bottom: 1rem;
-    }
-
-    .visit-info p { color: var(--muted); margin-bottom: 1.5rem; }
-
-    .info-block {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 4px 18px rgba(46,125,50,0.09);
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .info-icon { font-size: 1.5rem; flex-shrink: 0; }
-
-    .info-block h4 {
-      font-weight: 700;
-      color: var(--green-deep);
-      margin-bottom: 0.3rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .info-block p { color: var(--text); font-size: 0.95rem; margin: 0; }
-
-    .map-box {
-      background: linear-gradient(135deg, var(--green-soft), var(--green-mid));
-      border-radius: 20px;
-      height: 380px;
+    .steps {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 1rem;
-      box-shadow: 0 8px 32px rgba(46,125,50,0.18);
-    }
-
-    .map-box span { font-size: 4rem; }
-
-    .map-box p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--green-dark);
-    }
-
-    .map-box small { color: var(--green-deep); }
-
-    /* ── SOCIAL ── */
-    #social {
-      background: var(--white);
-      text-align: center;
-    }
-
-    .social-content { max-width: 600px; margin: 0 auto; }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
+      gap: 1.4rem;
       margin-top: 2rem;
     }
 
-    .social-btn {
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .step-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--peach));
+      color: var(--brown);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.8rem 1.6rem;
-      border-radius: 50px;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2px solid #ecd8cc;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 0.97rem;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hours-card {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--lavender) 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+    }
+
+    .hours-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hours-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      color: var(--text);
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .hours-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .hours-list .day { font-weight: 700; }
+    .hours-list .time { color: var(--brown); font-weight: 700; }
+    .hours-list .closed { color: var(--muted); font-style: italic; }
+
+    .address-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.6);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text);
       font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-
-    .social-btn.fb {
-      background: #1877f2;
-      color: var(--white);
-    }
-
-    .social-btn.ig {
-      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: var(--white);
     }
 
     /* ── CONTACT ── */
     #contact {
-      background: var(--cream);
+      background: linear-gradient(160deg, var(--rose) 0%, var(--peach) 60%, var(--butter) 100%);
     }
 
-    .contact-wrapper {
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: start;
     }
 
+    .contact-info { }
+
+    .contact-info .section-desc { max-width: 100%; margin-bottom: 2rem; }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.65);
+      border-radius: 14px;
+      padding: 0.9rem 1.2rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .contact-item:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateX(4px);
+    }
+
+    .ci-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(122,79,58,0.1);
+    }
+
+    .ci-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .ci-value { font-weight: 700; color: var(--dark); }
+
+    .social-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--brown);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .social-btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* FORM */
     .contact-form {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 2.5rem;
-      box-shadow: 0 8px 40px rgba(46,125,50,0.1);
+      box-shadow: 0 8px 40px rgba(122,79,58,0.1);
     }
 
     .contact-form h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--green-dark);
-      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 1.6rem;
     }
 
-    .form-group { margin-bottom: 1.2rem; }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
 
     .form-group label {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--green-deep);
-      margin-bottom: 0.4rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 0.75rem 1rem;
-      border: 2px solid var(--green-soft);
-      border-radius: 10px;
-      font-size: 0.95rem;
+      padding: 12px 16px;
+      border: 1.5px solid #e8d8cc;
+      border-radius: 12px;
       font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
       color: var(--text);
-      background: var(--cream);
-      transition: border-color 0.2s;
+      background: #fffdf9;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: vertical;
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: var(--green-deep);
+      border-color: var(--brown);
+      box-shadow: 0 0 0 3px rgba(122,79,58,0.1);
     }
 
-    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
     .form-submit {
       width: 100%;
-      padding: 0.95rem;
-      background: var(--green-deep);
-      color: var(--white);
+      background: var(--brown);
+      color: #fff;
       border: none;
+      padding: 14px;
       border-radius: 50px;
-      font-size: 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
       font-weight: 700;
+      letter-spacing: 0.05em;
       cursor: pointer;
       transition: background 0.2s, transform 0.2s;
+      margin-top: 0.4rem;
     }
 
     .form-submit:hover {
-      background: var(--green-dark);
+      background: var(--dark);
       transform: translateY(-2px);
     }
 
-    .contact-info { padding-top: 0.5rem; }
-
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.3rem);
-      color: var(--green-dark);
-      margin-bottom: 1rem;
-    }
-
-    .contact-info > p { color: var(--muted); margin-bottom: 2rem; }
-
-    .contact-detail {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.4rem;
-    }
-
-    .cd-icon {
-      background: var(--green-light);
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .cd-text h4 {
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--green-deep);
-      margin-bottom: 0.2rem;
-    }
-
-    .cd-text a,
-    .cd-text p {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.97rem;
-    }
-
-    .cd-text a:hover { color: var(--green-deep); }
-
-    .special-order-note {
-      background: var(--green-light);
-      border-radius: 16px;
-      padding: 1.2rem 1.5rem;
-      margin-top: 1.5rem;
-      border-left: 4px solid var(--green-deep);
-    }
-
-    .special-order-note p {
-      font-size: 0.92rem;
-      color: var(--text);
-    }
-
-    .special-order-note strong { color: var(--green-deep); }
-
     /* ── FOOTER ── */
     footer {
-      background: var(--green-dark);
-      color: rgba(255,255,255,0.75);
+      background: var(--dark);
+      color: #c8b0a0;
       text-align: center;
       padding: 2.5rem 2rem;
     }
 
-    footer .footer-name {
+    .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--white);
-      margin-bottom: 0.3rem;
+      font-size: 1.6rem;
+      color: var(--peach);
+      margin-bottom: 0.5rem;
     }
 
-    footer p { font-size: 0.87rem; }
-
-    footer a {
-      color: var(--green-mid);
-      text-decoration: none;
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: #8a7060;
+      margin-bottom: 1rem;
     }
 
-    /* ── GF BANNER ── */
-    .gf-banner {
-      background: linear-gradient(135deg, var(--green-deep), var(--green-dark));
-      color: white;
-      border-radius: 20px;
-      padding: 2.5rem 3rem;
-      margin-bottom: 4rem;
+    .footer-links {
       display: flex;
-      align-items: center;
-      gap: 2rem;
-      box-shadow: 0 8px 32px rgba(46,125,50,0.2);
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
-    .gf-banner-icon { font-size: 3.5rem; flex-shrink: 0; }
-
-    .gf-banner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: white;
-      margin-bottom: 0.4rem;
+    .footer-links a {
+      color: #a08070;
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
     }
 
-    .gf-banner p { color: rgba(255,255,255,0.85); font-size: 0.97rem; }
+    .footer-links a:hover { color: var(--peach); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: #6a5040;
+    }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .reveal {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid #f0e4d8;
+      padding: 1.5rem 2rem;
+      z-index: 999;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0e4d8;
     }
 
     /* ── RESPONSIVE ── */
@@ -767,113 +803,130 @@
       .hamburger { display: flex; }
 
       .about-grid,
-      .visit-grid,
-      .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .order-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
-      .about-badge {
-        right: 0;
-        bottom: -15px;
-      }
+      .cards-grid { grid-template-columns: 1fr; }
 
-      .social-icons { flex-direction: column; align-items: center; }
+      .form-row { grid-template-columns: 1fr; }
 
-      .map-box { height: 260px; }
+      section { padding: 70px 1.2rem; }
 
-      .gf-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
-        gap: 1rem;
-      }
-
-      .menu-category-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-      .menu-category-divider { width: 80px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 480px) {
-      nav { padding: 0.8rem 1.2rem; }
-      section { padding: 3.5rem 1.2rem; }
-      .contact-form { padding: 1.8rem 1.2rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .social-row { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">🌿 Miller's Bakery</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#specialties">Our Menu</a></li>
-      <li><a href="#visit">Visit Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Miller's Bakery</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Specialties</a></li>
+    <li><a href="#order">Hours & Order</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#specialties" onclick="closeMenu()">Our Menu</a>
-    <a href="#visit" onclick="closeMenu()">Visit Us</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"       onclick="closeMobileMenu()">About</a>
+  <a href="#specialties" onclick="closeMobileMenu()">Specialties</a>
+  <a href="#order"       onclick="closeMobileMenu()">Hours & Order</a>
+  <a href="#contact"     onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🥐 Handcrafted with Love Since 2018</div>
+    <h1 class="hero-title">
+      Fresh from<br><em>our oven</em><br>to your table
+    </h1>
+    <p class="hero-sub">
+      Artisan sourdoughs, custom celebration cakes, and seasonal pastries —<br>baked from scratch every single morning in Johnson City.
+    </p>
+    <div class="hero-ctas">
+      <a href="#specialties" class="btn-primary">Our Specialties</a>
+      <a href="#contact" class="btn-outline">Place a Special Order</a>
+    </div>
+    <div class="hero-hours">
+      <span class="dot"></span>
+      Open Now — Tue–Sat 7am–4pm &nbsp;|&nbsp; Sun 8am–2pm
+    </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="hero-badge">🏡 Family Owned &amp; Locally Rooted Since 2018</div>
-      <h1 class="hero-title">Baked Fresh.<br /><span>Made with Love.</span></h1>
-      <p class="hero-sub">Handcrafted gourmet doughnuts, cheesecakes, cookies, and gluten-free treats made from scratch every single morning — right here at 142 Main Street in Johnson City.</p>
-      <div class="hero-cta">
-        <a href="#specialties" class="btn btn-primary">See Our Menu</a>
-        <a href="#contact" class="btn btn-outline">Place a Special Order</a>
-      </div>
-      <p class="hero-hours">
-        <strong>Tue – Sat:</strong> 7am – 4pm &nbsp;|&nbsp; <strong>Sun:</strong> 8am – 2pm &nbsp;|&nbsp; Closed Monday
-      </p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-visual reveal">
-          <div class="about-img-box">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&auto=format&fit=crop" alt="Miller's Bakery interior, cozy and welcoming" />
-          </div>
-          <div class="about-badge">
-            <strong>2018</strong>
-            <span>Est. in Johnson City</span>
-          </div>
-        </div>
-        <div class="about-text reveal">
-          <p class="section-label">Our Story</p>
-          <h2 class="section-title">A Family Bakery, Rooted Right Here</h2>
-          <p>Miller's Bakery isn't just a place to grab something sweet — it's a piece of Johnson City itself. Our family has called this community home for generations, and when we opened our doors in 2018, we wanted to create something the neighborhood could be proud of: a real, from-scratch bakery built on genuine care and familiar flavors.</p>
-          <p>Growing up here, we remember what it felt like when a local business knew your name and your usual order. That's exactly the experience we set out to create. Every morning before sunrise, our family is in the kitchen — mixing dough, filling doughnuts, layering cheesecakes, and pulling fresh cookies from the oven — because we believe you can taste the difference when something is made with that kind of intention.</p>
-          <p>From our gourmet doughnuts to our gluten-free selections, everything on our menu is made from scratch using quality ingredients. Whether you grew up down the street or you're new to the area, consider this your neighborhood bakery.</p>
-          <div class="about-features">
-            <span class="feature-tag">🍩 Gourmet Doughnuts</span>
-            <span class="feature-tag">🍰 Cheesecakes</span>
-            <span class="feature-tag">🍪 Fresh Cookies</span>
-            <span class="feature-tag">🌿 Gluten-Free Options</span>
-            <span class="feature-tag">🎂 Custom Cakes</span>
-            <span class="feature-tag">💍 Wedding Cakes</span>
-            <span class="feature-tag">🏡 Family Owned</span>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <span class="big-emoji">🍞</span>
+          <div class="about-card-title">Miller's Bakery</div>
+          <div class="about-card-sub">142 Main Street, Johnson City</div>
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-number">2018</div>
+              <div class="stat-label">Est. Year</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">From Scratch</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Days a Week</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">48h</div>
+              <div class="stat-label">Special Orders</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- SPECIALTIES / MENU -->
-  <section id="specialties">
-    <div class="container">
-      <div class="specialties-header reveal">
-        <p class="section-label">
+      <div class="about-text reveal">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Baked with heart, served with a smile</h2>
+        <p class="section-desc">
+          Since 2018, Miller's Bakery has been a beloved part of the Johnson City community. Every loaf, pastry, and celebration cake that leaves our kitchen is made from scratch by a small, passionate team that genuinely cares about what ends up on your table.
+        </p>
+        <p class="section-desc" style="margin-top:1rem;">
+          Whether you're a regular stopping by for your morning sourdough or a couple planning their dream wedding cake, we treat every order — big or small — with the same love and attention. Come find us at 142 Main Street and smell what's coming out of the oven today.
+        </p>
+        <ul class="about-list">
+          <li>
+            <span class="check-icon">✓</span>
+            Fresh bread, pastries, and treats baked every morning
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            Custom celebration cakes for weddings, birthdays & events
+          </li>
+          <li>
+            <span class="check
+<style>
+#and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
+background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
+display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+font-family:system-ui,sans-serif;font-size:14px;color:#f1f5f9}
+#and-preview-banner strong{color:#6366f1}
+#and-preview-banner a{background:#6366f1;color:#fff;padding:8px 18px;border-radius:8px;
+text-decoration:none;font-weight:600;white-space:nowrap}
+#and-preview-banner a:hover{background:#4f52d3}
+</style>
+<div id="and-preview-banner">
+  <span>👋 <strong>This is your free preview</strong> — built overnight by All Night Design.
+  Purchase to go live on your own domain and remove this banner.</span>
+  <a href="https://allnightdesign.com/stripe/checkout?client_id=4">Get Started →</a>
+</div>
