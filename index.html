@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miller's Bakery – Johnson City's Handcrafted Bakery</title>
+  <title>Miller's Bakery – Johnson City's Homemade Favorite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --cream:      #fdf6ee;
-      --blush:      #f4c9b3;
-      --rose:       #e8a598;
-      --sage:       #a8c5a0;
-      --lavender:   #c9b8d8;
-      --brown:      #5c3d2e;
-      --dark-brown: #3b2415;
-      --text:       #3b2415;
-      --text-light: #6b4c38;
-      --white:      #fff;
+      --blush:      #f2c4b0;
+      --rose:       #d98a7e;
+      --deep-rose:  #b5635a;
+      --sage:       #a8b89a;
+      --warm-brown: #5c3d2e;
+      --dark-bg:    #2e1f16;
+      --card-bg:    #3d2a1e;
+      --text-light: #fdf6ee;
+      --text-muted: #c9b5a8;
+      --accent:     #e8a898;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--cream);
-      color: var(--text);
+      background-color: var(--dark-bg);
+      color: var(--text-light);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -37,32 +39,40 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(253, 246, 238, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(232, 165, 152, 0.3);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.9rem 2rem;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(46, 31, 22, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(242, 196, 176, 0.15);
+      transition: background 0.3s;
     }
+
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--brown);
+      color: var(--blush);
       text-decoration: none;
+      letter-spacing: 0.03em;
     }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
     .nav-links a {
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--text-light);
-      transition: color 0.25s;
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--rose); }
+
+    .nav-links a:hover { color: var(--blush); }
 
     .hamburger {
       display: none;
@@ -73,9 +83,12 @@
       border: none;
       padding: 4px;
     }
+
     .hamburger span {
-      display: block; width: 25px; height: 2px;
-      background: var(--brown);
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blush);
       border-radius: 2px;
       transition: all 0.3s;
     }
@@ -85,582 +98,705 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(201,184,216,0.35) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(168,197,160,0.25) 0%, transparent 55%),
-        radial-gradient(ellipse at 60% 80%, rgba(244,201,179,0.45) 0%, transparent 60%),
-        var(--cream);
+      padding: 6rem 1.5rem 4rem;
       position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(169, 108, 92, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(168, 184, 154, 0.12) 0%, transparent 55%),
+        var(--dark-bg);
     }
+
     .hero-badge {
       display: inline-block;
-      background: var(--blush);
-      color: var(--brown);
+      background: rgba(242, 196, 176, 0.15);
+      border: 1px solid rgba(242, 196, 176, 0.35);
+      color: var(--blush);
       font-size: 0.78rem;
-      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.35rem 1rem;
+      padding: 0.4rem 1.1rem;
       border-radius: 50px;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.7s ease both;
+      margin-bottom: 1.5rem;
+      animation: fadeDown 0.8s ease both;
     }
+
     #hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 700;
-      color: var(--dark-brown);
       line-height: 1.15;
-      max-width: 720px;
-      animation: fadeUp 0.8s 0.1s ease both;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      animation: fadeDown 0.9s 0.15s ease both;
     }
-    #hero h1 span { color: var(--rose); }
-    #hero p {
-      max-width: 580px;
-      margin: 1.4rem auto 2.4rem;
-      font-size: 1.1rem;
-      color: var(--text-light);
+
+    #hero h1 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    #hero p.tagline {
+      max-width: 560px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin: 0 auto 2.2rem;
       font-weight: 300;
-      animation: fadeUp 0.8s 0.2s ease both;
+      animation: fadeDown 1s 0.3s ease both;
     }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      animation: fadeUp 0.8s 0.3s ease both;
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeDown 1s 0.45s ease both;
     }
+
     .btn {
       display: inline-block;
       padding: 0.85rem 2rem;
       border-radius: 50px;
       font-size: 0.95rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(92,61,46,0.18); }
-    .btn-primary { background: var(--rose); color: var(--white); border: none; }
-    .btn-outline { background: transparent; color: var(--brown); border: 2px solid var(--rose); }
+
+    .btn-primary {
+      background: var(--rose);
+      color: var(--cream);
+      box-shadow: 0 4px 20px rgba(217, 138, 126, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--deep-rose);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(217, 138, 126, 0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--blush);
+      border: 1px solid rgba(242, 196, 176, 0.5);
+    }
+
+    .btn-outline:hover {
+      background: rgba(242, 196, 176, 0.1);
+      transform: translateY(-2px);
+    }
 
     .hero-hours {
       margin-top: 3.5rem;
-      display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
-      animation: fadeUp 0.8s 0.4s ease both;
-    }
-    .hour-pill {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(232,165,152,0.4);
-      border-radius: 12px;
-      padding: 0.6rem 1.2rem;
       font-size: 0.85rem;
-      color: var(--text-light);
-      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      animation: fadeDown 1s 0.6s ease both;
     }
-    .hour-pill strong { color: var(--brown); display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 2px; }
 
-    /* decorative shapes */
-    .hero-shape {
+    .hero-hours span { color: var(--sage); font-weight: 700; }
+
+    /* decorative dots */
+    .dots {
       position: absolute;
-      border-radius: 50%;
-      opacity: 0.18;
-      pointer-events: none;
+      width: 300px;
+      height: 300px;
+      opacity: 0.06;
+      background-image: radial-gradient(var(--blush) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
     }
-    .hs1 { width: 420px; height: 420px; background: var(--blush); top: -80px; right: -100px; }
-    .hs2 { width: 300px; height: 300px; background: var(--sage);  bottom: -60px; left: -80px; }
-    .hs3 { width: 180px; height: 180px; background: var(--lavender); bottom: 80px; right: 10%; }
+    .dots-tl { top: -40px; left: -40px; }
+    .dots-br { bottom: -40px; right: -40px; }
 
     /* ── ABOUT ── */
     #about {
       padding: 6rem 1.5rem;
-      background: var(--white);
+      background: var(--card-bg);
+      position: relative;
     }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-tag {
-      font-size: 0.78rem;
-      font-weight: 600;
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--rose);
       margin-bottom: 0.6rem;
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      color: var(--dark-brown);
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-    .about-text p { color: var(--text-light); margin-bottom: 1rem; }
-    .about-text p:last-child { margin-bottom: 0; }
 
-    .about-visual {
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .section-header h2 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    .about-grid {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 2rem;
+      align-items: start;
     }
-    .visual-card {
-      background: var(--cream);
-      border-radius: 16px;
-      padding: 1.5rem 1.2rem;
-      text-align: center;
-      border: 1px solid rgba(232,165,152,0.3);
-      transition: transform 0.25s, box-shadow 0.25s;
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      font-size: 1.02rem;
     }
-    .visual-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(92,61,46,0.1); }
-    .visual-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .visual-card h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--brown); }
-    .visual-card p { font-size: 0.8rem; color: var(--text-light); margin-top: 0.3rem; line-height: 1.5; }
-    .visual-card.accent { background: var(--blush); grid-column: span 2; }
-    .visual-card.accent h4 { font-size: 1.1rem; }
+
+    .about-text p strong { color: var(--cream); }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .highlight-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(242, 196, 176, 0.12);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(242, 196, 176, 0.3);
+    }
+
+    .highlight-card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--blush);
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
 
     /* ── SERVICES ── */
     #services {
       padding: 6rem 1.5rem;
-      background:
-        radial-gradient(ellipse at 10% 90%, rgba(201,184,216,0.2) 0%, transparent 55%),
-        radial-gradient(ellipse at 90% 10%, rgba(168,197,160,0.2) 0%, transparent 55%),
-        var(--cream);
+      background: var(--dark-bg);
     }
+
     .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
-      margin-top: 3rem;
     }
+
     .service-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid rgba(232,165,152,0.25);
-      transition: transform 0.25s, box-shadow 0.25s;
-      position: relative;
-      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid rgba(242, 196, 176, 0.1);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      opacity: 0;
+      transform: translateY(30px);
     }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--rose), var(--lavender));
+
+    .service-card.visible {
+      animation: fadeUp 0.6s ease forwards;
     }
-    .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(92,61,46,0.12); }
-    .service-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      border-color: rgba(242, 196, 176, 0.28);
+    }
+
+    .service-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
     .service-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--dark-brown);
+      font-size: 1.2rem;
+      color: var(--cream);
       margin-bottom: 0.6rem;
     }
-    .service-card p { font-size: 0.92rem; color: var(--text-light); }
 
-    /* ── SPECIAL ORDER BANNER ── */
-    .special-banner {
-      margin-top: 3rem;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--blush) 100%);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .special-banner .icon { font-size: 3rem; flex-shrink: 0; }
-    .special-banner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-    .special-banner p { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
-    .special-banner .btn-white {
-      margin-left: auto;
-      background: var(--white);
-      color: var(--rose);
-      border: none;
-      white-space: nowrap;
-      flex-shrink: 0;
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
 
     /* ── CONTACT ── */
     #contact {
       padding: 6rem 1.5rem;
-      background: var(--white);
+      background: var(--card-bg);
     }
-    .contact-grid {
+
+    .contact-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 4rem;
-      margin-top: 3rem;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
       align-items: start;
     }
+
     .contact-info h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--dark-brown);
-      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 1rem;
     }
-    .info-item {
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.97rem;
+    }
+
+    .contact-detail {
       display: flex;
-      gap: 1rem;
       align-items: flex-start;
-      margin-bottom: 1.4rem;
+      gap: 0.9rem;
+      margin-bottom: 1.1rem;
     }
-    .info-icon {
-      width: 42px; height: 42px;
-      background: var(--blush);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
+
+    .contact-detail .icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
       flex-shrink: 0;
     }
-    .info-item h4 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rose); }
-    .info-item p, .info-item a { font-size: 0.95rem; color: var(--text-light); text-decoration: none; }
-    .info-item a:hover { color: var(--rose); }
 
-    .social-links { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
-    .social-link {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--cream);
-      border: 1px solid rgba(232,165,152,0.35);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--brown);
+    .contact-detail a {
+      color: var(--blush);
       text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      font-size: 0.97rem;
+      transition: color 0.2s;
     }
-    .social-link:hover { background: var(--rose); color: var(--white); }
 
-    /* Form */
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-light); display: block; margin-bottom: 0.35rem; }
-    input, textarea, select {
+    .contact-detail a:hover { color: var(--rose); }
+
+    .contact-detail span {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+    }
+
+    .hours-table {
+      margin-top: 1.5rem;
+    }
+
+    .hours-table h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--blush);
+      margin-bottom: 0.7rem;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: var(--cream); }
+
+    /* form */
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(242, 196, 176, 0.12);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
       width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1.5px solid rgba(232,165,152,0.4);
-      border-radius: 10px;
-      background: var(--cream);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(242, 196, 176, 0.18);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--cream);
       font-family: 'Lato', sans-serif;
       font-size: 0.95rem;
-      color: var(--text);
-      transition: border-color 0.25s, box-shadow 0.25s;
       outline: none;
+      transition: border-color 0.2s, background 0.2s;
     }
-    input:focus, textarea:focus, select:focus {
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
       border-color: var(--rose);
-      box-shadow: 0 0 0 3px rgba(232,165,152,0.2);
+      background: rgba(255,255,255,0.09);
     }
-    textarea { resize: vertical; min-height: 130px; }
-    .btn-submit {
-      background: var(--rose);
-      color: var(--white);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 50px;
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-group select option { background: var(--card-bg); }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.9rem;
       font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-      letter-spacing: 0.04em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-top: 0.5rem;
     }
-    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,165,152,0.4); background: #d98878; }
+
+    /* ── SOCIAL ── */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(242, 196, 176, 0.1);
+      border: 1px solid rgba(242, 196, 176, 0.2);
+      color: var(--blush);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .social-link:hover {
+      background: var(--rose);
+      transform: translateY(-3px);
+      color: var(--cream);
+    }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--dark-brown);
-      color: rgba(255,255,255,0.7);
-      padding: 3rem 1.5rem 2rem;
+      background: #1e1209;
+      padding: 2.5rem 1.5rem;
       text-align: center;
+      border-top: 1px solid rgba(242, 196, 176, 0.1);
     }
-    .footer-inner { max-width: 700px; margin: 0 auto; }
-    .footer-logo {
+
+    footer .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 1.3rem;
       color: var(--blush);
-      display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
-    footer p { font-size: 0.88rem; line-height: 1.8; }
-    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem auto; max-width: 300px; }
-    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    footer .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    footer .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(201, 181, 168, 0.5);
+    }
+
+    footer .footer-addr {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--rose), var(--blush));
+      border-radius: 2px;
+      margin: 1rem auto 0;
+    }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-top: 1px solid rgba(232,165,152,0.3); padding: 1rem 2rem 1.5rem; gap: 1rem; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: rgba(46, 31, 22, 0.98);
+        padding: 1.5rem 2rem;
+        border-top: 1px solid rgba(242, 196, 176, 0.1);
+        gap: 1.2rem;
+      }
+
       .nav-links.open { display: flex; }
+
       .hamburger { display: flex; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-visual { order: -1; }
-      .form-row { grid-template-columns: 1fr; }
-      .special-banner { flex-direction: column; text-align: center; }
-      .special-banner .btn-white { margin-left: 0; }
-      .hero-hours { gap: 0.8rem; }
-      .social-links { flex-wrap: wrap; }
+
+      .about-grid,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta-group { flex-direction: column; align-items: center; }
     }
+
     @media (max-width: 480px) {
-      .about-visual { grid-template-columns: 1fr 1fr; }
-      .visual-card.accent { grid-column: span 2; }
+      .services-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
+  <!-- ── NAV ── -->
+  <nav id="navbar">
     <a href="#hero" class="nav-logo">Miller's Bakery</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Our Story</a></li>
       <li><a href="#services">What We Bake</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Order & Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ── -->
   <section id="hero">
-    <div class="hero-shape hs1"></div>
-    <div class="hero-shape hs2"></div>
-    <div class="hero-shape hs3"></div>
-
-    <span class="hero-badge">🥐 Handcrafted with Love · Johnson City</span>
-    <h1>Baked Fresh,<br /><span>Every Single</span> Morning</h1>
-    <p>From crusty sourdough loaves and flaky pastries to stunning custom celebration cakes — Miller's Bakery brings warmth and craft to every bite since 2018.</p>
-    <div class="hero-cta">
-      <a href="#services" class="btn btn-primary">See What We Bake</a>
-      <a href="#contact" class="btn btn-outline">Place a Special Order</a>
+    <div class="dots dots-tl"></div>
+    <div class="dots dots-br"></div>
+    <span class="hero-badge">✦ Baked Fresh Every Morning ✦</span>
+    <h1>Handcrafted with<br /><em>Love & Flour</em></h1>
+    <p class="tagline">
+      Johnson City's neighborhood bakery — serving custom cakes, artisan breads, and seasonal pastries made from scratch since 2018.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn btn-primary">Place a Special Order</a>
+      <a href="#services" class="btn btn-outline">See What We Bake</a>
     </div>
-
-    <div class="hero-hours">
-      <div class="hour-pill"><strong>Tue – Sat</strong>7:00 am – 4:00 pm</div>
-      <div class="hour-pill"><strong>Sunday</strong>8:00 am – 2:00 pm</div>
-      <div class="hour-pill"><strong>Find Us</strong>142 Main Street, Johnson City</div>
-    </div>
+    <p class="hero-hours">
+      <span>Tue – Sat</span> 7am – 4pm &nbsp;·&nbsp; <span>Sun</span> 8am – 2pm &nbsp;·&nbsp; 142 Main Street, Johnson City
+    </p>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ── ABOUT ── -->
   <section id="about">
-    <div class="section-inner">
-      <div class="reveal">
-        <p class="section-tag">Our Story</p>
-        <h2 class="section-title">A Neighborhood Bakery<br />Built on Real Ingredients</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>Miller's Bakery opened its doors in 2018 with one simple promise: bake everything from scratch, every day. No shortcuts, no mixes — just real flour, butter, and the kind of care you can taste.</p>
-          <p>Nestled at <strong>142 Main Street</strong> in the heart of Johnson City, our little storefront has become a morning ritual for locals. You'll find our small, dedicated team at the ovens before sunrise, making sure the first loaves are ready when the doors open.</p>
-          <p>Whether you're grabbing a coffee and croissant on your way to work or planning a show-stopping wedding cake, we treat every order — big or small — with the same hands-on attention. That's not just our business, it's our culture.</p>
-        </div>
-
-        <div class="about-visual reveal">
-          <div class="visual-card">
-            <div class="icon">🍞</div>
-            <h4>Fresh Daily</h4>
-            <p>Everything is baked from scratch every morning — never day-old.</p>
-          </div>
-          <div class="visual-card">
-            <div class="icon">🎂</div>
-            <h4>Custom Cakes</h4>
-            <p>Celebration & wedding cakes designed just for your moment.</p>
-          </div>
-          <div class="visual-card">
-            <div class="icon">🥐</div>
-            <h4>Seasonal Pastries</h4>
-            <p>Rotating seasonal treats made with what's fresh and local.</p>
-          </div>
-          <div class="visual-card accent">
-            <div class="icon">❤️</div>
-            <h4>Open Since 2018</h4>
-            <p>Proudly serving the Johnson City community for years — and counting.</p>
-          </div>
-        </div>
-      </div>
+    <div class="section-header fade-in">
+      <span class="section-label">Our Story</span>
+      <h2>A Bakery Built on<br /><em>Community & Craft</em></h2>
+      <div class="divider"></div>
     </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-inner">
-      <div class="reveal">
-        <p class="section-tag">What We Bake</p>
-        <h2 class="section-title">Something for Every<br />Sweet (and Savory) Craving</h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          <strong>Miller's Bakery</strong> has been a warm corner of the Johnson City community since we first opened our doors in 2018. What started as a passion for homemade baking quickly grew into a beloved gathering spot where neighbors come for fresh bread and stay for the conversation.
+        </p>
+        <p>
+          Every single item that leaves our kitchen is made <strong>entirely from scratch</strong>. Our sourdough loaves are shaped and proofed overnight so they're ready first thing in the morning. Our custom cakes are built and decorated by hand, layer by layer, with care that shows in every slice.
+        </p>
+        <p>
+          Whether you pop in for a morning pastry and a coffee chat or you're trusting us with your wedding cake, our small team is dedicated to making sure every bite is worth it. We're more than a bakery — we're your neighbors, and we treat every order that way.
+        </p>
+        <p>
+          <strong>Special orders</strong> are always welcome with 48 hours' notice. Just call us or stop by — we'll take great care of you.
+        </p>
       </div>
-
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">🍰</div>
+      <div class="about-highlights fade-in">
+        <div class="highlight-card">
+          <div class="icon">🌾</div>
+          <h3>Made From Scratch Daily</h3>
+          <p>No mixes, no shortcuts. Everything is baked fresh each morning using quality ingredients and time-honored recipes.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">🎂</div>
           <h3>Custom Celebration Cakes</h3>
-          <p>Birthdays, anniversaries, baby showers, weddings — we design and bake custom cakes tailored to your vision and taste. Order with 48 hours notice or reach out to plan something truly special.</p>
+          <p>From birthday cakes to wedding tiers, we work with you to create something as special as the occasion itself.</p>
         </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🍞</div>
-          <h3>Sourdough & Artisan Breads</h3>
-          <p>Our sourdough is slow-fermented overnight and baked every morning. With a crackly crust and open crumb, it's the loaf your kitchen has been waiting for. Available while supplies last.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🥐</div>
-          <h3>Pastries & Seasonal Treats</h3>
-          <p>Buttery croissants, fruit danishes, cinnamon rolls, scones, and seasonal specialties — follow us on Facebook and Instagram to see what's coming out of the oven this week.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🍪</div>
-          <h3>Cookies & Boxed Goods</h3>
-          <p>Need a dozen cookies for the office, a box of brownies for a gathering, or a gift for someone special? We've got you covered with freshly baked favorites ready to grab and go.</p>
-        </div>
-      </div>
-
-      <div class="special-banner reveal">
-        <div class="icon">📋</div>
-        <div>
+        <div class="highlight-card">
+          <div class="icon">📅</div>
           <h3>Special Orders Welcome</h3>
-          <p>Need something that's not on the menu? We love a good challenge. Give us <strong>48 hours notice</strong> and we'll make it happen. Just call or stop by 142 Main Street and let us know what you have in mind.</p>
+          <p>Need something specific? Give us 48 hours' notice and we'll make it happen — just call or stop by.</p>
         </div>
-        <a href="#contact" class="btn btn-white">Get in Touch</a>
+        <div class="highlight-card">
+          <div class="icon">🏘️</div>
+          <h3>Rooted in Johnson City</h3>
+          <p>Proudly serving our community since 2018. We know your name, your favorites, and we're happy to see you every time.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section-header fade-in">
+      <span class="section-label">What We Bake</span>
+      <h2>Something <em>Delicious</em><br />for Every Occasion</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🍞</div>
+        <h3>Artisan Sourdough Breads</h3>
+        <p>Our signature sourdough is slow-fermented overnight and baked each morning for the perfect crust and tender crumb. Great for the whole week.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎂</div>
+        <h3>Custom Celebration Cakes</h3>
+        <p>Birthdays, weddings, anniversaries — we design and bake custom layered cakes tailored to your style, flavors, and vision.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🥐</div>
+        <h3>Seasonal Pastries</h3>
+        <p>From flaky croissants to seasonal fruit tarts and holiday specials, our pastry case changes with the seasons to keep things exciting.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍪</div>
+        <h3>Cookies & Bars</h3>
+        <p>Perfect for office trays, gifts, or a personal treat. Our cookies are big, generously loaded, and baked to soft-and-chewy perfection.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧁</div>
+        <h3>Cupcakes & Muffins</h3>
+        <p>Classic flavors and seasonal rotations, topped with made-from-scratch frosting. Great for parties or a grab-and-go morning bite.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>Special Order Items</h3>
+        <p>Don't see exactly what you need? Contact us with 48 hours' notice and we'll do our best to make your custom request a delicious reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
   <section id="contact">
-    <div class="section-inner">
-      <div class="reveal">
-        <p class="section-tag">Contact Us</p>
-        <h2 class="section-title">We'd Love to Hear<br />From You</h2>
-      </div>
+    <div class="section-header fade-in">
+      <span class="section-label">Get in Touch</span>
+      <h2>Order, Visit, or<br /><em>Say Hello</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-in">
+        <h3>Visit Us or Reach Out</h3>
+        <p>We'd love to hear from you! Whether you're placing a special order, asking about our menu, or just want to know what's fresh today — we're here for it.</p>
 
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <h3>Visit, Call, or Send a Message</h3>
-
-          <div class="info-item">
-            <div class="info-icon">📍</div>
-            <div>
-              <h4>Location</h4>
-              <p>142 Main Street<br />Johnson City</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">🕐</div>
-            <div>
-              <h4>Hours</h4>
-              <p>Tue – Sat: 7:00 am – 4:00 pm<br />Sunday: 8:00 am – 2:00 pm<br />Monday: Closed</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">📞</div>
-            <div>
-              <h4>Phone</h4>
-              <a href="tel:8888888888">(888) 888-8888</a>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">✉️</div>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:chrisp3950@gmail.com">chrisp3950@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="social-links">
-            <a href="#" class="social-link">📘 Facebook</a>
-            <a href="#" class="social-link">📸 Instagram</a>
-          </div>
+        <div class="contact-detail">
+          <span class="icon">📍</span>
+          <span>142 Main Street, Johnson City</span>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">📞</span>
+          <a href="tel:8888888888">(888) 888-8888</a>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">✉️</span>
+          <a href="mailto:chrisp3950@gmail.com">chrisp3950@gmail.com</a>
         </div>
 
-        <div class="reveal">
-          <form action="mailto:chrisp3950@gmail.com" method="post" enctype="text/plain">
-            <div class="form-row">
-              <div>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="First Name" placeholder="Jane" required />
-              </div>
-              <div>
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="Last Name" placeholder="Smith" required />
-              </div>
-            </div>
-
-            <div>
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="Email" placeholder="jane@example.com" required />
-            </div>
-
-            <div>
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="Phone" placeholder="(555) 000-0000" />
-            </div>
-
-            <div>
-              <label for="subject">What Can We Help With?</label>
-              <select id="subject" name="Subject">
-                <option value="">Select an option…</option>
-                <option value="Custom Cake Order">Custom Cake Order</option>
-                <option value="Special Order">Special Order / Catering</option>
-                <option value="Wedding Inquiry">Wedding Cake Inquiry</option>
-                <option value="General Question">General Question</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="Message" placeholder="Tell us what you're looking for, your event date, or any questions you have…" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">Send Message 🍰</button>
-          </form>
+        <div class="hours-table">
+          <h4>🕐 Bakery Hours</h4>
+          <div class="hours-row"><span class="day">Tuesday – Friday</span><span>7:00 am – 4:00 pm</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span>7:00 am – 4:00 pm</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span>8:00 am – 2:00 pm</span></div>
+          <div class="hours-row"><span class="day">Monday</span><span>Closed</span></div>
         </div>
+
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" title="Follow us on Facebook">
+            f
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" title="Follow us on Instagram" style="font-style:italic;">
+            &#x1F4F7;
+          </a>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.7rem;">Follow us on <strong style="color:var(--blush)">Facebook & Instagram</strong> for daily specials and fresh-out-of-the-oven updates!</p>
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">Miller's Bakery</span>
-      <p>Handcrafted baked goods made with love in Johnson City.<br />142 Main Street · Tue–Sat 7am–4pm · Sun 8am–2pm</p>
-      <hr class="footer-divider" />
-      <p class="footer-copy" id="footerCopy"></p>
-    </div>
-  </footer>
-
-  <script>
-    // Footer year
-    document.getElementById('footerC
+      <div class="contact-form fade-in">
+        <h3>Send Us a Message</h3>
+        <form action="mailto:chrisp3950@gmail.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label for="inquiry
 <style>
 #and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
 background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
