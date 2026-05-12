@@ -2,397 +2,655 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miller's Bakery – Johnson City's Favorite Handcrafted Baked Goods</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miller's Bakery – Johnson City's Favorite Handcrafted Bakery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:       #f7c5c5;
-      --rose-dark:  #e8938f;
-      --peach:      #fde8d8;
-      --butter:     #fdf4dc;
-      --sage:       #c8dfc8;
-      --sage-dark:  #7aab7a;
-      --brown:      #6b4226;
-      --brown-light:#9e6b4a;
-      --text:       #3d2b1f;
-      --text-light: #7a5c4a;
-      --white:      #fffdf9;
+      --cream:    #fdf6ec;
+      --blush:    #f7cac9;
+      --rose:     #e8a598;
+      --sage:     #b5c9b0;
+      --sage-dk:  #7a9e76;
+      --butter:   #f9e4b7;
+      --warm-brn: #7a5230;
+      --dk-brn:   #4a2f1a;
+      --text:     #3d2b1f;
+      --light-txt:#7a6050;
+      --white:    #ffffff;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--white);
+      background-color: var(--cream);
       color: var(--text);
-      overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(253,244,220,0.95);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: rgba(253, 246, 236, 0.95);
       backdrop-filter: blur(6px);
-      border-bottom: 1px solid #f0dfc0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.8rem 2rem;
-      transition: box-shadow 0.3s;
+      border-bottom: 1px solid var(--blush);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
     }
-    nav.scrolled { box-shadow: 0 2px 16px rgba(107,66,38,0.12); }
+
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--brown);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dk-brn);
       text-decoration: none;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .nav-logo span { font-size: 1.4rem; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--brown-light);
-      font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--brown); }
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
-    .nav-toggle span {
-      display: block; width: 24px; height: 2px;
-      background: var(--brown); margin: 5px 0;
-      transition: all 0.3s;
+      letter-spacing: .5px;
     }
 
-    /* ── HERO ── */
-    .hero {
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--warm-brn);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--rose); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--warm-brn);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, var(--butter) 0%, var(--peach) 50%, var(--rose) 100%);
-      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--butter) 0%, var(--blush) 50%, var(--sage) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      position: relative; overflow: hidden;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
     }
-    .hero::before {
+
+    #hero::before {
       content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8938f' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23f7cac9' fill-opacity='.35'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23b5c9b0' fill-opacity='.25'/%3E%3Ccircle cx='70' cy='70' r='2' fill='%23f9e4b7' fill-opacity='.4'/%3E%3C/g%3E%3C/svg%3E") repeat;
+      opacity: .6;
     }
-    .hero-content { position: relative; max-width: 760px; }
+
+    .hero-inner { position: relative; max-width: 760px; }
+
     .hero-badge {
       display: inline-block;
-      background: var(--rose-dark); color: #fff;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 0.4rem 1.1rem;
-      border-radius: 999px; margin-bottom: 1.4rem;
-      animation: fadeDown 0.8s ease both;
+      background: var(--white);
+      color: var(--rose);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .4rem 1.2rem;
+      border-radius: 999px;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 2px 12px rgba(232,165,152,.25);
+      animation: fadeDown .8s ease both;
     }
-    .hero h1 {
+
+    .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 700; color: var(--brown);
-      line-height: 1.15; margin-bottom: 1.2rem;
-      animation: fadeDown 0.9s ease 0.1s both;
-    }
-    .hero p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--text-light); line-height: 1.7;
-      max-width: 560px; margin: 0 auto 2.2rem;
-      animation: fadeDown 1s ease 0.2s both;
-    }
-    .hero-cta { animation: fadeDown 1s ease 0.3s both; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; text-decoration: none;
-      padding: 0.85rem 2.2rem; border-radius: 999px;
-      font-weight: 700; font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer; border: 2px solid transparent;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,66,38,0.18); }
-    .btn-primary { background: var(--brown); color: #fff; }
-    .btn-outline { background: transparent; border-color: var(--brown); color: var(--brown); }
-    .hero-decor {
-      margin-top: 3.5rem;
-      display: flex; justify-content: center; gap: 2.5rem;
-      font-size: 2.2rem; animation: fadeUp 1s ease 0.5s both;
+      font-weight: 700;
+      color: var(--dk-brn);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      animation: fadeDown .9s .1s ease both;
     }
 
-    /* ── SECTION WRAPPER ── */
-    section { padding: 5.5rem 1.5rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      text-align: center;
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--rose-dark); margin-bottom: 0.7rem;
+    .hero-title span { color: var(--sage-dk); }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--warm-brn);
+      max-width: 560px;
+      margin: 0 auto 2.2rem;
+      animation: fadeDown 1s .2s ease both;
     }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown 1s .35s ease both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .8rem 2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: all .25s;
+      letter-spacing: .5px;
+    }
+
+    .btn-primary {
+      background: var(--warm-brn);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(122,82,48,.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--dk-brn);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,47,26,.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--warm-brn);
+      border: 2px solid var(--warm-brn);
+    }
+
+    .btn-outline:hover {
+      background: var(--warm-brn);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+    }
+
+    /* ─── SECTIONS SHARED ─── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: .7rem;
+    }
+
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 700; color: var(--brown);
-      text-align: center; margin-bottom: 1rem;
-    }
-    .section-sub {
-      text-align: center; color: var(--text-light);
-      max-width: 620px; margin: 0 auto 3.5rem;
-      font-size: 1.05rem; line-height: 1.7;
-    }
-    .divider {
-      width: 60px; height: 4px;
-      background: linear-gradient(90deg, var(--rose-dark), var(--peach));
-      border-radius: 2px; margin: 0 auto 1.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--dk-brn);
+      margin-bottom: 1rem;
+      line-height: 1.25;
     }
 
-    /* ── ABOUT ── */
-    .about { background: var(--white); }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--light-txt);
+      max-width: 620px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+
     .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-    }
-    .about-visual {
-      background: linear-gradient(135deg, var(--peach), var(--rose));
-      border-radius: 24px; aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 7rem; box-shadow: 0 12px 40px rgba(232,147,143,0.25);
-      position: relative; overflow: hidden;
-    }
-    .about-visual::before {
-      content: '';
-      position: absolute; bottom: -30px; right: -30px;
-      width: 180px; height: 180px;
-      background: var(--butter); border-radius: 50%; opacity: 0.6;
-    }
-    .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      color: var(--brown); margin-bottom: 1.2rem; line-height: 1.3;
-    }
-    .about-text p {
-      color: var(--text-light); line-height: 1.8;
-      margin-bottom: 1rem; font-size: 1.02rem;
-    }
-    .about-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-    .pill {
-      background: var(--butter); color: var(--brown);
-      padding: 0.4rem 1rem; border-radius: 999px;
-      font-size: 0.88rem; font-weight: 700;
-      border: 1px solid #f0dfc0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
     }
 
-    /* ── OFFERINGS ── */
-    .offerings { background: var(--butter); }
-    .cards-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .about-illustration {
+      background: linear-gradient(135deg, var(--butter), var(--blush));
+      border-radius: 24px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+      box-shadow: 0 12px 40px rgba(247,202,201,.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-illustration::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(181,201,176,.4));
+      border-radius: 24px;
+    }
+
+    .about-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--dk-brn);
+      margin-bottom: .8rem;
+    }
+
+    .about-text p { color: var(--light-txt); margin-bottom: 1rem; }
+
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: 1.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      font-size: .95rem;
+      color: var(--text);
+    }
+
+    .detail-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--butter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .detail-info strong { display: block; font-size: .85rem; color: var(--warm-brn); }
+
+    /* ─── SPECIALTIES ─── */
+    #specialties { background: var(--cream); }
+
+    .spec-header { text-align: center; margin-bottom: 3rem; }
+    .spec-header .section-intro { margin: 0 auto; }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.8rem;
     }
-    .card {
-      background: #fff; border-radius: 20px;
-      padding: 2.2rem 2rem; text-align: center;
-      box-shadow: 0 4px 20px rgba(107,66,38,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-bottom: 4px solid transparent;
+
+    .spec-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(122,82,48,.08);
+      transition: transform .3s, box-shadow .3s;
+      border-top: 4px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover {
+
+    .spec-card:nth-child(1) { border-top-color: var(--blush); }
+    .spec-card:nth-child(2) { border-top-color: var(--sage); }
+    .spec-card:nth-child(3) { border-top-color: var(--butter); }
+
+    .spec-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 36px rgba(107,66,38,0.15);
-      border-bottom-color: var(--rose-dark);
+      box-shadow: 0 12px 40px rgba(122,82,48,.14);
     }
-    .card-icon { font-size: 2.8rem; margin-bottom: 1rem; }
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; color: var(--brown);
-      margin-bottom: 0.7rem;
-    }
-    .card p { color: var(--text-light); font-size: 0.97rem; line-height: 1.7; }
 
-    /* ── HOURS ── */
-    .hours-section { background: linear-gradient(135deg, var(--rose) 0%, var(--peach) 100%); }
-    .hours-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: start;
-    }
-    .hours-table { background: #fff; border-radius: 20px; padding: 2rem; box-shadow: 0 4px 20px rgba(107,66,38,0.1); }
-    .hours-table h3 {
+    .spec-emoji { font-size: 2.8rem; margin-bottom: 1rem; }
+
+    .spec-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: var(--brown);
-      margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 1.25rem;
+      color: var(--dk-brn);
+      margin-bottom: .5rem;
     }
-    .hours-row {
-      display: flex; justify-content: space-between;
-      padding: 0.65rem 0; border-bottom: 1px dashed #f0dfc0;
-      font-size: 0.97rem;
+
+    .spec-card p { color: var(--light-txt); font-size: .95rem; }
+
+    /* ─── HOURS & ORDERING ─── */
+    #visit {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--butter) 100%);
     }
-    .hours-row:last-child { border-bottom: none; }
-    .hours-row .day { font-weight: 700; color: var(--brown); }
-    .hours-row .time { color: var(--text-light); }
-    .hours-closed { color: var(--rose-dark) !important; font-weight: 700; }
-    .location-card { background: #fff; border-radius: 20px; padding: 2rem; box-shadow: 0 4px 20px rgba(107,66,38,0.1); }
-    .location-card h3 {
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .visit-card {
+      background: rgba(255,255,255,.7);
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .visit-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: var(--brown);
-      margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 1.3rem;
+      color: var(--dk-brn);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
     }
-    .info-item { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1.1rem; }
-    .info-item .icon { font-size: 1.2rem; margin-top: 0.1rem; }
-    .info-item p { color: var(--text-light); line-height: 1.6; font-size: 0.97rem; }
-    .info-item a { color: var(--brown); text-decoration: none; font-weight: 700; }
-    .info-item a:hover { color: var(--rose-dark); }
-    .social-row { display: flex; gap: 1rem; margin-top: 1.2rem; }
+
+    .hours-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: .95rem;
+      color: var(--text);
+      padding-bottom: .5rem;
+      border-bottom: 1px dashed rgba(122,82,48,.2);
+    }
+
+    .hours-list li:last-child { border-bottom: none; }
+
+    .hours-list .day { font-weight: 700; color: var(--warm-brn); }
+    .hours-list .closed { color: #c0808080; font-style: italic; }
+
+    .order-note {
+      background: var(--warm-brn);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      margin-top: 1.2rem;
+      font-size: .92rem;
+      line-height: 1.6;
+    }
+
+    .order-note strong { display: block; margin-bottom: .3rem; font-size: 1rem; }
+
+    /* ─── SOCIAL / FOLLOW ─── */
+    #follow {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .follow-inner { max-width: 600px; margin: 0 auto; }
+
+    .follow-inner p { color: var(--light-txt); font-size: 1.05rem; margin: 1rem 0 2rem; }
+
+    .social-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .social-btn {
-      padding: 0.5rem 1.2rem; border-radius: 999px;
-      font-size: 0.88rem; font-weight: 700;
-      text-decoration: none; transition: transform 0.2s;
-      display: flex; align-items: center; gap: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .8rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: all .25s;
     }
-    .social-btn:hover { transform: translateY(-2px); }
-    .fb { background: #e8f0fe; color: #1877f2; }
-    .ig { background: #fce4ec; color: #c2185b; }
 
-    /* ── SPECIAL ORDERS ── */
-    .special { background: var(--white); }
-    .special-inner {
-      background: linear-gradient(135deg, var(--brown) 0%, #8b5a3a 100%);
-      border-radius: 28px; padding: 4rem 3rem;
-      text-align: center; color: #fff;
-      position: relative; overflow: hidden;
+    .social-btn-fb {
+      background: #e8f0fe;
+      color: #1a73e8;
     }
-    .special-inner::before {
-      content: '🎂';
-      position: absolute; font-size: 12rem; opacity: 0.06;
-      right: -2rem; top: -2rem; pointer-events: none;
-    }
-    .special-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 1rem;
-    }
-    .special-inner p {
-      font-size: 1.1rem; opacity: 0.88; line-height: 1.8;
-      max-width: 580px; margin: 0 auto 2rem;
-    }
-    .special-inner .btn-primary { background: var(--rose); color: var(--brown); }
-    .special-inner .btn-primary:hover { background: #fff; }
 
-    /* ── CONTACT ── */
-    .contact { background: var(--butter); }
+    .social-btn-ig {
+      background: #fce4ec;
+      color: #c2185b;
+    }
+
+    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--cream); }
+
     .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.4fr;
-      gap: 3.5rem; align-items: start;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
     }
+
     .contact-info h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem; color: var(--brown);
+      font-size: 1.3rem;
+      color: var(--dk-brn);
       margin-bottom: 1.2rem;
     }
-    .contact-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
-    .contact-detail {
-      display: flex; align-items: center; gap: 0.8rem;
-      margin-bottom: 0.9rem; font-size: 0.97rem;
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
-    .contact-detail .ico { font-size: 1.2rem; }
-    .contact-detail a { color: var(--brown); text-decoration: none; font-weight: 700; }
-    .contact-detail a:hover { color: var(--rose-dark); }
-    .form-card {
-      background: #fff; border-radius: 20px;
-      padding: 2.5rem; box-shadow: 0 4px 24px rgba(107,66,38,0.1);
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      color: var(--text);
+      font-size: .97rem;
     }
-    .form-card h3 {
+
+    .contact-list .ci {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-list a { color: var(--warm-brn); text-decoration: none; font-weight: 700; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.4rem;
+      box-shadow: 0 8px 32px rgba(122,82,48,.1);
+    }
+
+    .contact-form h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: var(--brown); margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      color: var(--dk-brn);
+      margin-bottom: 1.4rem;
     }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { margin-bottom: 1.1rem; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1rem;
+    }
+
     .form-group label {
-      display: block; font-size: 0.88rem; font-weight: 700;
-      color: var(--brown); margin-bottom: 0.4rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--warm-brn);
+      letter-spacing: .5px;
     }
+
     .form-group input,
     .form-group textarea,
     .form-group select {
-      width: 100%; padding: 0.75rem 1rem;
-      border: 1.5px solid #f0dfc0; border-radius: 10px;
-      font-family: 'Lato', sans-serif; font-size: 0.97rem;
-      color: var(--text); background: var(--butter);
-      transition: border-color 0.2s;
+      padding: .75rem 1rem;
+      border: 2px solid #e8d5c8;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color .2s;
       outline: none;
     }
+
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--rose-dark); background: #fff; }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-submit { width: 100%; }
-    .success-msg {
-      display: none; background: var(--sage); color: #2e5c2e;
-      padding: 1rem; border-radius: 10px; text-align: center;
-      font-weight: 700; margin-top: 1rem;
+    .form-group select:focus {
+      border-color: var(--rose);
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--brown);
-      color: rgba(255,255,255,0.85);
-      text-align: center; padding: 2.5rem 1.5rem;
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      padding: .9rem;
+      background: var(--warm-brn);
+      color: var(--white);
+      border: none;
+      border-radius: 999px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .5px;
+      transition: all .25s;
     }
+
+    .form-submit:hover {
+      background: var(--dk-brn);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74,47,26,.3);
+    }
+
+    .form-success {
+      display: none;
+      background: var(--sage);
+      color: var(--dk-brn);
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dk-brn);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
     footer .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; color: #fff; font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: .4rem;
     }
-    footer p { font-size: 0.88rem; opacity: 0.7; }
-    footer a { color: var(--rose); text-decoration: none; }
 
-    /* ── ANIMATIONS ── */
+    footer p { font-size: .88rem; }
+    footer a { color: var(--blush); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── ANIMATIONS ─── */
     @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .about-grid, .hours-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-visual { max-width: 320px; margin: 0 auto; }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
     }
-    @media (max-width: 640px) {
-      nav { padding: 0.8rem 1.2rem; }
-      .nav-links {
-        display: none; flex-direction: column;
-        position: fixed; inset: 0; top: 60px;
-        background: var(--butter); align-items: center;
-        justify-content: center; gap: 2.5rem; z-index: 99;
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--cream);
+        padding: 1.5rem 2rem;
+        border-bottom: 2px solid var(--blush);
+        gap: 1.2rem;
+        animation: fadeDown .3s ease;
       }
-      .nav-links.open { display: flex; }
-      .nav-links a { font-size: 1.2rem; }
-      .nav-toggle { display: block; }
-      section { padding: 4rem 1.2rem; }
-      .special-inner { padding: 2.5rem 1.5rem; }
+      .nav-toggle { display: flex; }
+
+      .about-grid,
+      .visit-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+
       .form-row { grid-template-columns: 1fr; }
-      .contact-grid { gap: 2rem; }
+
+      .about-illustration { aspect-ratio: 16/9; }
     }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#hero"><span>🥐</span> Miller's Bakery</a>
+<nav>
+  <a class="nav-logo" href="#hero">Miller's Bakery</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
-    <li><a href="#offerings">Our Bakes</a></li>
-    <li><a href="#hours">Hours & Location</a></li>
-    <li><a href="#special-orders">Special Orders</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#specialties">Menu</a></li>
+    <li><a href="#visit">Visit Us</a></li>
+    <li><a href="#contact">Order</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -400,140 +658,154 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Johnson City's Favorite Bakery</div>
-    <h1>Baked with Love,<br>Every Single Morning</h1>
-    <p>From flaky sourdough loaves pulled fresh at dawn to custom celebration cakes that make any moment unforgettable — Miller's Bakery has been the heart of Johnson City since 2018.</p>
-    <div class="hero-cta">
-      <a href="#offerings" class="btn btn-primary">See What's Baking</a>
-      <a href="#special-orders" class="btn btn-outline">Order a Custom Cake</a>
-    </div>
-    <div class="hero-decor">
-      <span title="Bread">🍞</span>
-      <span title="Cake">🎂</span>
-      <span title="Croissant">🥐</span>
-      <span title="Cookie">🍪</span>
-      <span title="Cupcake">🧁</span>
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🥐 Baked Fresh Every Morning</div>
+    <h1 class="hero-title">
+      Handcrafted with Heart,<br><span>Served with Love</span>
+    </h1>
+    <p class="hero-sub">
+      Johnson City's favorite neighborhood bakery — bringing fresh sourdough, custom cakes, and seasonal pastries to your table since 2018.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Place a Special Order</a>
+      <a href="#specialties" class="btn btn-outline">See What's Baking</a>
     </div>
   </div>
+  <svg class="hero-wave" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 40 C360 80 1080 0 1440 40 L1440 80 L0 80 Z" fill="#ffffff"/>
+  </svg>
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-visual reveal">🍰</div>
-      <div class="about-text reveal">
-        <p class="section-label">Our Story</p>
-        <h2>A Small Team with a Big Oven Full of Love</h2>
-        <p>Miller's Bakery opened its doors in 2018 with one simple mission: bring the warmth and care of scratch-made baking back to the Johnson City community. Every loaf, every cookie, and every cake is made by hand — no shortcuts, no mixes, no compromises.</p>
-        <p>Our cozy storefront at 142 Main Street is where neighbors become regulars and regulars become family. Whether you're grabbing a morning sourdough on your way to work or picking up a dozen cookies for the office, you'll always find something fresh coming out of the oven.</p>
-        <div class="about-pills">
-          <span class="pill">🌾 From Scratch Daily</span>
-          <span class="pill">🏡 Community-Rooted</span>
-          <span class="pill">🎂 Custom Cakes</span>
-          <span class="pill">❤️ Family-Run</span>
-          <span class="pill">🍞 Fresh Sourdough</span>
+      <div class="about-illustration">
+        🍞
+      </div>
+      <div class="about-text fade-up">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">A Community Staple Since 2018</h2>
+        <p>
+          Miller's Bakery was born out of a simple idea: that everyone deserves real, handcrafted food made with care. Since we opened our doors in Johnson City, we've been mixing, kneading, and baking from scratch every single morning — no shortcuts, no preservatives, just good honest baking.
+        </p>
+        <p>
+          Whether you're a regular stopping in for your Tuesday sourdough loaf or a newcomer ordering your first custom wedding cake, our small team treats every order like it's the most important thing in the oven. Because to us, it is.
+        </p>
+        <div class="about-details">
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-info">
+              <strong>Find Us</strong>
+              142 Main Street, Johnson City
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📅</div>
+            <div class="detail-info">
+              <strong>Open</strong>
+              Tue–Sat: 7am–4pm &nbsp;|&nbsp; Sun: 8am–2pm
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📞</div>
+            <div class="detail-info">
+              <strong>Call or Text</strong>
+              <a href="tel:8888888888" style="color:var(--warm-brn);font-weight:700;">(888) 888-8888</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OFFERINGS -->
-<section class="offerings" id="offerings">
+<!-- SPECIALTIES -->
+<section id="specialties">
   <div class="container">
-    <p class="section-label reveal">What We Make</p>
-    <h2 class="section-title reveal">Something for Every Sweet Tooth</h2>
-    <div class="divider reveal"></div>
-    <p class="section-sub reveal">We bake fresh every morning and rotate our seasonal selections weekly. Follow us on Facebook and Instagram to see what's coming out of the oven today.</p>
-    <div class="cards-grid">
-      <div class="card reveal">
-        <div class="card-icon">🎂</div>
+    <div class="spec-header fade-up">
+      <span class="section-label">What We Bake</span>
+      <h2 class="section-title">Fresh From Our Oven</h2>
+      <p class="section-intro">
+        Every item is made from scratch using quality ingredients. From daily staples to once-in-a-lifetime celebration cakes, we pour love into every recipe.
+      </p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card fade-up">
+        <div class="spec-emoji">🎂</div>
         <h3>Custom Celebration Cakes</h3>
-        <p>Weddings, birthdays, anniversaries — we create showstopping cakes tailored to your vision. Just give us 48 hours notice and we'll make the moment extra special.</p>
+        <p>
+          Birthdays, weddings, anniversaries — our custom cakes are designed and baked just for your moment. Flavors, fillings, and decorations tailored to you. Order with 48 hours notice.
+        </p>
       </div>
-      <div class="card reveal">
-        <div class="card-icon">🍞</div>
-        <h3>Fresh Sourdough Breads</h3>
-        <p>Our sourdough is made from scratch every morning using a long-fermented starter. Crusty on the outside, pillowy on the inside, and worth waking up early for.</p>
+      <div class="spec-card fade-up">
+        <div class="spec-emoji">🥖</div>
+        <h3>Freshly Baked Sourdough</h3>
+        <p>
+          Our sourdough is made from a long-fermented starter, shaped by hand, and baked in-house every single morning. Crusty on the outside, perfectly chewy inside — a customer favorite.
+        </p>
       </div>
-      <div class="card reveal">
-        <div class="card-icon">🥐</div>
-        <h3>Seasonal Pastries</h3>
-        <p>From buttery croissants to fruit-filled danishes, our pastry case changes with the seasons — always showcasing the best flavors the time of year has to offer.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🍪</div>
-        <h3>Cookies & Bars</h3>
-        <p>Perfect for office treats, gift boxes, or just because. Our cookies come in classic and seasonal varieties, baked in small batches so they're always at peak freshness.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🧁</div>
-        <h3>Cupcakes & Muffins</h3>
-        <p>A daily staple in our display case. Grab a muffin with your morning coffee or take a dozen cupcakes home — both decorated and unfrosted versions available.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🛒</div>
-        <h3>Special Order Items</h3>
-        <p>Don't see exactly what you're looking for? Just call or stop by! With 48 hours notice, we can prepare almost any baked item for your event or personal craving.</p>
+      <div class="spec-card fade-up">
+        <div class="spec-emoji">🥐</div>
+        <h3>Seasonal Pastries & Treats</h3>
+        <p>
+          From flaky croissants and fruit tarts to holiday-inspired creations, our pastry case changes with the seasons. Follow us on social media to see what's fresh this week.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOURS & LOCATION -->
-<section class="hours-section" id="hours">
+<!-- VISIT / HOURS -->
+<section id="visit">
   <div class="container">
-    <p class="section-label reveal">Come Visit Us</p>
-    <h2 class="section-title reveal">Hours & Location</h2>
-    <div class="divider reveal"></div>
-    <p class="section-sub reveal">We're right in the heart of Johnson City at 142 Main Street. Plenty of parking, a warm smile at the counter, and something fresh waiting for you every time.</p>
-    <div class="hours-grid">
-      <div class="hours-table reveal">
-        <h3>🕰️ Store Hours</h3>
-        <div class="hours-row"><span class="day">Monday</span><span class="time hours-closed">Closed</span></div>
-        <div class="hours-row"><span class="day">Tuesday</span><span class="time">7:00 AM – 4:00 PM</span></div>
-        <div class="hours-row"><span class="day">Wednesday</span><span class="time">7:00 AM – 4:00 PM</span></div>
-        <div class="hours-row"><span class="day">Thursday</span><span class="time">7:00 AM – 4:00 PM</span></div>
-        <div class="hours-row"><span class="day">Friday</span><span class="time">7:00 AM – 4:00 PM</span></div>
-        <div class="hours-row"><span class="day">Saturday</span><span class="time">7:00 AM – 4:00 PM</span></div>
-        <div class="hours-row"><span class="day">Sunday</span><span class="time">8:00 AM – 2:00 PM</span></div>
+    <div class="fade-up">
+      <span class="section-label">Plan Your Visit</span>
+      <h2 class="section-title">Hours & How to Order</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card fade-up">
+        <h3>🕐 Store Hours</h3>
+        <ul class="hours-list">
+          <li><span class="day">Monday</span><span class="closed">Closed</span></li>
+          <li><span class="day">Tuesday</span><span>7:00 am – 4:00 pm</span></li>
+          <li><span class="day">Wednesday</span><span>7:00 am – 4:00 pm</span></li>
+          <li><span class="day">Thursday</span><span>7:00 am – 4:00 pm</span></li>
+          <li><span class="day">Friday</span><span>7:00 am – 4:00 pm</span></li>
+          <li><span class="day">Saturday</span><span>7:00 am – 4:00 pm</span></li>
+          <li><span class="day">Sunday</span><span>8:00 am – 2:00 pm</span></li>
+        </ul>
       </div>
-      <div class="location-card reveal">
-        <h3>📍 Find Us</h3>
-        <div class="info-item">
-          <span class="icon">🏠</span>
-          <p>142 Main Street<br>Johnson City, TN</p>
-        </div>
-        <div class="info-item">
-          <span class="icon">📞</span>
-          <p><a href="tel:8888888888">(888) 888-8888</a><br>Call or stop by for special orders!</p>
-        </div>
-        <div class="info-item">
-          <span class="icon">✉️</span>
-          <p><a href="mailto:chrisp3950@gmail.com">chrisp3950@gmail.com</a></p>
-        </div>
-        <div class="info-item">
-          <span class="icon">📣</span>
-          <p>Follow us for daily specials and a peek at what's fresh out of the oven this week.</p>
-        </div>
-        <div class="social-row">
-          <a href="#" class="social-btn fb">📘 Facebook</a>
-          <a href="#" class="social-btn ig">📸 Instagram</a>
+      <div class="visit-card fade-up">
+        <h3>🛒 Special Orders</h3>
+        <p style="color:var(--light-txt); font-size:.97rem; margin-bottom:1rem;">
+          Need something extra special? We love a good custom order! Whether it's a dozen cookies for the office or a three-tier wedding cake, we're here for it.
+        </p>
+        <p style="color:var(--light-txt); font-size:.97rem; margin-bottom:1rem;">
+          Just give us <strong>48 hours notice</strong> and we'll make it happen. Call us, stop by the shop at 142 Main Street, or send us a message below.
+        </p>
+        <div class="order-note">
+          <strong>📞 Ready to order?</strong>
+          Call or text us at <a href="tel:8888888888" style="color:var(--butter);">(888) 888-8888</a> and we'll take great care of you.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPECIAL ORDERS -->
-<section class="special" id="special-orders">
+<!-- SOCIAL / FOLLOW -->
+<section id="follow">
   <div class="container">
-    <div class="special-inner reveal">
-      <h2>Planning Something Special?</h2>
-      <p>Whether it's a wedding cake, a birthday celebration, a holiday dessert table, or a corporate treat — we're here for it. Give us 48 hours notice and our small, passionate team will make sure everything
+    <div class="follow-inner fade-up">
+      <span class="section-label">Stay in the Loop</span>
+      <h2 class="section-title">Follow Along Daily</h2>
+      <p>
+        Wondering what just came out of the oven this morning? Follow us on Facebook and Instagram for daily specials, seasonal creations, and a peek behind the counter at Miller's Bakery.
+      </p>
+      <div class="social-btns">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn social-btn-fb">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4
 <style>
 #and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
 background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
