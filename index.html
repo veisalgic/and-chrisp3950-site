@@ -1,489 +1,703 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miller's Bakery — Fresh From Our Oven</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple Creek Creamery | Handcrafted Ice Cream in Jonesborough, TN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap');
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 1s ease forwards; }
+  </style>
 </head>
-<body class="font-sans bg-amber-50 text-stone-800" style="font-family:'Inter',sans-serif;">
+<body style="font-family: 'Nunito', sans-serif;" class="bg-amber-50 text-gray-800">
 
-<!-- NAV -->
+<!-- ═══════════════════════════════════════════════ NAV ═══════════════════════════════════════════════ -->
 <nav class="sticky top-0 z-50 bg-white shadow-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-3xl">🥐</span>
-      <span class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-pink-300 flex items-center justify-center text-2xl shadow">🍎</div>
+      <div>
+        <span class="text-xl font-black text-red-600" style="font-family:'Playfair Display',serif;">Apple Creek</span>
+        <span class="text-xl font-black text-pink-400" style="font-family:'Playfair Display',serif;"> Creamery</span>
+      </div>
     </div>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
-      <a href="#featured" class="hover:text-amber-700 transition-colors">Favorites</a>
-      <a href="#about" class="hover:text-amber-700 transition-colors">Our Story</a>
-      <a href="#menu" class="hover:text-amber-700 transition-colors">Menu</a>
-      <a href="#gallery" class="hover:text-amber-700 transition-colors">Gallery</a>
-      <a href="#testimonials" class="hover:text-amber-700 transition-colors">Reviews</a>
-      <a href="#hours" class="hover:text-amber-700 transition-colors">Visit Us</a>
-      <a href="#contact" class="bg-amber-600 text-white px-5 py-2 rounded-full hover:bg-amber-700 transition-colors">Order Now</a>
+    <div class="hidden md:flex items-center gap-7 font-bold text-gray-600 text-sm">
+      <a href="#featured" class="hover:text-red-500 transition-colors">Specialties</a>
+      <a href="#about" class="hover:text-red-500 transition-colors">Our Story</a>
+      <a href="#menu" class="hover:text-red-500 transition-colors">Menu</a>
+      <a href="#gallery" class="hover:text-red-500 transition-colors">Gallery</a>
+      <a href="#testimonials" class="hover:text-red-500 transition-colors">Reviews</a>
+      <a href="#hours" class="hover:text-red-500 transition-colors">Visit Us</a>
+      <a href="#contact" class="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition-colors">Order Now</a>
     </div>
+    <div class="md:hidden text-2xl cursor-pointer">☰</div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-400 via-orange-300 to-yellow-200">
-  <div class="text-center px-6 max-w-4xl mx-auto" style="animation: fadeIn 0.8s ease both;">
-    <p class="text-amber-800 font-semibold uppercase tracking-widest text-sm mb-4">Baked Fresh Every Morning Since 1987</p>
-    <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-tight" style="font-family:'Playfair Display',serif;">
-      Where Every Bite Feels Like Home
+<!-- ═══════════════════════════════════════════════ HERO ═══════════════════════════════════════════════ -->
+<section class="min-h-screen bg-gradient-to-br from-red-400 via-pink-300 to-amber-200 flex items-center justify-center relative overflow-hidden">
+  <div class="absolute top-10 left-10 text-8xl opacity-20">🍦</div>
+  <div class="absolute bottom-10 right-10 text-8xl opacity-20">🍎</div>
+  <div class="absolute top-1/2 left-5 text-6xl opacity-10">🌸</div>
+  <div class="absolute top-20 right-20 text-6xl opacity-10">🌿</div>
+  <div class="text-center px-6 max-w-4xl mx-auto fade-in">
+    <div class="inline-block bg-white bg-opacity-30 rounded-full px-5 py-2 text-white font-bold text-sm mb-6 uppercase tracking-widest">Jonesborough, Tennessee's Sweetest Spot</div>
+    <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-tight drop-shadow-lg" style="font-family:'Playfair Display',serif;">
+      Scoop Up<br/>Something<br/><span class="text-amber-100">Special</span>
     </h1>
-    <p class="text-xl md:text-2xl text-amber-900 mb-4 font-medium">Miller's Bakery has been the heart of Maplewood for over three decades, crafting artisan breads, pastries, and cakes from scratch using time-honored family recipes. From our wood-fired sourdough to our legendary cinnamon rolls, every item is made with locally sourced ingredients and genuine love.</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-      <a href="#menu" class="bg-white text-amber-700 font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-amber-50 transition-colors">Browse Our Menu</a>
-      <a href="#contact" class="bg-amber-700 text-white font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-amber-800 transition-colors">Place a Custom Order</a>
+    <p class="text-white text-xl md:text-2xl font-semibold mb-4 drop-shadow max-w-2xl mx-auto leading-relaxed">
+      Apple Creek Creamery serves handcrafted, small-batch ice cream made with love in the heart of Jonesborough — where every scoop tells a story and every visit feels like coming home.
+    </p>
+    <p class="text-amber-100 text-lg mb-10 font-medium">Rotating seasonal flavors · Thick milkshakes · Fresh-squeezed lemonade · Outdoor seating under the trees</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#menu" class="bg-white text-red-500 font-black text-lg px-10 py-4 rounded-full shadow-lg hover:bg-amber-50 hover:scale-105 transition-transform">See Our Menu 🍦</a>
+      <a href="#contact" class="bg-red-600 text-white font-black text-lg px-10 py-4 rounded-full shadow-lg hover:bg-red-700 hover:scale-105 transition-transform border-2 border-white">Find Us Today 📍</a>
     </div>
   </div>
 </section>
 
-<!-- FEATURED -->
-<section id="featured" class="py-24 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-16">
-    <h2 class="text-5xl font-black text-amber-800 mb-4" style="font-family:'Playfair Display',serif;">Customer Favorites</h2>
-    <p class="text-stone-500 text-lg max-w-xl mx-auto">These three items fly out of the case every single morning. Don't miss them — they sell out by 10am.</p>
+<!-- ═══════════════════════════════════════════════ FEATURED ═══════════════════════════════════════════════ -->
+<section id="featured" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Our Crowd Favorites</h2>
+      <p class="text-gray-500 text-lg font-semibold">The scoops our regulars can't stop talking about</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-pink-300 to-rose-400 flex items-center justify-center">
+          <span class="text-7xl">🍦</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">Apple Creek Classic</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">Our signature apple cinnamon swirl ice cream made with locally sourced Appalachian apples and a ribbon of brown sugar cinnamon. Creamy, warm-spiced, and utterly unforgettable — this is the one that started it all.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-red-500 font-black text-xl">$4.50 / scoop</span>
+            <span class="bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full">Fan Favorite</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-yellow-200 to-amber-400 flex items-center justify-center">
+          <span class="text-7xl">🍋</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">Sunshine Lemonade</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">Hand-squeezed fresh lemons blended with pure cane sugar and chilled to perfection. Available classic, strawberry swirl, or lavender honey — each glass is bright, tart, and sunshine in a cup. Perfect for a warm Tennessee afternoon.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-red-500 font-black text-xl">$3.75 / glass</span>
+            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">Refreshing</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-purple-300 to-indigo-400 flex items-center justify-center">
+          <span class="text-7xl">🥤</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">The Creek Shake</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">Our ultra-thick hand-spun milkshakes pack three generous scoops of your favorite flavor into every cup. Topped with fresh whipped cream and a maraschino cherry, these shakes are a full dessert experience worth every sip.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-red-500 font-black text-xl">$7.00 / shake</span>
+            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-3 py-1 rounded-full">Must Try</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- Card 1 -->
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      <div class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-        <span class="text-7xl">🍞</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════ ABOUT ═══════════════════════════════════════════════ -->
+<section id="about" class="py-20 bg-amber-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="inline-block bg-red-100 text-red-600 font-bold text-sm px-4 py-2 rounded-full mb-6 uppercase tracking-widest">Our Story</div>
+        <h2 class="text-5xl font-black text-gray-800 mb-8 leading-tight" style="font-family:'Playfair Display',serif;">Born From a Love of Simple, Sweet Moments</h2>
+
+        <p class="text-gray-700 text-lg leading-relaxed mb-6">Apple Creek Creamery was born from a simple dream: to create a place in Jonesborough where neighbors could slow down, share a scoop, and feel genuinely welcome. Founded by the Miller family — Chris, Sarah, and their two kids — the creamery opened its doors on a warm spring Saturday at their home on Forest Circle. What started as a backyard ice cream churn tradition quickly grew into something the whole community wanted to be part of.</p>
+
+        <p class="text-gray-700 text-lg leading-relaxed mb-6">Every recipe was developed right here in Tennessee, inspired by the flavors of Appalachian life — crisp orchard apples, wild blackberries, honeysuckle, and fresh peaches from nearby farms. Sarah spent years refining the base recipes until they hit that perfect balance of richness and freshness. Chris handled the creative flavors, dreaming up new combinations each season and testing them on their most honest critics: the neighborhood kids.</p>
+
+        <p class="text-gray-700 text-lg leading-relaxed mb-6">Our mission has always been more than ice cream. We wanted to build a gathering place — a spot where people linger on a bench under the trees, where laughter floats on a summer breeze, and where a $4 scoop can make a hard day feel a little lighter. We believe in quality ingredients, honest recipes, and the kind of warm hospitality that keeps people coming back.</p>
+
+        <p class="text-gray-700 text-lg leading-relaxed">We rotate our flavors with the seasons because we believe food should reflect the world around us. You'll always find a few beloved classics on the board, but there's always something new to discover at Apple Creek. Follow us on Facebook to see what's scooping this week — we love sharing the news and hearing your reactions when a new flavor drops. Thank you, Jonesborough, for making us your sweet escape.</p>
       </div>
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Heritage Sourdough Loaf</h3>
-        <p class="text-stone-500 text-sm mb-4">Hand-shaped and slow-fermented for 18 hours, our sourdough features a crackling golden crust and an open, chewy crumb. Made with our 35-year-old starter, "Betsy," it's the loaf that started it all. Pairs beautifully with cultured butter or a hearty soup.</p>
-        <p class="text-amber-700 font-bold text-xl">$9.50</p>
-      </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      <div class="h-48 bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center">
-        <span class="text-7xl">🍰</span>
-      </div>
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Raspberry Almond Cake</h3>
-        <p class="text-stone-500 text-sm mb-4">Three layers of light almond sponge filled with fresh raspberry compote and whipped mascarpone cream, finished with a dusting of powdered sugar and a crown of whole berries. Perfect for birthdays, celebrations, or a Tuesday when you deserve something wonderful.</p>
-        <p class="text-amber-700 font-bold text-xl">$38.00 / whole | $6.50 / slice</p>
-      </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      <div class="h-48 bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center">
-        <span class="text-7xl">🥐</span>
-      </div>
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Kouign-Amann</h3>
-        <p class="text-stone-500 text-sm mb-4">Our beloved Breton pastry is laminated with European-style butter and caramelized sugar, yielding flaky, shattering layers with a glossy, candy-crisp bottom. We bake exactly 24 each morning and they're almost always gone by 9:30am — we strongly suggest arriving early.</p>
-        <p class="text-amber-700 font-bold text-xl">$5.25</p>
+      <div class="flex flex-col gap-6">
+        <div class="h-80 bg-gradient-to-br from-red-300 via-pink-300 to-amber-300 rounded-3xl flex items-center justify-center shadow-xl">
+          <span class="text-9xl">🍎</span>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gradient-to-br from-green-200 to-teal-300 rounded-2xl p-6 text-center shadow-lg">
+            <div class="text-4xl font-black text-teal-700 mb-1">100%</div>
+            <div class="text-teal-800 font-bold text-sm">Small-Batch Made</div>
+          </div>
+          <div class="bg-gradient-to-br from-amber-200 to-orange-300 rounded-2xl p-6 text-center shadow-lg">
+            <div class="text-4xl font-black text-orange-700 mb-1">20+</div>
+            <div class="text-orange-800 font-bold text-sm">Seasonal Flavors a Year</div>
+          </div>
+          <div class="bg-gradient-to-br from-pink-200 to-rose-300 rounded-2xl p-6 text-center shadow-lg">
+            <div class="text-4xl font-black text-rose-700 mb-1">Local</div>
+            <div class="text-rose-800 font-bold text-sm">Tennessee Ingredients</div>
+          </div>
+          <div class="bg-gradient-to-br from-purple-200 to-indigo-300 rounded-2xl p-6 text-center shadow-lg">
+            <div class="text-4xl font-black text-indigo-700 mb-1">Family</div>
+            <div class="text-indigo-800 font-bold text-sm">Owned & Operated</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-    <div>
-      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">Our Story</p>
-      <h2 class="text-5xl font-black text-stone-800 mb-8" style="font-family:'Playfair Display',serif;">Three Generations of Flour, Butter & Heart</h2>
-      <p class="text-stone-600 text-lg leading-relaxed mb-5">Miller's Bakery was founded in 1987 by Harold and Dorothy Miller, who had spent years dreaming of opening a neighborhood bakery that felt like an extension of their own kitchen. Harold, a trained pastry chef who had apprenticed in Lyon, France, combined classical technique with Dorothy's instinct for warmth and community. They opened their first location on 412 Elmwood Avenue with $6,000 in savings, a secondhand deck oven, and an unwavering belief that great bread could change a morning.</p>
-      <p class="text-stone-600 text-lg leading-relaxed mb-5">In 2003, their daughter Claire Miller-Voss took over day-to-day operations and expanded the menu to include celebration cakes, seasonal pastries, and a full café line. Claire brought a modern sensibility to the recipes while fiercely protecting the traditions her parents had built. Under her leadership, the bakery won the Maplewood Small Business Award four years running and grew from a staff of three to a team of nineteen passionate bakers and baristas.</p>
-      <p class="text-stone-600 text-lg leading-relaxed mb-5">Our mission is simple: use the best ingredients we can source, waste as little as possible, and make every customer feel genuinely cared for. We partner with Sunnyside Farm in Westbrook for eggs and dairy, Ridgeline Mills for our heritage-grain flours, and a rotating selection of local fruit growers to keep our seasonal offerings honest and fresh.</p>
-      <p class="text-stone-600 text-lg leading-relaxed">We believe a great bakery is a kind of anchor for a neighborhood — a place where regulars are known by name, where the smell of fresh bread signals safety and comfort, and where celebration and ordinary Tuesday mornings deserve equal joy. We're so grateful you've found us, and we can't wait to bake something special for you.</p>
-    </div>
-    <div class="h-full min-h-96 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 rounded-3xl flex flex-col items-center justify-center gap-4 shadow-xl">
-      <span class="text-9xl">👩‍🍳</span>
-      <p class="text-white font-bold text-2xl" style="font-family:'Playfair Display',serif;">Claire Miller-Voss</p>
-      <p class="text-amber-100 text-sm font-medium uppercase tracking-widest">Head Baker & Owner</p>
-      <span class="text-5xl mt-2">🌾</span>
-    </div>
-  </div>
-</section>
-
-<!-- MENU / SERVICES -->
-<section id="menu" class="py-24 bg-amber-50 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">What We Bake</p>
-      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Our Full Menu</h2>
-      <p class="text-stone-500 text-lg max-w-xl mx-auto">Everything is baked fresh daily. Seasonal items rotate — ask your server what's just come out of the oven.</p>
+<!-- ═══════════════════════════════════════════════ MENU / SERVICES ═══════════════════════════════════════════════ -->
+<section id="menu" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-block bg-red-100 text-red-600 font-bold text-sm px-4 py-2 rounded-full mb-4 uppercase tracking-widest">What We Serve</div>
+      <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">The Menu Board</h2>
+      <p class="text-gray-500 text-lg font-medium">Flavors rotate seasonally — follow our Facebook for weekly updates!</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <!-- Category 1: Breads -->
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-4xl">🍞</span>
-          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Artisan Breads</h3>
+
+      <!-- Category 1: Ice Cream -->
+      <div class="bg-gradient-to-b from-pink-50 to-white rounded-3xl p-8 shadow-lg border border-pink-100">
+        <div class="text-center mb-6">
+          <div class="text-5xl mb-3">🍦</div>
+          <h3 class="text-2xl font-black text-red-600" style="font-family:'Playfair Display',serif;">Ice Cream Scoops</h3>
+          <p class="text-gray-500 text-sm font-medium mt-1">Single · Double · Triple</p>
         </div>
         <div class="space-y-5">
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-pink-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Heritage Sourdough</p>
-              <p class="text-amber-700 font-bold ml-4">$9.50</p>
+              <span class="font-black text-gray-800">Apple Creek Classic</span>
+              <span class="text-red-500 font-bold ml-2">$4.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Our 35-year-old starter, long-fermented, wood-fired crust.</p>
+            <p class="text-gray-500 text-sm">Apple cinnamon swirl with brown sugar ribbon</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-pink-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Seeded Rye Loaf</p>
-              <p class="text-amber-700 font-bold ml-4">$8.75</p>
+              <span class="font-black text-gray-800">Tennessee Peach</span>
+              <span class="text-red-500 font-bold ml-2">$4.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Dark rye with caraway, sunflower, and pumpkin seeds. Dense and hearty.</p>
+            <p class="text-gray-500 text-sm">Sweet summer peaches churned into a velvety cream</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-pink-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Honey Oat Sandwich Loaf</p>
-              <p class="text-amber-700 font-bold ml-4">$7.50</p>
+              <span class="font-black text-gray-800">Midnight Blackberry</span>
+              <span class="text-red-500 font-bold ml-2">$4.75</span>
             </div>
-            <p class="text-stone-500 text-sm">Soft, lightly sweet, rolled oats on top — perfect for morning toast.</p>
+            <p class="text-gray-500 text-sm">Wild Appalachian blackberries, deep and jammy</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-pink-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Jalapeño Cheddar Batard</p>
-              <p class="text-amber-700 font-bold ml-4">$10.25</p>
+              <span class="font-black text-gray-800">Vanilla Bean Dream</span>
+              <span class="text-red-500 font-bold ml-2">$4.00</span>
             </div>
-            <p class="text-stone-500 text-sm">Sharp Vermont cheddar and pickled jalapeños folded into sourdough dough.</p>
+            <p class="text-gray-500 text-sm">Madagascar vanilla bean, pure and timeless</p>
           </div>
-          <div>
+          <div class="pb-2">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Focaccia of the Day</p>
-              <p class="text-amber-700 font-bold ml-4">$6.00</p>
+              <span class="font-black text-gray-800">Chocolate Creek Fudge</span>
+              <span class="text-red-500 font-bold ml-2">$4.25</span>
             </div>
-            <p class="text-stone-500 text-sm">Topped with seasonal ingredients — ask what's on today's board.</p>
+            <p class="text-gray-500 text-sm">Rich double-chocolate with fudge swirl</p>
           </div>
+        </div>
+        <div class="mt-6 bg-pink-50 rounded-xl p-3 text-center">
+          <p class="text-pink-600 font-bold text-xs">+ Seasonal rotating specials weekly!</p>
         </div>
       </div>
 
-      <!-- Category 2: Pastries -->
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-4xl">🥐</span>
-          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Pastries & Viennoiserie</h3>
+      <!-- Category 2: Milkshakes -->
+      <div class="bg-gradient-to-b from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100">
+        <div class="text-center mb-6">
+          <div class="text-5xl mb-3">🥤</div>
+          <h3 class="text-2xl font-black text-purple-600" style="font-family:'Playfair Display',serif;">Hand-Spun Shakes</h3>
+          <p class="text-gray-500 text-sm font-medium mt-1">Thick · Creamy · Indulgent</p>
         </div>
         <div class="space-y-5">
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-purple-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Classic Butter Croissant</p>
-              <p class="text-amber-700 font-bold ml-4">$4.25</p>
+              <span class="font-black text-gray-800">The Creek Shake</span>
+              <span class="text-purple-500 font-bold ml-2">$7.00</span>
             </div>
-            <p class="text-stone-500 text-sm">81 layers of European butter lamination. Shatters when you bite it.</p>
+            <p class="text-gray-500 text-sm">Classic vanilla with whipped cream & cherry topping</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-purple-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Kouign-Amann</p>
-              <p class="text-amber-700 font-bold ml-4">$5.25</p>
+              <span class="font-black text-gray-800">Peach Cobbler Shake</span>
+              <span class="text-purple-500 font-bold ml-2">$7.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Caramelized, flaky, limited to 24 daily. Arrive early.</p>
+            <p class="text-gray-500 text-sm">Tennessee peach, cinnamon, and graham crumble</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-purple-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Dorothy's Cinnamon Roll</p>
-              <p class="text-amber-700 font-bold ml-4">$5.75</p>
+              <span class="font-black text-gray-800">Midnight Blackberry Blast</span>
+              <span class="text-purple-500 font-bold ml-2">$7.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Named for our founder. Brown butter cream cheese icing, pecans on top.</p>
+            <p class="text-gray-500 text-sm">Blackberry ice cream blended thick with fresh berry swirl</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-purple-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Almond Twice-Baked Croissant</p>
-              <p class="text-amber-700 font-bold ml-4">$5.50</p>
+              <span class="font-black text-gray-800">Chocolate Mud Pie</span>
+              <span class="text-purple-500 font-bold ml-2">$7.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Day-old croissant soaked in rum syrup, filled and topped with frangipane.</p>
+            <p class="text-gray-500 text-sm">Double chocolate shake with Oreo crumble and fudge drizzle</p>
           </div>
-          <div>
+          <div class="pb-2">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Seasonal Galette</p>
-              <p class="text-amber-700 font-bold ml-4">$6.00</p>
+              <span class="font-black text-gray-800">Build-Your-Own Shake</span>
+              <span class="text-purple-500 font-bold ml-2">$7.00+</span>
             </div>
-            <p class="text-stone-500 text-sm">Rustic free-form tart with whatever fruit is at peak ripeness this week.</p>
+            <p class="text-gray-500 text-sm">Pick any flavor + toppings from our shake bar</p>
           </div>
+        </div>
+        <div class="mt-6 bg-purple-50 rounded-xl p-3 text-center">
+          <p class="text-purple-600 font-bold text-xs">All shakes made with 3 scoops of real ice cream</p>
         </div>
       </div>
 
-      <!-- Category 3: Cakes & Custom -->
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-4xl">🎂</span>
-          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Cakes & Custom Orders</h3>
+      <!-- Category 3: Lemonade & More -->
+      <div class="bg-gradient-to-b from-yellow-50 to-white rounded-3xl p-8 shadow-lg border border-yellow-100">
+        <div class="text-center mb-6">
+          <div class="text-5xl mb-3">🍋</div>
+          <h3 class="text-2xl font-black text-yellow-600" style="font-family:'Playfair Display',serif;">Lemonade & Treats</h3>
+          <p class="text-gray-500 text-sm font-medium mt-1">Fresh-Squeezed · Cool & Bright</p>
         </div>
         <div class="space-y-5">
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-yellow-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Raspberry Almond Cake</p>
-              <p class="text-amber-700 font-bold ml-4">from $38</p>
+              <span class="font-black text-gray-800">Classic Lemonade</span>
+              <span class="text-yellow-600 font-bold ml-2">$3.75</span>
             </div>
-            <p class="text-stone-500 text-sm">Three-layer almond sponge with fresh raspberry compote and mascarpone.</p>
+            <p class="text-gray-500 text-sm">Fresh-squeezed lemons, pure cane sugar, chilled perfection</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-yellow-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Dark Chocolate Ganache Torte</p>
-              <p class="text-amber-700 font-bold ml-4">from $42</p>
+              <span class="font-black text-gray-800">Strawberry Swirl Lemonade</span>
+              <span class="text-yellow-600 font-bold ml-2">$4.25</span>
             </div>
-            <p class="text-stone-500 text-sm">70% cacao sponge, espresso buttercream, mirror glaze finish. Rich and stunning.</p>
+            <p class="text-gray-500 text-sm">Fresh lemonade ribboned with real strawberry purée</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-yellow-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Lemon Lavender Celebration Cake</p>
-              <p class="text-amber-700 font-bold ml-4">from $45</p>
+              <span class="font-black text-gray-800">Lavender Honey Lemonade</span>
+              <span class="text-yellow-600 font-bold ml-2">$4.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Lemon curd filling, lavender Swiss meringue, dried flower garnish.</p>
+            <p class="text-gray-500 text-sm">Wildflower honey, lavender syrup, lemon — floral & bright</p>
           </div>
-          <div class="border-b border-amber-100 pb-4">
+          <div class="border-b border-yellow-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Custom Wedding Tiers</p>
-              <p class="text-amber-700 font-bold ml-4">Quoted</p>
+              <span class="font-black text-gray-800">Ice Cream Float</span>
+              <span class="text-yellow-600 font-bold ml-2">$5.50</span>
             </div>
-            <p class="text-stone-500 text-sm">Consult with Claire to design your dream cake. 4-week lead time required.</p>
+            <p class="text-gray-500 text-sm">Lemonade + a scoop of your choice — fizzy and fun</p>
           </div>
-          <div>
+          <div class="pb-2">
             <div class="flex justify-between items-start mb-1">
-              <p class="font-bold text-stone-800">Dozen Cookie Box</p>
-              <p class="text-amber-700 font-bold ml-4">$22.00</p>
+              <span class="font-black text-gray-800">Waffle Cone Upgrade</span>
+              <span class="text-yellow-600 font-bold ml-2">+$1.00</span>
             </div>
-            <p class="text-stone-500 text-sm">Mixed box: chocolate chip, snickerdoodle, brown butter tahini, and shortbread.</p>
+            <p class="text-gray-500 text-sm">Fresh-baked waffle cone, made in-house daily</p>
           </div>
         </div>
+        <div class="mt-6 bg-yellow-50 rounded-xl p-3 text-center">
+          <p class="text-yellow-600 font-bold text-xs">All lemonades available with refills for $1.50</p>
+        </div>
       </div>
+
+    </div>
+
+    <div class="mt-12 text-center bg-gradient-to-r from-red-50 to-pink-50 rounded-3xl p-8 border border-pink-100">
+      <p class="text-xl font-bold text-gray-700 mb-2">🎉 Seasonal & Rotating Flavors Change Weekly!</p>
+      <p class="text-gray-500 font-medium">Follow <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="text-red-500 font-bold hover:underline">@AppleCreekCreamery on Facebook</a> to see what's on the board this week. New drops, limited batches, and surprise specials posted regularly!</p>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="py-24 bg-white px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">From Our Kitchen</p>
-      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Fresh Out the Oven</h2>
-      <p class="text-stone-500 text-lg max-w-xl mx-auto">A glimpse into the daily magic at Miller's Bakery — from 4am prep to the last crumb of the afternoon rush.</p>
+<!-- ═══════════════════════════════════════════════ GALLERY ═══════════════════════════════════════════════ -->
+<section id="gallery" class="py-20 bg-amber-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-block bg-red-100 text-red-600 font-bold text-sm px-4 py-2 rounded-full mb-4 uppercase tracking-widest">Gallery</div>
+      <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Sweet Moments at Apple Creek</h2>
+      <p class="text-gray-500 text-lg font-medium">From our creamery to your feed — the colors, smiles, and scoops we love</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div>
-        <div class="h-56 bg-gradient-to-br from-amber-300 to-orange-400 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">🍞</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-rose-300 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🍦</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">Heritage Sourdough — fresh from the deck oven at 6am</p>
+        <p class="text-center text-gray-700 font-bold mt-3">Signature Apple Cinnamon Scoop</p>
+        <p class="text-center text-gray-400 text-sm">Our most-photographed flavor — for good reason</p>
       </div>
-      <div>
-        <div class="h-56 bg-gradient-to-br from-rose-300 to-pink-500 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">🎂</span>
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🌞</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">Custom wedding cake — lemon lavender, three tiers</p>
+        <p class="text-center text-gray-700 font-bold mt-3">Sunny Outdoor Seating</p>
+        <p class="text-center text-gray-400 text-sm">Benches under the trees on a perfect Tennessee day</p>
       </div>
-      <div>
-        <div class="h-56 bg-gradient-to-br from-yellow-300 to-amber-400 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">🥐</span>
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-purple-300 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🥤</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">Morning lamination — 81 butter layers, folded by hand</p>
+        <p class="text-center text-gray-700 font-bold mt-3">Midnight Blackberry Shake</p>
+        <p class="text-center text-gray-400 text-sm">Hand-spun, loaded, and absolutely gorgeous</p>
       </div>
-      <div>
-        <div class="h-56 bg-gradient-to-br from-orange-300 to-red-400 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">🍰</span>
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-green-300 to-teal-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🍃</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">Raspberry almond cake — sliced and ready for the case</p>
+        <p class="text-center text-gray-700 font-bold mt-3">The Creamery Garden</p>
+        <p class="text-center text-gray-400 text-sm">Lush greenery surrounds our cozy Forest Circle location</p>
       </div>
-      <div>
-        <div class="h-56 bg-gradient-to-br from-lime-300 to-green-400 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">🌾</span>
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-amber-200 to-yellow-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🍋</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">Heritage grain flour delivery from Ridgeline Mills, Westbrook</p>
+        <p class="text-center text-gray-700 font-bold mt-3">Fresh Lemonade Pour</p>
+        <p class="text-center text-gray-400 text-sm">Hand-squeezed every morning, sipped all afternoon</p>
       </div>
-      <div>
-        <div class="h-56 bg-gradient-to-br from-purple-300 to-violet-500 rounded-2xl flex items-center justify-center mb-3">
-          <span class="text-7xl">☕</span>
+
+      <div class="group cursor-pointer">
+        <div class="h-56 bg-gradient-to-br from-red-300 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-7xl">🍎</span>
         </div>
-        <p class="text-center text-stone-600 font-semibold">The morning café counter — where regulars begin their day</p>
+        <p class="text-center text-gray-700 font-bold mt-3">Apple Season at the Creamery</p>
+        <p class="text-center text-gray-400 text-sm">Fall is magical — and so are our autumn specials</p>
       </div>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-8 py-4 rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+        <span>📘</span> See More Photos on Facebook
+      </a>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="py-24 bg-amber-50 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">What People Say</p>
-      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Loved by Maplewood</h2>
-      <p class="text-stone-500 text-lg max-w-xl mx-auto">Don't take our word for it — here's what our neighbors have to say.</p>
+<!-- ═══════════════════════════════════════════════ TESTIMONIALS ═══════════════════════════════════════════════ -->
+<section id="testimonials" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <div class="inline-block bg-red-100 text-red-600 font-bold text-sm px-4 py-2 rounded-full mb-4 uppercase tracking-widest">Rave Reviews</div>
+      <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">What Our Neighbors Are Saying</h2>
+      <p class="text-gray-500 text-lg font-medium">The sweetest words come straight from our community</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
-        <p class="text-stone-600 leading-relaxed mb-6">"I moved to Maplewood two years ago and finding Miller's Bakery made me feel like I'd finally arrived home. I get the Heritage Sourdough every Saturday — the crust shatters beautifully and the crumb is perfectly chewy. Last month I ordered a custom birthday cake for my daughter, and Claire absolutely knocked it out of the park. Three layers of chocolate ganache with her name piped in gold. Genuinely the best bakery I've visited anywhere in New England."</p>
-        <div class="border-t border-amber-100 pt-4">
-          <p class="font-bold text-stone-800">Sarah Okonkwo</p>
-          <p class="text-stone-400 text-sm">Maplewood resident, regular Saturday customer</p>
+
+      <div class="bg-gradient-to-b from-pink-50 to-white rounded-3xl p-8 shadow-lg border border-pink-100">
+        <div class="text-yellow-400 text-2xl mb-4 font-black">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"I've been coming to Apple Creek Creamery every single weekend since they opened, and I honestly can't imagine summer without it. The Apple Cinnamon Classic is unlike anything I've ever tasted — you can tell it's made with real love and real fruit. My daughter declared it her 'favorite place on Earth' and honestly, I'm not going to argue with her. The outdoor seating under the trees is pure magic on a warm evening."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full flex items-center justify-center text-xl font-black text-white">M</div>
+          <div>
+            <p class="font-black text-gray-800">Margaret Collins</p>
+            <p class="text-gray-400 text-sm font-medium">Jonesborough local, mom of 3</p>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
-        <p class="text-stone-600 leading-relaxed mb-6">"My wife and I had Miller's Bakery make our wedding cake and it was an absolute dream. We met with Claire three times to nail down the flavors — lemon curd and lavender — and she remembered every detail we mentioned in our very first conversation. The cake was not only stunning but genuinely the best thing anyone ate at our reception. Seven months later, guests still bring it up. We stop in every Sunday for croissants and a coffee and it never disappoints."</p>
-        <div class="border-t border-amber-100 pt-4">
-          <p class="font-bold text-stone-800">Marcus & Delia Tran</p>
-          <p class="text-stone-400 text-sm">Newlyweds, Elmwood Avenue neighbors</p>
+
+      <div class="bg-gradient-to-b from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100">
+        <div class="text-yellow-400 text-2xl mb-4 font-black">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"My son had his birthday at Apple Creek Creamery and it was the highlight of the summer. Chris and Sarah went out of their way to make sure every kid had exactly what they wanted — the Chocolate Creek Fudge shakes were a massive hit. The lavender honey lemonade absolutely blew me away, I never thought lemonade could taste so sophisticated. This place brings the whole neighborhood together in the best way possible."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-300 to-indigo-400 rounded-full flex items-center justify-center text-xl font-black text-white">D</div>
+          <div>
+            <p class="font-black text-gray-800">David Hartley</p>
+            <p class="text-gray-400 text-sm font-medium">Washington County resident & regular</p>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-3xl shadow-md p-8">
-        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
-        <p class="text-stone-600 leading-relaxed mb-6">"I've been a professional food critic for twelve years and I don't give five stars lightly. But the Kouign-Amann at Miller's is genuinely world-class — I've had the same pastry in Brittany and this stands up to it completely. The caramelization is perfect, not bitter, with that extraordinary shattering pull-apart texture. Dorothy's Cinnamon Roll is also not to be overlooked: the brown butter cream cheese icing alone is worth the drive from Portland. This bakery is a regional treasure."</p>
-        <div class="border-t border-amber-100 pt-4">
-          <p class="font-bold text-stone-800">James Hollingsworth</p>
-          <p class="text-stone-400 text-sm">Food writer, New England Table Magazine</p>
+
+      <div class="bg-gradient-to-b from-yellow-50 to-white rounded-3xl p-8 shadow-lg border border-yellow-100">
+        <div class="text-yellow-400 text-2xl mb-4 font-black">★★★★★</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">"I drove through Jonesborough on a road trip and stopped at Apple Creek Creamery on a friend's recommendation — best detour I've ever made. The Midnight Blackberry scoop was so intensely flavorful I actually went back for a second. The atmosphere is wonderfully casual and unhurried, with wooden benches and big shade trees. I followed their Facebook page before I even left the parking lot so I wouldn't miss what's coming next."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-300 to-orange-400 rounded-full flex items-center justify-center text-xl font-black text-white">L</div>
+          <div>
+            <p class="font-black text-gray-800">Lisa Tran</p>
+            <p class="text-gray-400 text-sm font-medium">Nashville visitor, ice cream enthusiast</p>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- HOURS & LOCATION -->
-<section id="hours" class="py-24 bg-white px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">Find Us</p>
-      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Hours & Location</h2>
+<!-- ═══════════════════════════════════════════════ HOURS & LOCATION ═══════════════════════════════════════════════ -->
+<section id="hours" class="py-20 bg-gradient-to-br from-red-500 via-rose-500 to-pink-500">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <h2 class="text-5xl font-black text-white mb-3" style="font-family:'Playfair Display',serif;">Come Visit Us</h2>
+      <p class="text-pink-100 text-lg font-medium">We'd love to see you — bring the whole family!</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      <div>
-        <div class="bg-amber-50 rounded-3xl p-8 mb-8">
-          <h3 class="text-2xl font-bold text-stone-800 mb-6" style="font-family:'Playfair Display',serif;">Bakery Hours</h3>
-          <div class="space-y-3 text-stone-600">
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Monday</span><span>7:00 AM – 5:00 PM</span>
-            </div>
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Tuesday</span><span>7:00 AM – 5:00 PM</span>
-            </div>
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Wednesday</span><span>7:00 AM – 5:00 PM</span>
-            </div>
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Thursday</span><span>7:00 AM – 5:00 PM</span>
-            </div>
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Friday</span><span>7:00 AM – 6:00 PM</span>
-            </div>
-            <div class="flex justify-between border-b border-amber-100 pb-3">
-              <span class="font-semibold">Saturday</span><span>7:00 AM – 6:00 PM</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="font-semibold">Sunday</span><span>8:00 AM – 2:00 PM</span>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <div class="bg-white rounded-3xl p-10 shadow-xl">
+        <h3 class="text-2xl font-black text-gray-800 mb-6 flex items-center gap-2" style="font-family:'Playfair Display',serif;"><span>🕐</span> Hours of Operation</h3>
+        <div class="space-y-3 text-gray-700 font-semibold">
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Monday</span><span class="text-gray-400">Closed</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Tuesday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Wednesday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Thursday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Friday</span><span class="text-red-500 font-bold">12:00 PM – 9:00 PM</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Saturday</span><span class="text-red-500 font-bold">11:00 AM – 9:00 PM</span>
+          </div>
+          <div class="flex justify-between pb-2">
+            <span>Sunday</span><span class="text-red-500 font-bold">12:00 PM – 7:00 PM</span>
           </div>
         </div>
-        <div class="bg-amber-50 rounded-3xl p-8">
-          <h3 class="text-2xl font-bold text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Contact Info</h3>
-          <div class="space-y-3 text-stone-600">
-            <div class="flex items-start gap-3">
-              <span class="text-2xl">📍</span>
-              <div>
-                <p class="font-semibold text-stone-800">412 Elmwood Avenue</p>
-                <p>Maplewood, NH 03104</p>
-              </div>
+        <div class="mt-6 bg-amber-50 rounded-xl p-4 border border-amber-200">
+          <p class="text-amber-700 font-bold text-sm">📢 Hours may vary seasonally. Always check our <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="underline">Facebook page</a> for the latest updates!</p>
+        </div>
+        <div class="mt-6 space-y-3">
+          <div class="flex items-center gap-3 text-gray-700">
+            <span class="text-2xl">📍</span>
+            <div>
+              <p class="font-black">Apple Creek Creamery</p>
+              <p class="font-medium">211 Forest Circle, Jonesborough, TN 37659</p>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">📞</span>
-              <a href="tel:+16035559842" class="text-amber-700 font-semibold hover:underline">(603) 555-9842</a>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">✉️</span>
-              <a href="mailto:hello@millersbakery.com" class="text-amber-700 font-semibold hover:underline">hello@millersbakery.com</a>
-            </div>
+          </div>
+          <div class="flex items-center gap-3 text-gray-700">
+            <span class="text-2xl">📞</span>
+            <a href="tel:8888888888" class="font-bold text-red-500 hover:underline">(888) 888-8888</a>
+          </div>
+          <div class="flex items-center gap-3 text-gray-700">
+            <span class="text-2xl">📧</span>
+            <a href="mailto:chrisp3950@gmail.com" class="font-bold text-red-500 hover:underline">chrisp3950@gmail.com</a>
+          </div>
+          <div class="flex items-center gap-3 text-gray-700">
+            <span class="text-2xl">📘</span>
+            <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="font-bold text-blue-600 hover:underline">facebook.com/Applecreekcreamery</a>
           </div>
         </div>
       </div>
-      <div>
-        <div class="h-96 bg-gradient-to-br from-green-300 via-teal-400 to-blue-400 rounded-3xl flex flex-col items-center justify-center shadow-lg">
-          <span class="text-8xl mb-4">🗺️</span>
-          <p class="text-white font-bold text-xl mb-1" style="font-family:'Playfair Display',serif;">412 Elmwood Avenue</p>
-          <p class="text-teal-100 font-medium">Maplewood, NH 03104</p>
-          <p class="text-teal-100 text-sm mt-2">Corner of Elmwood & Birch St.</p>
-          <a href="https://maps.google.com" target="_blank" class="mt-6 bg-white text-teal-700 font-bold px-6 py-2 rounded-full text-sm hover:bg-teal-50 transition-colors">Get Directions</a>
+
+      <div class="flex flex-col gap-6">
+        <div class="h-72 bg-gradient-to-br from-green-200 to-teal-400 rounded-3xl flex flex-col items-center justify-center shadow-xl text-center p-8">
+          <span class="text-7xl mb-4">🗺️</span>
+          <p class="text-teal-800 font-black text-xl mb-1">211 Forest Circle</p>
+          <p class="text-teal-700 font-bold">Jonesborough, TN 37659</p>
+          <a href="https://www.google.com/maps/search/211+Forest+Circle+Jonesborough+TN" target="_blank" class="mt-4 bg-white text-teal-700 font-bold px-6 py-2 rounded-full hover:bg-teal-50 transition-colors shadow">Open in Google Maps →</a>
+        </div>
+        <div class="bg-white rounded-3xl p-8 shadow-xl">
+          <h3 class="text-xl font-black text-gray-800 mb-4" style="font-family:'Playfair Display',serif;">🌳 About Our Space</h3>
+          <p class="text-gray-600 leading-relaxed font-medium">Nestled on the peaceful Forest Circle in historic Jonesborough, our creamery offers a wonderfully casual outdoor experience. Bring a blanket, grab a bench under the shade trees, and take your time. We have seating for everyone — from first dates to family reunions. Dogs are always welcome in our outdoor space!</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="bg-green-100 text-green-700 font-bold text-xs px-3 py-1 rounded-full">🌳 Outdoor Seating</span>
+            <span class="bg-blue-100 text-blue-700 font-bold text-xs px-3 py-1 rounded-full">🐾 Dog Friendly</span>
+            <span class="bg-pink-100 text-pink-700 font-bold text-xs px-3 py-1 rounded-full">👨‍👩‍👧 Family Friendly</span>
+            <span class="bg-amber-100 text-amber-700 font-bold text-xs px-3 py-1 rounded-full">🪑 Bench Seating</span>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 bg-gradient-to-br from-amber-500 to-orange-400 px-6">
-  <div class="max-w-3xl mx-auto">
+<!-- ═══════════════════════════════════════════════ CONTACT ═══════════════════════════════════════════════ -->
+<section id="contact" class="py-20 bg-amber-50">
+  <div class="max-w-3xl mx-auto px-6">
     <div class="text-center mb-12">
-      <p class="text-amber-100 font-semibold uppercase tracking-widest text-sm mb-3">Get In Touch</p>
-      <h2 class="text-5xl font-black text-white mb-4" style="font-family:'Playfair Display',serif;">Order Something Special</h2>
-      <p class="text-amber-100 text-lg">Custom cakes, catering orders, wholesale inquiries — we'd love to hear from you. We respond to all messages within one business day.</p>
+      <div class="inline-block bg-red-100 text-red-600 font-bold text-sm px-4 py-2 rounded-full mb-4 uppercase tracking-widest">Say Hello</div>
+      <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Get in Touch</h2>
+      <p class="text-gray-500 text-lg font-medium">Have a question, party inquiry, or just want to say hi? We love hearing from you!</p>
     </div>
-    <form class="bg-white rounded-3xl shadow-xl p-10 space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-stone-700 font-semibold mb-2 text-sm">Full Name</label>
-          <input type="text" placeholder="Jane Smith" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
+    <div class="bg-white rounded-3xl shadow-xl p-10">
+      <form action="mailto:chrisp3950@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Your Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full border-2 border-gray-200 rounded-xl px-5 py-3 font-semibold text-gray-700 focus:outline-none focus:border-red-400 transition-colors" />
+          </div>
+          <div>
+            <label class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Phone Number</label>
+            <input type="tel" placeholder="(423) 555-1234" class="w-full border-2 border-gray-200 rounded-xl px-5 py-3 font-semibold text-gray-700 focus:outline-none focus:border-red-400 transition-colors" />
+          </div>
         </div>
         <div>
-          <label class="block text-stone-700 font-semibold mb-2 text-sm">Email Address</label>
-          <input type="email" placeholder="jane@example.com" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
+          <label class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Email Address</label>
+          <input type="email" placeholder="jane@example.com" class="w-full border-2 border-gray-200 rounded-xl px-5 py-3 font-semibold text-gray-700 focus:outline-none focus:border-red-400 transition-colors" />
         </div>
+        <div>
+          <label class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">What can we help with?</label>
+          <select class="w-full border-2 border-gray-200 rounded-xl px-5 py-3 font-semibold text-gray-700 focus:outline-none focus:border-red-400 transition-colors">
+            <option>General Question</option>
+            <option>Party / Event Inquiry</option>
+            <option>Catering Request</option>
+            <option>Feedback / Compliment</option>
+            <option>Wholesale / Partnership</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-bold mb-2 text-sm uppercase tracking-wide">Your Message</label>
+          <textarea rows="5" placeholder="Tell us what's on your mind — we'd love to hear from you! 🍦" class="w-full border-2 border-gray-200 rounded-xl px-5 py-3 font-semibold text-gray-700 focus:outline-none focus:border-red-400 transition-colors resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-black text-lg py-4 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all shadow-lg">
+          Send a Sweet Message 🍎
+        </button>
+      </form>
+      <div class="mt-8 text-center text-gray-400 font-medium">
+        <p>Or reach us directly at <a href="tel:8888888888" class="text-red-500 font-bold hover:underline">(888) 888-8888</a> or <a href="mailto:chrisp3950@gmail.com" class="text-red-500 font-bold hover:underline">chrisp3950@gmail.com</a></p>
       </div>
-      <div>
-        <label class="block text-stone-700 font-semibold mb-2 text-sm">Phone Number</label>
-        <input type="tel" placeholder="(603) 555-0000" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
-      </div>
-      <div>
-        <label class="block text-stone-700 font-semibold mb-2 text-sm">Your Message or Order Details</label>
-        <textarea rows="5" placeholder="Tell us about your order — event date, number of guests, flavor preferences, dietary needs, or just say hello!" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow resize-none"></textarea>
-      </div>
-      <button type="submit" class="w-full bg-amber-600 text-white font-bold py-4 rounded-full text-lg hover:bg-amber-700 transition-colors shadow-md">Send Your Message 🥐</button>
-    </form>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-stone-900 text-stone-300 py-16 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <span class="text-3xl">🥐</span>
-          <span class="text-2xl font-black text-white" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
+<!-- ═══════════════════════════════════════════════ FACEBOOK FEED PLACEHOLDER ═══════════════════════════════════════════════ -->
+<section class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Latest from Our Facebook</h2>
+      <p class="text-gray-500 font-medium text-lg">We post our weekly flavors, hours, and sweet surprises right here — follow along so you never miss a scoop!</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
+          <div>
+            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
+            <p class="text-gray-400 text-xs">This week's flavors are HERE! 🍦🍎</p>
+          </div>
         </div>
-        <p class="text-stone-400 leading-relaxed">Baked with love, served with pride. Maplewood's neighborhood bakery since 1987.</p>
+        <p class="text-gray-600 text-sm leading-relaxed">"Good morning, Jonesborough! 🌞 We're scooping Apple Cinnamon Classic, Tennessee Peach, and a NEW seasonal — Brown Butter Toffee Crunch! Come on by — we're open 12–8 today. See you soon! 🍦"</p>
+        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
-        <div class="space-y-2 text-stone-400">
-          <a href="#featured" class="block hover:text-amber-400 transition-colors">Customer Favorites</a>
-          <a href="#about" class="block hover:text-amber-400 transition-colors">Our Story</a>
-          <a href="#menu" class="block hover:text-amber-400 transition-colors">Full Menu</a>
-          <a href="#contact" class="block hover:text-amber-400 transition-colors">Custom Orders</a>
-          <a href="#hours" class="block hover:text-amber-400 transition-colors">Hours & Location</a>
+      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
+          <div>
+            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
+            <p class="text-gray-400 text-xs">Weekend hours + special flavor alert!</p>
+          </div>
         </div>
+        <p class="text-gray-600 text-sm leading-relaxed">"Happy Saturday! We're open 11AM–9PM today — the perfect day for a scoop under the trees. 🌳 Loving all the families stopping by! Reminder: Strawberry Swirl Lemonade is limited this week, grab it before it's gone! 🍋"</p>
+        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-4 text-lg">Follow Along</h4>
-        <div class="space-y-2 text-stone-400">
-          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>📸</span> @millersbakery on Instagram</a>
-          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>👍</span> Miller's Bakery on Facebook</a>
-          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>⭐</span> Review us on Google</a>
-          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>🌟</span> Find us on Yelp</a>
+      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
+          <div>
+            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
+            <p class="text-gray-400 text-xs">Thank you Jonesborough! ❤️</p>
+          </div>
         </div>
+        <p class="text-gray-600 text-sm leading-relaxed">"We are absolutely blown away by the community love we've received! Thank you to every single person who has stopped by and shared your kind words. You make every scoop worth it. We'll see you this week! 🍦❤️ #AppleCreekCreamery"</p>
+        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
       </div>
     </div>
-    <div class="border-t border-stone-700 pt-8 text-center text-stone-500 text-sm">
-      <p id="footer-copy">© Miller's Bakery — 412 Elmwood Avenue, Maplewood, NH 03104 — (603) 555-9842</p>
+    <div class="text-center mt-8">
+      <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-8 py-4 rounded-full hover:bg-blue-700 transition-colors shadow-lg text-lg">
+        <span>📘</span> Follow Us on Facebook for Real-Time Updates
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FOOTER ═══════════════════════════════════════════════ -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-400 to-pink-300 flex items-center justify-center text-3xl shadow">🍎</div>
+          <div>
+            <p class="text-2xl font-black text-white" style="font-family:'Playfair Display',serif;">Apple Creek Creamery</p>
+          </div>
+        </div>
+        <p class="text-gray-400 font-medium leading-relaxed mb-4 max-w-sm">Handcrafted small-batch ice cream, fresh-squeezed lemonade, and hand-spun milkshakes served with a warm smile in the heart of Jonesborough, Tennessee.</p>
+        <p class="text-red-400 font-bold italic text-lg">"Where every scoop is made with love." 🍦</p>
+      </div>
+
+      <div>
+        <h4 class="font-black text-white text-lg mb-5 uppercase tracking-wide">Quick Links</h4>
+        <ul class="space-y-3 text-gray-400 font-semibold">
+          <li><a href="#featured" class="hover:text-red-400 transition-colors">Specialties</a></li>
+          <li><a href="#about" class="hover:text-red-400 transition-colors">Our Story</a></li>
+          <li><a href="#menu" class="hover:text-red-400 transition-colors">Menu Board</a></li>
+          <li><a href="#gallery" class="hover:text-red-400 transition-colors">Gallery</a></li>
+          <li><a href="#testimonials" class="hover:text-red-400 transition-colors">Reviews</a></li>
+          <li><a href="#hours" class="hover:text-red-400 transition-colors">Hours & Location</a></li>
+          <li><a href="#contact" class="hover:text-red-400 transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-black text-white text-lg mb-5 uppercase tracking-wide">Connect With Us</h4>
+        <div class="space-y-4">
+          <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors font-semibold">
+            <span class="text-2xl">📘</span> Facebook
+          </a>
+          <a href="tel:8888888888" class="flex items-center gap-3 text-gray-400 hover:text-red-400 transition-colors font-semibold">
+            <span class="text-2xl">📞</span> (888) 888-8888
+          </a>
+          <a href="mailto:chrisp3950@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-red-400 transition-colors font-semibold">
+            <span class="text-2xl">📧</span> chrisp3950@gmail.com
+          </a>
+          <div class="flex items-center gap-3 text-gray-400 font-semibold">
+            <span class="text-2xl">📍</span>
+            <span>211 Forest Circle<br/>Jonesborough, TN 37659</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-500 text-sm font-medium" id="copyright">© Apple Creek Creamery. All rights reserved.</p>
+      <div class="flex gap-6 text-gray-500 text-sm font-medium">
+        <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-300 transition-colors">Terms of Use</a>
+        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="hover:text-blue-400 transition-colors">Facebook</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  // Dynamic copyright year
   const year = new Date().getFullYear();
-  document.getElementById('footer-copy').textContent = '© ' + year + ' Miller\'s Bakery — 412 Elmwood Avenue, Maplewood, NH 03104 — (603) 555-9842. All rights reserved.';
+  document.getElementById('copyright').textContent = `© ${year} Apple Creek Creamery. All rights reserved.`;
+
+  // Mobile menu note: basic functionality
+  document.querySelector('.md\\:hidden').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('hidden');
+    }
+  });
 </script>
 
 
@@ -500,7 +714,7 @@ text-decoration:none;font-weight:600;white-space:nowrap}
 <div id="and-preview-banner">
   <span>👋 <strong>This is your free preview</strong> — built overnight by All Night Design.
   Purchase to go live on your own domain and remove this banner.</span>
-  <a href="https://allnightdesign.com/stripe/checkout?client_id=4">Get Started →</a>
+  <a href="https://allnightdesign.com/stripe/checkout?client_id=5">Get Started →</a>
 </div>
 
 </body>
