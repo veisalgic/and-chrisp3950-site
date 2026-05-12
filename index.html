@@ -3,739 +3,516 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miller's Bakery | Fresh Handcrafted Baked Goods – Johnson City</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <title>Miller's Bakery – Johnson City's Favorite Handcrafted Baked Goods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:     #f9c9c9;
-      --rose-dark:#e8a0a0;
       --cream:    #fdf6ee;
-      --butter:   #fde9b8;
-      --butter-dark:#f5c97a;
-      --mint:     #c8e6d4;
-      --mint-dark:#8ecbaa;
-      --lavender: #ddd0f0;
-      --brown:    #6b3f1f;
-      --brown-light:#9e6340;
-      --text:     #3d2b1f;
-      --text-light:#7a5c47;
+      --blush:    #f7cac9;
+      --peach:    #f9b59f;
+      --lavender: #c8b8d8;
+      --sage:     #b5cbb7;
+      --brown:    #7a4f35;
+      --dark:     #3e2a1e;
       --white:    #ffffff;
+      --shadow:   rgba(122,79,53,0.12);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Nunito', sans-serif;
       background: var(--cream);
-      color: var(--text);
+      color: var(--dark);
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
       background: rgba(253,246,238,0.95);
-      backdrop-filter: blur(6px);
-      border-bottom: 2px solid var(--butter);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 2rem;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--blush);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 2rem;
       transition: box-shadow 0.3s;
     }
-    nav.scrolled { box-shadow: 0 2px 18px rgba(107,63,31,0.10); }
-
+    nav.scrolled { box-shadow: 0 2px 20px var(--shadow); }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
+      font-size: 1.4rem; font-weight: 700;
       color: var(--brown);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    .nav-logo span.icon { font-size: 1.6rem; }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-logo span { font-size: 1.5rem; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 700;
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.25s;
+      text-decoration: none; color: var(--dark);
+      font-weight: 600; font-size: 0.9rem; letter-spacing: 0.03em;
+      transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--brown); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--brown); border-radius: 2px; transition: all 0.3s; }
 
-    .nav-cta {
-      background: var(--butter-dark);
-      color: var(--brown) !important;
-      padding: 0.45rem 1.2rem;
-      border-radius: 50px;
-      transition: background 0.25s, transform 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--rose-dark) !important; transform: scale(1.04); }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px; height: 3px;
-      background: var(--brown);
-      border-radius: 3px;
-      transition: all 0.3s;
-    }
-
-    /* ─── MOBILE MENU ─── */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--cream);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--brown);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .mobile-close {
-      position: absolute;
-      top: 1.2rem; right: 1.5rem;
-      background: none; border: none;
-      font-size: 2rem;
-      color: var(--brown);
-      cursor: pointer;
-    }
-
-    /* ─── HERO ─── */
+    /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--butter) 45%, var(--mint) 100%);
-      padding: 7rem 1.5rem 4rem;
+      background: linear-gradient(135deg, #fde8e4 0%, #f9e8f7 40%, #e8f4e8 100%);
+      display: flex; align-items: center; justify-content: center;
       text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative; overflow: hidden;
     }
-
-    .hero-blobs {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f7cac9' fill-opacity='0.25'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
     }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.35;
-      filter: blur(60px);
-    }
-    .blob1 { width: 420px; height: 420px; background: var(--rose); top: -80px; left: -100px; animation: float 8s ease-in-out infinite; }
-    .blob2 { width: 340px; height: 340px; background: var(--butter); bottom: -60px; right: -80px; animation: float 10s ease-in-out infinite reverse; }
-    .blob3 { width: 260px; height: 260px; background: var(--mint); top: 40%; left: 60%; animation: float 12s ease-in-out infinite 2s; }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0) scale(1); }
-      50%      { transform: translateY(-30px) scale(1.05); }
-    }
-
-    .hero-inner { position: relative; z-index: 1; max-width: 740px; }
-
+    .hero-content { position: relative; max-width: 760px; }
     .hero-badge {
       display: inline-block;
-      background: var(--white);
-      color: var(--brown-light);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.35rem 1.1rem;
-      border-radius: 50px;
-      margin-bottom: 1.4rem;
-      box-shadow: 0 2px 12px rgba(107,63,31,0.12);
-      animation: fadeUp 0.7s ease both;
-    }
-
-    .hero-emoji { font-size: 3.5rem; margin-bottom: 0.6rem; display: block; animation: fadeUp 0.7s ease 0.1s both; }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 700;
-      color: var(--brown);
-      line-height: 1.12;
+      background: var(--blush); color: var(--brown);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 50px;
       margin-bottom: 1.2rem;
-      animation: fadeUp 0.7s ease 0.2s both;
+      animation: fadeDown 0.6s ease both;
     }
-    h1 em { color: var(--brown-light); font-style: normal; }
-
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      color: var(--brown); line-height: 1.15;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+    .hero-title em { font-style: italic; color: var(--peach); }
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.18rem);
-      color: var(--text-light);
-      line-height: 1.65;
-      max-width: 580px;
-      margin: 0 auto 2.2rem;
-      animation: fadeUp 0.7s ease 0.3s both;
+      font-size: 1.15rem; color: #6b4e38;
+      margin: 1.2rem 0 2rem;
+      animation: fadeDown 0.7s 0.2s ease both;
     }
-
     .hero-btns {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeUp 0.7s ease 0.4s both;
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      animation: fadeDown 0.7s 0.3s ease both;
     }
-
-    .btn-primary {
-      background: var(--brown);
-      color: var(--white);
-      padding: 0.85rem 2.1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-      box-shadow: 0 4px 18px rgba(107,63,31,0.25);
+    .btn {
+      display: inline-block; padding: 0.75rem 2rem; border-radius: 50px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; border: none;
     }
-    .btn-primary:hover { background: var(--brown-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,63,31,0.3); }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--brown);
-      padding: 0.85rem 2.1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      transition: background 0.25s, transform 0.2s;
-      box-shadow: 0 2px 12px rgba(107,63,31,0.10);
-    }
-    .btn-secondary:hover { background: var(--butter); transform: translateY(-2px); }
-
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow); }
+    .btn-primary { background: var(--brown); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--brown); border: 2px solid var(--brown); }
     .hero-hours {
-      margin-top: 2.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(255,255,255,0.7);
-      padding: 0.55rem 1.4rem;
-      border-radius: 50px;
-      font-size: 0.88rem;
-      color: var(--text-light);
-      font-weight: 700;
-      animation: fadeUp 0.7s ease 0.5s both;
-      backdrop-filter: blur(4px);
+      margin-top: 2.5rem; font-size: 0.9rem; color: #7a5c47;
+      animation: fadeDown 0.7s 0.4s ease both;
     }
-    .hero-hours .dot { width: 8px; height: 8px; background: var(--mint-dark); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .hero-hours strong { color: var(--brown); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .floating-pastry {
+      position: absolute; font-size: 2.5rem;
+      animation: float 5s ease-in-out infinite;
+      opacity: 0.35;
+    }
+    .fp1 { top: 12%; left: 5%;  animation-delay: 0s; }
+    .fp2 { top: 20%; right: 6%; animation-delay: 1s; }
+    .fp3 { bottom: 15%; left: 8%; animation-delay: 2s; }
+    .fp4 { bottom: 20%; right: 5%; animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50%       { transform: translateY(-18px) rotate(5deg); }
     }
 
-    /* ─── SECTION COMMONS ─── */
-    section { padding: 5.5rem 1.5rem; }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brown-light);
-      background: var(--butter);
-      padding: 0.3rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 0.9rem;
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--peach);
+      margin-bottom: 0.5rem;
     }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      color: var(--brown);
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--brown); margin-bottom: 1rem;
     }
-    .section-intro {
-      max-width: 600px;
-      color: var(--text-light);
-      font-size: 1.05rem;
-      line-height: 1.7;
+    .section-intro { max-width: 600px; color: #5c4030; font-size: 1.05rem; }
+    .divider {
+      width: 60px; height: 4px; border-radius: 4px;
+      background: linear-gradient(90deg, var(--blush), var(--peach));
+      margin: 1rem 0 2.5rem;
     }
-    .section-center { text-align: center; margin: 0 auto; }
 
-    /* ─── ABOUT ─── */
+    /* ── ABOUT ── */
     #about { background: var(--white); }
     .about-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
     .about-visual {
-      position: relative;
+      position: relative; display: flex; justify-content: center; align-items: center;
     }
-    .about-card {
-      background: linear-gradient(135deg, var(--rose) 0%, var(--butter) 100%);
-      border-radius: 24px;
-      padding: 3.5rem 2.5rem;
-      text-align: center;
-      box-shadow: 0 8px 40px rgba(107,63,31,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute;
-      width: 220px; height: 220px;
-      background: rgba(255,255,255,0.25);
-      border-radius: 50%;
-      top: -60px; right: -60px;
-    }
-    .about-card-emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
-    .about-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--brown);
-      margin-bottom: 0.5rem;
-    }
-    .about-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
-
-    .about-since {
-      position: absolute;
-      bottom: -16px; right: 24px;
-      background: var(--brown);
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 0.6rem 1.4rem;
-      border-radius: 50px;
-      box-shadow: 0 4px 16px rgba(107,63,31,0.25);
-    }
-
-    .about-text .section-tag { display: inline-block; }
-    .about-text p {
-      color: var(--text-light);
-      line-height: 1.75;
-      font-size: 1.02rem;
-      margin-bottom: 1.2rem;
-    }
-    .about-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-    .highlight-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--cream);
-      padding: 0.65rem 1.1rem;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-    .highlight-item .hi { font-size: 1.2rem; }
-
-    /* ─── OFFERINGS ─── */
-    #offerings { background: var(--cream); }
-    .offerings-header { text-align: center; margin-bottom: 3.5rem; }
-    .cards-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-    .offering-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2.2rem 1.8rem;
-      box-shadow: 0 4px 24px rgba(107,63,31,0.07);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .offering-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 4px;
-      border-radius: 0 0 20px 20px;
-    }
-    .offering-card.c1::after { background: var(--rose-dark); }
-    .offering-card.c2::after { background: var(--butter-dark); }
-    .offering-card.c3::after { background: var(--mint-dark); }
-    .offering-card.c4::after { background: var(--lavender); }
-
-    .offering-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(107,63,31,0.14); }
-    .card-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
-    .offering-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--brown);
-      margin-bottom: 0.65rem;
-    }
-    .offering-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.65; }
-
-    /* ─── SPECIAL ORDER BANNER ─── */
-    .special-banner {
-      max-width: 1100px;
-      margin: 3rem auto 0;
-      background: linear-gradient(135deg, var(--butter) 0%, var(--rose) 100%);
-      border-radius: 20px;
-      padding: 2.2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      box-shadow: 0 4px 24px rgba(107,63,31,0.10);
-    }
-    .special-banner .sb-icon { font-size: 2.8rem; flex-shrink: 0; }
-    .special-banner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--brown);
-      margin-bottom: 0.3rem;
-    }
-    .special-banner p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
-
-    /* ─── HOURS & LOCATION ─── */
-    #visit { background: var(--white); }
-    .visit-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .visit-box {
-      background: var(--cream);
-      border-radius: 20px;
-      padding: 2.2rem;
-    }
-    .visit-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--brown);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .hours-list { list-style: none; }
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.65rem 0;
-      border-bottom: 1px dashed var(--butter-dark);
-      font-size: 0.95rem;
-      color: var(--text-light);
-    }
-    .hours-list li:last-child { border-bottom: none; }
-    .hours-list li span:first-child { font-weight: 700; color: var(--text); }
-    .closed { color: var(--rose-dark) !important; }
-
-    .address-block { margin-top: 1rem; }
-    .address-block p {
-      color: var(--text-light);
-      font-size: 0.98rem;
-      line-height: 1.8;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-    .address-block .addr-icon { font-size: 1.2rem; margin-top: 2px; }
-
-    .map-placeholder {
-      background: linear-gradient(135deg, var(--mint) 0%, var(--lavender) 100%);
-      border-radius: 16px;
-      height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
-      color: var(--brown-light);
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-    }
-    .map-placeholder:hover { opacity: 0.85; }
-    .map-placeholder .map-icon { font-size: 2rem; }
-
-    /* ─── SOCIAL ─── */
-    #social { background: linear-gradient(135deg, var(--lavender) 0%, var(--rose) 100%); }
-    .social-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-    .social-inner p {
-      color: var(--text-light);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(107,63,31,0.15);
-    }
-    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(107,63,31,0.2); }
-    .fb-btn { background: #1877f2; color: #fff; }
-    .ig-btn { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-    .social-btn .s-icon { font-size: 1.2rem; }
-
-    /* ─── CONTACT ─── */
-    #contact { background: var(--cream); }
-    .contact-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 3.5rem;
-      align-items: start;
-    }
-    .contact-info h2 { margin-bottom: 0.8rem; }
-    .contact-info p {
-      color: var(--text-light);
-      line-height: 1.7;
-      font-size: 1rem;
-      margin-bottom: 1.8rem;
-    }
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      margin-bottom: 1rem;
-      font-size: 0.98rem;
-    }
-    .contact-detail .cd-icon {
-      width: 42px; height: 42px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 10px rgba(107,63,31,0.10);
+    .about-circle {
+      width: 320px; height: 320px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush) 0%, #fde8c8 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+      box-shadow: 0 20px 60px var(--shadow);
       flex-shrink: 0;
     }
-    .contact-detail span { color: var(--text-light); }
-    .contact-detail a { color: var(--brown); text-decoration: none; font-weight: 700; }
-    .contact-detail a:hover { text-decoration: underline; }
+    .about-badge-pill {
+      position: absolute; bottom: 10px; right: 0;
+      background: var(--brown); color: var(--white);
+      padding: 0.6rem 1.2rem; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 700;
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+    .about-text p { color: #5c4030; margin-bottom: 1rem; }
+    .about-highlights { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .highlight-chip {
+      background: var(--cream); border: 1.5px solid var(--blush);
+      padding: 0.4rem 1rem; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; color: var(--brown);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
 
-    .contact-form-wrap {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 40px rgba(107,63,31,0.09);
+    /* ── SPECIALTIES ── */
+    #specialties {
+      background: linear-gradient(160deg, #fdf0f7 0%, #fdf6ee 60%, #f0f7f0 100%);
     }
-    .contact-form-wrap h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: var(--brown);
-      margin-bottom: 1.5rem;
+    .specialties-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem;
     }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .spec-card {
+      background: var(--white); border-radius: 20px;
+      padding: 2rem; text-align: center;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid transparent;
     }
-    .form-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1rem; }
-    .form-group label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .spec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px var(--shadow);
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      border: 2px solid var(--butter);
-      border-radius: 12px;
-      padding: 0.75rem 1rem;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      background: var(--cream);
+    .spec-card:nth-child(1) { border-color: var(--blush); }
+    .spec-card:nth-child(2) { border-color: var(--peach); }
+    .spec-card:nth-child(3) { border-color: var(--lavender); }
+    .spec-card:nth-child(4) { border-color: var(--sage); }
+    .spec-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .spec-card h3 { color: var(--brown); font-size: 1.25rem; margin-bottom: 0.6rem; }
+    .spec-card p { font-size: 0.92rem; color: #6b4e38; }
+
+    /* ── HOURS & LOCATION ── */
+    #visit { background: var(--white); }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px dashed #e8d8cc; }
+    .hours-table td { padding: 0.7rem 0; font-size: 0.95rem; }
+    .hours-table td:last-child { text-align: right; font-weight: 600; color: var(--brown); }
+    .hours-table tr.closed td { color: #aaa; }
+    .location-card {
+      background: linear-gradient(135deg, var(--blush) 0%, #fde8c8 100%);
+      border-radius: 20px; padding: 2rem;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+    .location-card h3 { color: var(--brown); margin-bottom: 1rem; font-size: 1.3rem; }
+    .location-detail { display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start; }
+    .location-detail .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .location-detail p { font-size: 0.95rem; color: #5c4030; }
+    .special-order-box {
+      background: var(--white); border-radius: 16px;
+      padding: 1.5rem; margin-top: 1.5rem;
+      border-left: 4px solid var(--peach);
+    }
+    .special-order-box h4 { color: var(--brown); margin-bottom: 0.5rem; }
+    .special-order-box p { font-size: 0.9rem; color: #6b4e38; }
+
+    /* ── SOCIAL CTA ── */
+    #social {
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--blush) 100%);
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    #social .section-title { color: var(--brown); }
+    #social p { color: #5c3a6e; font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem; }
+    .social-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.8rem; border-radius: 50px; font-weight: 700;
+      text-decoration: none; font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .fb-btn  { background: #1877f2; color: var(--white); }
+    .ig-btn  { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: var(--white); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-info h3 { color: var(--brown); font-size: 1.4rem; margin-bottom: 1.2rem; }
+    .contact-row {
+      display: flex; align-items: center; gap: 0.8rem;
+      margin-bottom: 1rem; font-size: 0.95rem;
+    }
+    .contact-row .cicon { font-size: 1.3rem; }
+    .contact-row a { color: var(--brown); text-decoration: none; font-weight: 600; }
+    .contact-row a:hover { text-decoration: underline; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid #e0cfc5; border-radius: 12px;
+      background: var(--white); font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem; color: var(--dark);
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
-      transition: border-color 0.25s;
-      width: 100%;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--brown-light); background: var(--white); }
-    .form-group textarea { resize: vertical; min-height: 110px; }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--peach);
+      box-shadow: 0 0 0 3px rgba(249,181,159,0.25);
+    }
+    .contact-form textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      background: var(--brown); color: var(--white);
+      padding: 0.8rem 2rem; border-radius: 50px;
+      border: none; font-family: 'Nunito', sans-serif;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: #5a3520; transform: translateY(-2px); }
+    #form-success {
+      display: none; background: var(--sage); color: var(--dark);
+      padding: 1rem 1.5rem; border-radius: 12px;
+      font-weight: 600; text-align: center;
+    }
 
-    .btn-submit {
-      width: 100%;
-      background: var(--brown);
-      color: var(--white);
-      border: none;
-      border-radius: 50px;
-      padding: 0.95rem;
-      font-family: 'Lato', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-      box-shadow: 0 4px 18px rgba(107,63,31,0.25);
-      margin-top: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-    .btn-submit:hover { background: var(--brown-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(107,63,31,0.3); }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .form-success .fs-icon { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
-    .form-success h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--brown);
-      margin-bottom: 0.5rem;
-    }
-    .form-success p { color: var(--text-light); font-size: 0.97rem; }
-
-    /* ─── FOOTER ─── */
+    /* ── FOOTER ── */
     footer {
-      background: var(--brown);
-      color: rgba(255,255,255,0.75);
+      background: var(--dark); color: #c8b8aa;
+      padding: 2.5rem 1.5rem;
       text-align: center;
-      padding: 3rem 1.5rem;
     }
     .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--white);
-      font-weight: 700;
+      font-size: 1.6rem; color: var(--blush);
       margin-bottom: 0.5rem;
-      display: block;
     }
-    .footer-tagline {
-      font-size: 0.92rem;
-      margin-bottom: 1.5rem;
-      color: rgba(255,255,255,0.6);
-    }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--butter); }
-    .footer-copy { font-size: 0.83rem; color: rgba(255,255,255,0.45); }
+    footer p { font-size: 0.88rem; }
+    footer a { color: var(--blush); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    /* ─── SCROLL REVEAL ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-visual { max-width: 400px; margin: 0 auto; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream); border-bottom: 1px solid var(--blush); padding: 1rem 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li { text-align: center; padding: 0.6rem 0; }
+      .nav-toggle { display: flex; }
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-circle { width: 240px; height: 240px; font-size: 4.5rem; }
+      .about-highlights { justify-content: center; }
+      .about-badge-pill { right: 50%; transform: translateX(50%); bottom: -15px; }
       .visit-grid { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
     }
-
-    @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      nav { padding: 0.85rem 1.2rem; }
-      section { padding: 4rem 1.2rem; }
-      .special-banner { flex-direction: column; text-align: center; }
-      .contact-form-wrap { padding: 1.8rem 1.2rem; }
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; align-items: center; }
+      .about-circle { width: 200px; height: 200px; font-size: 3.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#hero"><span class="icon">🥐</span> Miller's Bakery</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#offerings">Our Bakes</a></li>
-    <li><a href="#visit">Visit Us</a></li>
-    <li><a href="#contact" class="nav-cta">Order Now</a></li>
-  </ul>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo"><span>🥐</span> Miller's Bakery</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialties">Our Bakes</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
-  <a href="#about" class="mobile-link
+  <!-- HERO -->
+  <section id="hero">
+    <span class="floating-pastry fp1">🍞</span>
+    <span class="floating-pastry fp2">🎂</span>
+    <span class="floating-pastry fp3">🍪</span>
+    <span class="floating-pastry fp4">🥖</span>
+    <div class="hero-content">
+      <div class="hero-badge">Handcrafted with Love · Johnson City</div>
+      <h1 class="hero-title">Fresh from Our Oven <em>Every Morning</em></h1>
+      <p class="hero-sub">Custom cakes, seasonal pastries, and sourdough baked from scratch — because every bite should feel like home.</p>
+      <div class="hero-btns">
+        <a href="#specialties" class="btn btn-primary">See Our Bakes</a>
+        <a href="#contact" class="btn btn-outline">Place a Special Order</a>
+      </div>
+      <p class="hero-hours">
+        <strong>Tue–Sat</strong> 7am–4pm &nbsp;|&nbsp; <strong>Sun</strong> 8am–2pm &nbsp;|&nbsp; 142 Main Street
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual fade-up">
+          <div class="about-circle">🥐</div>
+          <div class="about-badge-pill">Est. 2018</div>
+        </div>
+        <div class="about-text fade-up">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">A Community Bakery, Through & Through</h2>
+          <div class="divider"></div>
+          <p>Miller's Bakery has been serving the Johnson City community since 2018. What started as a passion for honest, handcrafted baking has grown into a beloved neighborhood gathering spot where familiar faces and fresh aromas greet you every morning.</p>
+          <p>Our small, dedicated team shows up before sunrise to make sure every loaf, pastry, and celebration cake is made entirely from scratch. We believe great baking takes time, care, and a whole lot of heart — and that's exactly what we put into everything that comes out of our oven.</p>
+          <div class="about-highlights">
+            <span class="highlight-chip">🌾 Made from Scratch</span>
+            <span class="highlight-chip">🎂 Custom Orders</span>
+            <span class="highlight-chip">❤️ Local & Loved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALTIES -->
+  <section id="specialties">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">What We Bake</div>
+        <h2 class="section-title">Our Specialties</h2>
+        <div class="divider"></div>
+        <p class="section-intro">From everyday treats to once-in-a-lifetime cakes, everything on our menu is made with real ingredients and real passion.</p>
+      </div>
+      <div class="specialties-grid" style="margin-top:2.5rem;">
+        <div class="spec-card fade-up">
+          <div class="spec-icon">🎂</div>
+          <h3>Custom Celebration Cakes</h3>
+          <p>Birthdays, weddings, anniversaries, graduations — we design and bake custom cakes that are as beautiful as they are delicious. Just give us 48 hours notice!</p>
+        </div>
+        <div class="spec-card fade-up">
+          <div class="spec-icon">🥐</div>
+          <h3>Seasonal Pastries</h3>
+          <p>From flaky croissants to fruit-filled danishes and holiday specials, our pastry case rotates with the seasons and always has something worth waking up for.</p>
+        </div>
+        <div class="spec-card fade-up">
+          <div class="spec-icon">🍞</div>
+          <h3>Freshly Baked Sourdough</h3>
+          <p>Our sourdough breads are made fresh every single morning using a slow, natural fermentation process. Crispy crust, chewy interior, zero shortcuts.</p>
+        </div>
+        <div class="spec-card fade-up">
+          <div class="spec-icon">🍪</div>
+          <h3>Cookies & Office Favorites</h3>
+          <p>Picking up a dozen cookies for the office? We've got you covered with classic chocolate chip, snickerdoodle, oatmeal raisin, and daily specials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section id="visit">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Find Us</div>
+        <h2 class="section-title">Hours & Location</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="visit-grid">
+        <div class="fade-up">
+          <h3 style="color:var(--brown);margin-bottom:1.2rem;font-size:1.2rem;">Store Hours</h3>
+          <table class="hours-table">
+            <tr class="closed"><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday</td><td>7:00 am – 4:00 pm</td></tr>
+            <tr><td>Wednesday</td><td>7:00 am – 4:00 pm</td></tr>
+            <tr><td>Thursday</td><td>7:00 am – 4:00 pm</td></tr>
+            <tr><td>Friday</td><td>7:00 am – 4:00 pm</td></tr>
+            <tr><td>Saturday</td><td>7:00 am – 4:00 pm</td></tr>
+            <tr><td>Sunday</td><td>8:00 am – 2:00 pm</td></tr>
+          </table>
+          <div class="special-order-box" style="margin-top:1.8rem;">
+            <h4>⏰ Special Orders</h4>
+            <p>Need a custom cake or specialty item? We happily accommodate special orders with <strong>48 hours notice</strong>. Just call us or stop by and we'll take care of you.</p>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="location-card">
+            <h3>Come See Us!</h3>
+            <div class="location-detail">
+              <span class="icon">📍</span>
+              <p><strong>142 Main Street</strong><br/>Johnson City</p>
+            </div>
+            <div class="location-detail">
+              <span class="icon">📞</span>
+              <p><a href="tel:8888888888" style="color:var(--brown);font-weight:700;">(888) 888-8888</a></p>
+            </div>
+            <div class="location-detail">
+              <span class="icon">✉️</span>
+              <p><a href="mailto:chrisp3950@gmail.com" style="color:var(--brown);font-weight:700;">chrisp3950@gmail.com</a></p>
+            </div>
+            <div class="location-detail">
+              <span class="icon">🚗</span>
+              <p>Street parking available. We're right in the heart of Johnson City — you can't miss the smell of fresh bread!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL CTA -->
+  <section id="social">
+    <div class="container fade-up">
+      <div class="section-label" style="color:var(--brown);">Stay in the Loop</div>
+      <h2 class="section-title">See What's Fresh This Week</h2>
+      <p>Follow us on Facebook and Instagram for daily specials, behind-the-scenes peeks, and to see exactly what's coming out of our oven this week. You'll definitely want a heads-up.</p>
+      <div class="social-btns">
+        <a href="#" class="social-btn fb-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Follow on Facebook
+        </a>
+        <a href="#" class="social-btn ig-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">We'd Love to Hear from You</h2>
+        <div class="divider"></div>
+        <p class="section-intro">Questions, custom cake inquiries, or just want to say hi? Drop us a message and we'll
 <style>
 #and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
 background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
