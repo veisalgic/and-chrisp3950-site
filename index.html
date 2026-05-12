@@ -1,132 +1,110 @@
 <!DOCTYPE html>
-<!-- AND-V4 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miller's Bakery — Freshly Baked with Love</title>
+<title>Miller's Bakery — Fresh From Our Oven</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
-<body class="font-sans bg-white text-gray-800" style="font-family:'Lato',sans-serif;">
+<body class="font-sans bg-amber-50 text-stone-800" style="font-family:'Inter',sans-serif;">
 
 <!-- NAV -->
 <nav class="sticky top-0 z-50 bg-white shadow-md">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <span class="text-3xl">🥖</span>
-      <span class="text-2xl font-bold text-amber-800" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
+      <span class="text-3xl">🥐</span>
+      <span class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
     </div>
-    <div class="flex gap-6 text-sm font-semibold text-amber-900 uppercase tracking-wide">
-      <a href="#featured" class="hover:text-amber-600 transition-colors">Specials</a>
-      <a href="#about" class="hover:text-amber-600 transition-colors">About</a>
-      <a href="#menu" class="hover:text-amber-600 transition-colors">Menu</a>
-      <a href="#gallery" class="hover:text-amber-600 transition-colors">Gallery</a>
-      <a href="#testimonials" class="hover:text-amber-600 transition-colors">Reviews</a>
-      <a href="#hours" class="hover:text-amber-600 transition-colors">Visit Us</a>
-      <a href="#contact" class="hover:text-amber-600 transition-colors">Contact</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+      <a href="#featured" class="hover:text-amber-700 transition-colors">Favorites</a>
+      <a href="#about" class="hover:text-amber-700 transition-colors">Our Story</a>
+      <a href="#menu" class="hover:text-amber-700 transition-colors">Menu</a>
+      <a href="#gallery" class="hover:text-amber-700 transition-colors">Gallery</a>
+      <a href="#testimonials" class="hover:text-amber-700 transition-colors">Reviews</a>
+      <a href="#hours" class="hover:text-amber-700 transition-colors">Visit Us</a>
+      <a href="#contact" class="bg-amber-600 text-white px-5 py-2 rounded-full hover:bg-amber-700 transition-colors">Order Now</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="min-h-screen bg-gradient-to-br from-amber-400 via-orange-300 to-yellow-200 flex items-center justify-center text-center px-6">
-  <div style="animation: fadeIn 1s ease forwards;">
-    <p class="text-amber-800 uppercase tracking-widest text-sm font-bold mb-4">Est. 2009 · Maplewood, NJ</p>
-    <h1 class="text-6xl md:text-7xl font-black text-amber-900 leading-tight mb-6" style="font-family:'Playfair Display',serif;">
-      Baked Fresh.<br>Every Single Morning.
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-400 via-orange-300 to-yellow-200">
+  <div class="text-center px-6 max-w-4xl mx-auto" style="animation: fadeIn 0.8s ease both;">
+    <p class="text-amber-800 font-semibold uppercase tracking-widest text-sm mb-4">Baked Fresh Every Morning Since 1987</p>
+    <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-tight" style="font-family:'Playfair Display',serif;">
+      Where Every Bite Feels Like Home
     </h1>
-    <p class="text-xl md:text-2xl text-amber-800 max-w-2xl mx-auto mb-4 font-light">
-      Miller's Bakery has been crafting handmade breads, pastries, and cakes from scratch using only the finest local ingredients.
-    </p>
-    <p class="text-lg text-amber-700 max-w-xl mx-auto mb-10">
-      From our wood-fired sourdough to our legendary cinnamon morning buns, every bite tells the story of a family's passion for real baking.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#menu" class="bg-amber-800 text-white text-lg font-bold px-10 py-4 rounded-full hover:bg-amber-900 shadow-lg transition-colors">Browse Our Menu</a>
-      <a href="#contact" class="bg-white text-amber-800 text-lg font-bold px-10 py-4 rounded-full hover:bg-amber-50 shadow-lg border-2 border-amber-800 transition-colors">Order for Pickup</a>
+    <p class="text-xl md:text-2xl text-amber-900 mb-4 font-medium">Miller's Bakery has been the heart of Maplewood for over three decades, crafting artisan breads, pastries, and cakes from scratch using time-honored family recipes. From our wood-fired sourdough to our legendary cinnamon rolls, every item is made with locally sourced ingredients and genuine love.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="#menu" class="bg-white text-amber-700 font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-amber-50 transition-colors">Browse Our Menu</a>
+      <a href="#contact" class="bg-amber-700 text-white font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-amber-800 transition-colors">Place a Custom Order</a>
     </div>
   </div>
 </section>
 
 <!-- FEATURED -->
-<section id="featured" class="py-24 bg-amber-50 px-6">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-4" style="font-family:'Playfair Display',serif;">Customer Favorites</h2>
-    <p class="text-center text-amber-700 mb-14 text-lg">These three items sell out before 10am — order ahead to guarantee yours.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Card 1 -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="bg-gradient-to-br from-amber-300 to-orange-400 h-48 flex items-center justify-center">
-          <span class="text-7xl">🍞</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-amber-900 mb-2" style="font-family:'Playfair Display',serif;">Classic Sourdough Boule</h3>
-          <p class="text-gray-600 text-sm mb-4">Our flagship 72-hour cold-ferment sourdough baked in a cast-iron dutch oven for a shatteringly crisp crust. Made with locally milled whole wheat and King Arthur bread flour. Perfect for sandwiches, toasting, or tearing apart at the dinner table.</p>
-          <span class="text-amber-700 font-bold text-lg">$9.50</span>
-        </div>
+<section id="featured" class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-5xl font-black text-amber-800 mb-4" style="font-family:'Playfair Display',serif;">Customer Favorites</h2>
+    <p class="text-stone-500 text-lg max-w-xl mx-auto">These three items fly out of the case every single morning. Don't miss them — they sell out by 10am.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+      <div class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+        <span class="text-7xl">🍞</span>
       </div>
-
-      <!-- Card 2 -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="bg-gradient-to-br from-yellow-300 to-amber-400 h-48 flex items-center justify-center">
-          <span class="text-7xl">🥐</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-amber-900 mb-2" style="font-family:'Playfair Display',serif;">Laminated Butter Croissant</h3>
-          <p class="text-gray-600 text-sm mb-4">Three days of folding European-style cultured butter into our hand-laminated dough creates 81 paper-thin layers of pure pastry perfection. Golden, flaky, and impossibly light with a honeyed buttery interior. Served warm from the oven every morning at 7am sharp.</p>
-          <span class="text-amber-700 font-bold text-lg">$4.75</span>
-        </div>
+      <div class="p-6">
+        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Heritage Sourdough Loaf</h3>
+        <p class="text-stone-500 text-sm mb-4">Hand-shaped and slow-fermented for 18 hours, our sourdough features a crackling golden crust and an open, chewy crumb. Made with our 35-year-old starter, "Betsy," it's the loaf that started it all. Pairs beautifully with cultured butter or a hearty soup.</p>
+        <p class="text-amber-700 font-bold text-xl">$9.50</p>
       </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="bg-gradient-to-br from-orange-300 to-rose-400 h-48 flex items-center justify-center">
-          <span class="text-7xl">🎂</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-amber-900 mb-2" style="font-family:'Playfair Display',serif;">Honey Cardamom Layer Cake</h3>
-          <p class="text-gray-600 text-sm mb-4">Four tender layers of cardamom-spiced sponge filled with a whipped local honey mascarpone cream and topped with a glossy honey drizzle and edible flowers. This showstopper cake is available whole for special occasions or by the slice on weekends. Order 48 hours in advance for full cakes.</p>
-          <span class="text-amber-700 font-bold text-lg">$7.25/slice · $58 whole</span>
-        </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+      <div class="h-48 bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center">
+        <span class="text-7xl">🍰</span>
       </div>
-
+      <div class="p-6">
+        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Raspberry Almond Cake</h3>
+        <p class="text-stone-500 text-sm mb-4">Three layers of light almond sponge filled with fresh raspberry compote and whipped mascarpone cream, finished with a dusting of powdered sugar and a crown of whole berries. Perfect for birthdays, celebrations, or a Tuesday when you deserve something wonderful.</p>
+        <p class="text-amber-700 font-bold text-xl">$38.00 / whole | $6.50 / slice</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+      <div class="h-48 bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center">
+        <span class="text-7xl">🥐</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-2xl font-bold text-stone-800 mb-2" style="font-family:'Playfair Display',serif;">Kouign-Amann</h3>
+        <p class="text-stone-500 text-sm mb-4">Our beloved Breton pastry is laminated with European-style butter and caramelized sugar, yielding flaky, shattering layers with a glossy, candy-crisp bottom. We bake exactly 24 each morning and they're almost always gone by 9:30am — we strongly suggest arriving early.</p>
+        <p class="text-amber-700 font-bold text-xl">$5.25</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-24 bg-white px-6">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
     <div>
-      <p class="text-amber-600 uppercase tracking-widest text-sm font-bold mb-3">Our Story</p>
-      <h2 class="text-4xl font-black text-amber-900 mb-8" style="font-family:'Playfair Display',serif;">A Family Recipe,<br>Fifteen Years in the Making</h2>
-      <p class="text-gray-700 leading-relaxed mb-5">
-        Miller's Bakery was founded in 2009 by James and Clara Miller, a husband-and-wife team who left careers in finance and graphic design to pursue the one thing they loved more than anything else: the smell of fresh bread in the morning. James had spent years refining his sourdough technique in their small Maplewood apartment, gifting loaves to neighbors until the demand grew too big for a home oven. Clara designed the original logo on a napkin the night they signed the lease on their first 400-square-foot shop on Elm Street.
-      </p>
-      <p class="text-gray-700 leading-relaxed mb-5">
-        What started as a two-person operation with one commercial oven and a secondhand display case has grown into a beloved community institution with a team of eight bakers, a pastry chef, and a front-of-house crew that knows most regulars by name. Head pastry chef Dominique Reyes joined in 2014, bringing French patisserie training from the Ferrandi School in Paris and elevating Miller's cake and croissant program to something truly extraordinary.
-      </p>
-      <p class="text-gray-700 leading-relaxed mb-5">
-        Our mission has never changed: bake honest food from real ingredients, charge fair prices, and make our neighborhood a little sweeter every day. We source our dairy from Sunrise Valley Farm in Morris County, our eggs from Blackwood Hollow Chickens just 12 miles away, and our flour from a heritage grain mill in upstate New York. Nothing artificial, no shortcuts, no apologies.
-      </p>
-      <p class="text-gray-700 leading-relaxed">
-        We believe a great bakery is more than a place to buy bread — it's a gathering place, a slow-down-and-breathe place, a place where you run into your neighbor and share a table. Miller's is open seven days a week because good baking deserves no days off. James still shapes every sourdough boule himself each morning, arriving at 4am without complaint. That dedication is baked into every loaf we sell.
-      </p>
+      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">Our Story</p>
+      <h2 class="text-5xl font-black text-stone-800 mb-8" style="font-family:'Playfair Display',serif;">Three Generations of Flour, Butter & Heart</h2>
+      <p class="text-stone-600 text-lg leading-relaxed mb-5">Miller's Bakery was founded in 1987 by Harold and Dorothy Miller, who had spent years dreaming of opening a neighborhood bakery that felt like an extension of their own kitchen. Harold, a trained pastry chef who had apprenticed in Lyon, France, combined classical technique with Dorothy's instinct for warmth and community. They opened their first location on 412 Elmwood Avenue with $6,000 in savings, a secondhand deck oven, and an unwavering belief that great bread could change a morning.</p>
+      <p class="text-stone-600 text-lg leading-relaxed mb-5">In 2003, their daughter Claire Miller-Voss took over day-to-day operations and expanded the menu to include celebration cakes, seasonal pastries, and a full café line. Claire brought a modern sensibility to the recipes while fiercely protecting the traditions her parents had built. Under her leadership, the bakery won the Maplewood Small Business Award four years running and grew from a staff of three to a team of nineteen passionate bakers and baristas.</p>
+      <p class="text-stone-600 text-lg leading-relaxed mb-5">Our mission is simple: use the best ingredients we can source, waste as little as possible, and make every customer feel genuinely cared for. We partner with Sunnyside Farm in Westbrook for eggs and dairy, Ridgeline Mills for our heritage-grain flours, and a rotating selection of local fruit growers to keep our seasonal offerings honest and fresh.</p>
+      <p class="text-stone-600 text-lg leading-relaxed">We believe a great bakery is a kind of anchor for a neighborhood — a place where regulars are known by name, where the smell of fresh bread signals safety and comfort, and where celebration and ordinary Tuesday mornings deserve equal joy. We're so grateful you've found us, and we can't wait to bake something special for you.</p>
     </div>
-    <div class="bg-gradient-to-br from-amber-400 via-orange-300 to-yellow-300 rounded-3xl h-96 md:h-full min-h-96 flex flex-col items-center justify-center gap-4 shadow-xl">
-      <span class="text-8xl">👨‍🍳</span>
-      <p class="text-amber-900 font-bold text-xl text-center px-6" style="font-family:'Playfair Display',serif;">James & Clara Miller</p>
-      <p class="text-amber-800 text-center px-8 text-sm">Founders · Head Baker & Creative Director</p>
-      <div class="flex gap-3 mt-2">
-        <span class="text-4xl">🥖</span>
-        <span class="text-4xl">🧁</span>
-        <span class="text-4xl">🍰</span>
-      </div>
+    <div class="h-full min-h-96 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 rounded-3xl flex flex-col items-center justify-center gap-4 shadow-xl">
+      <span class="text-9xl">👩‍🍳</span>
+      <p class="text-white font-bold text-2xl" style="font-family:'Playfair Display',serif;">Claire Miller-Voss</p>
+      <p class="text-amber-100 text-sm font-medium uppercase tracking-widest">Head Baker & Owner</p>
+      <span class="text-5xl mt-2">🌾</span>
     </div>
   </div>
 </section>
@@ -134,147 +112,147 @@
 <!-- MENU / SERVICES -->
 <section id="menu" class="py-24 bg-amber-50 px-6">
   <div class="max-w-7xl mx-auto">
-    <p class="text-amber-600 uppercase tracking-widest text-sm font-bold text-center mb-3">What We Bake</p>
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-4" style="font-family:'Playfair Display',serif;">Full Menu</h2>
-    <p class="text-center text-gray-600 mb-16 max-w-xl mx-auto">All items baked fresh daily. Availability varies — call ahead or order online for guaranteed pickup. Prices subject to seasonal ingredient changes.</p>
+    <div class="text-center mb-16">
+      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">What We Bake</p>
+      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Our Full Menu</h2>
+      <p class="text-stone-500 text-lg max-w-xl mx-auto">Everything is baked fresh daily. Seasonal items rotate — ask your server what's just come out of the oven.</p>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
       <!-- Category 1: Breads -->
-      <div class="bg-white rounded-2xl shadow-md p-8">
-        <div class="bg-gradient-to-br from-amber-200 to-amber-400 rounded-xl h-20 flex items-center justify-center mb-6">
-          <span class="text-5xl">🍞</span>
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-4xl">🍞</span>
+          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Artisan Breads</h3>
         </div>
-        <h3 class="text-2xl font-bold text-amber-900 mb-6" style="font-family:'Playfair Display',serif;">Artisan Breads</h3>
         <div class="space-y-5">
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Classic Sourdough Boule</span>
-              <span class="text-amber-700 font-bold ml-4">$9.50</span>
+              <p class="font-bold text-stone-800">Heritage Sourdough</p>
+              <p class="text-amber-700 font-bold ml-4">$9.50</p>
             </div>
-            <p class="text-sm text-gray-500">72-hour cold ferment, whole wheat & bread flour blend, dutch-oven baked</p>
+            <p class="text-stone-500 text-sm">Our 35-year-old starter, long-fermented, wood-fired crust.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Seeded Rye Loaf</span>
-              <span class="text-amber-700 font-bold ml-4">$10.00</span>
+              <p class="font-bold text-stone-800">Seeded Rye Loaf</p>
+              <p class="text-amber-700 font-bold ml-4">$8.75</p>
             </div>
-            <p class="text-sm text-gray-500">Dark rye with caraway, sunflower seeds, and a touch of molasses</p>
+            <p class="text-stone-500 text-sm">Dark rye with caraway, sunflower, and pumpkin seeds. Dense and hearty.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Rosemary Focaccia</span>
-              <span class="text-amber-700 font-bold ml-4">$8.00</span>
+              <p class="font-bold text-stone-800">Honey Oat Sandwich Loaf</p>
+              <p class="text-amber-700 font-bold ml-4">$7.50</p>
             </div>
-            <p class="text-sm text-gray-500">Sheet-pan style, extra virgin olive oil, flaky sea salt, fresh rosemary</p>
+            <p class="text-stone-500 text-sm">Soft, lightly sweet, rolled oats on top — perfect for morning toast.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Brioche Sandwich Loaf</span>
-              <span class="text-amber-700 font-bold ml-4">$11.50</span>
+              <p class="font-bold text-stone-800">Jalapeño Cheddar Batard</p>
+              <p class="text-amber-700 font-bold ml-4">$10.25</p>
             </div>
-            <p class="text-sm text-gray-500">Pillowy enriched dough with local eggs and cultured butter, sliced to order</p>
+            <p class="text-stone-500 text-sm">Sharp Vermont cheddar and pickled jalapeños folded into sourdough dough.</p>
           </div>
           <div>
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Multigrain Batard</span>
-              <span class="text-amber-700 font-bold ml-4">$9.75</span>
+              <p class="font-bold text-stone-800">Focaccia of the Day</p>
+              <p class="text-amber-700 font-bold ml-4">$6.00</p>
             </div>
-            <p class="text-sm text-gray-500">Seven-grain blend with oats, millet, flaxseed, and honey glaze</p>
+            <p class="text-stone-500 text-sm">Topped with seasonal ingredients — ask what's on today's board.</p>
           </div>
         </div>
       </div>
 
       <!-- Category 2: Pastries -->
-      <div class="bg-white rounded-2xl shadow-md p-8">
-        <div class="bg-gradient-to-br from-yellow-200 to-orange-300 rounded-xl h-20 flex items-center justify-center mb-6">
-          <span class="text-5xl">🥐</span>
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-4xl">🥐</span>
+          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Pastries & Viennoiserie</h3>
         </div>
-        <h3 class="text-2xl font-bold text-amber-900 mb-6" style="font-family:'Playfair Display',serif;">Pastries & Morning Bakes</h3>
         <div class="space-y-5">
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Butter Croissant</span>
-              <span class="text-amber-700 font-bold ml-4">$4.75</span>
+              <p class="font-bold text-stone-800">Classic Butter Croissant</p>
+              <p class="text-amber-700 font-bold ml-4">$4.25</p>
             </div>
-            <p class="text-sm text-gray-500">81-layer hand-laminated, European cultured butter, flaky and golden</p>
+            <p class="text-stone-500 text-sm">81 layers of European butter lamination. Shatters when you bite it.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Cinnamon Morning Bun</span>
-              <span class="text-amber-700 font-bold ml-4">$5.25</span>
+              <p class="font-bold text-stone-800">Kouign-Amann</p>
+              <p class="text-amber-700 font-bold ml-4">$5.25</p>
             </div>
-            <p class="text-sm text-gray-500">Rolled in cinnamon sugar, baked in a muffin tin for caramelized edges</p>
+            <p class="text-stone-500 text-sm">Caramelized, flaky, limited to 24 daily. Arrive early.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Almond Frangipane Tart</span>
-              <span class="text-amber-700 font-bold ml-4">$6.50</span>
+              <p class="font-bold text-stone-800">Dorothy's Cinnamon Roll</p>
+              <p class="text-amber-700 font-bold ml-4">$5.75</p>
             </div>
-            <p class="text-sm text-gray-500">Buttery shortcrust shell filled with almond cream, topped with flaked almonds</p>
+            <p class="text-stone-500 text-sm">Named for our founder. Brown butter cream cheese icing, pecans on top.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Seasonal Galette</span>
-              <span class="text-amber-700 font-bold ml-4">$5.75</span>
+              <p class="font-bold text-stone-800">Almond Twice-Baked Croissant</p>
+              <p class="text-amber-700 font-bold ml-4">$5.50</p>
             </div>
-            <p class="text-sm text-gray-500">Rustic free-form pastry filled with whatever fruit is freshest from local farms</p>
+            <p class="text-stone-500 text-sm">Day-old croissant soaked in rum syrup, filled and topped with frangipane.</p>
           </div>
           <div>
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Chocolate Pain Suisse</span>
-              <span class="text-amber-700 font-bold ml-4">$5.50</span>
+              <p class="font-bold text-stone-800">Seasonal Galette</p>
+              <p class="text-amber-700 font-bold ml-4">$6.00</p>
             </div>
-            <p class="text-sm text-gray-500">Croissant dough rolled with dark Valrhona chocolate chips and pastry cream</p>
+            <p class="text-stone-500 text-sm">Rustic free-form tart with whatever fruit is at peak ripeness this week.</p>
           </div>
         </div>
       </div>
 
-      <!-- Category 3: Cakes & Sweets -->
-      <div class="bg-white rounded-2xl shadow-md p-8">
-        <div class="bg-gradient-to-br from-rose-200 to-pink-400 rounded-xl h-20 flex items-center justify-center mb-6">
-          <span class="text-5xl">🎂</span>
+      <!-- Category 3: Cakes & Custom -->
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-4xl">🎂</span>
+          <h3 class="text-2xl font-black text-amber-700" style="font-family:'Playfair Display',serif;">Cakes & Custom Orders</h3>
         </div>
-        <h3 class="text-2xl font-bold text-amber-900 mb-6" style="font-family:'Playfair Display',serif;">Cakes & Special Sweets</h3>
         <div class="space-y-5">
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Honey Cardamom Cake</span>
-              <span class="text-amber-700 font-bold ml-4">$7.25/sl · $58</span>
+              <p class="font-bold text-stone-800">Raspberry Almond Cake</p>
+              <p class="text-amber-700 font-bold ml-4">from $38</p>
             </div>
-            <p class="text-sm text-gray-500">Four cardamom sponge layers, honey mascarpone cream, edible flowers</p>
+            <p class="text-stone-500 text-sm">Three-layer almond sponge with fresh raspberry compote and mascarpone.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Classic Birthday Cake</span>
-              <span class="text-amber-700 font-bold ml-4">From $55</span>
+              <p class="font-bold text-stone-800">Dark Chocolate Ganache Torte</p>
+              <p class="text-amber-700 font-bold ml-4">from $42</p>
             </div>
-            <p class="text-sm text-gray-500">Vanilla bean sponge, Swiss meringue buttercream, fully customizable design</p>
+            <p class="text-stone-500 text-sm">70% cacao sponge, espresso buttercream, mirror glaze finish. Rich and stunning.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Flourless Chocolate Torte</span>
-              <span class="text-amber-700 font-bold ml-4">$6.75/slice</span>
+              <p class="font-bold text-stone-800">Lemon Lavender Celebration Cake</p>
+              <p class="text-amber-700 font-bold ml-4">from $45</p>
             </div>
-            <p class="text-sm text-gray-500">Dense, fudgy Valrhona torte with raspberry coulis and sea salt flakes</p>
+            <p class="text-stone-500 text-sm">Lemon curd filling, lavender Swiss meringue, dried flower garnish.</p>
           </div>
           <div class="border-b border-amber-100 pb-4">
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Lemon Poppy Pound Cake</span>
-              <span class="text-amber-700 font-bold ml-4">$4.50/slice</span>
+              <p class="font-bold text-stone-800">Custom Wedding Tiers</p>
+              <p class="text-amber-700 font-bold ml-4">Quoted</p>
             </div>
-            <p class="text-sm text-gray-500">Bright Meyer lemon zest, poppy seeds, glazed with lemon icing</p>
+            <p class="text-stone-500 text-sm">Consult with Claire to design your dream cake. 4-week lead time required.</p>
           </div>
           <div>
             <div class="flex justify-between items-start mb-1">
-              <span class="font-bold text-gray-800">Assorted Cookie Box</span>
-              <span class="text-amber-700 font-bold ml-4">$18 / 12pc</span>
+              <p class="font-bold text-stone-800">Dozen Cookie Box</p>
+              <p class="text-amber-700 font-bold ml-4">$22.00</p>
             </div>
-            <p class="text-sm text-gray-500">Rotating selection: brown butter chocolate chip, shortbread, snickerdoodle</p>
+            <p class="text-stone-500 text-sm">Mixed box: chocolate chip, snickerdoodle, brown butter tahini, and shortbread.</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -282,52 +260,48 @@
 <!-- GALLERY -->
 <section id="gallery" class="py-24 bg-white px-6">
   <div class="max-w-7xl mx-auto">
-    <p class="text-amber-600 uppercase tracking-widest text-sm font-bold text-center mb-3">From Our Ovens</p>
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-14" style="font-family:'Playfair Display',serif;">A Peek Inside Miller's</h2>
+    <div class="text-center mb-16">
+      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">From Our Kitchen</p>
+      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Fresh Out the Oven</h2>
+      <p class="text-stone-500 text-lg max-w-xl mx-auto">A glimpse into the daily magic at Miller's Bakery — from 4am prep to the last crumb of the afternoon rush.</p>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-amber-300 to-orange-400 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
+      <div>
+        <div class="h-56 bg-gradient-to-br from-amber-300 to-orange-400 rounded-2xl flex items-center justify-center mb-3">
           <span class="text-7xl">🍞</span>
         </div>
-        <p class="text-gray-700 font-semibold">Morning sourdough boules cooling on the rack</p>
+        <p class="text-center text-stone-600 font-semibold">Heritage Sourdough — fresh from the deck oven at 6am</p>
       </div>
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-yellow-200 to-yellow-400 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
-          <span class="text-7xl">🥐</span>
-        </div>
-        <p class="text-gray-700 font-semibold">Freshly laminated croissants right before the oven</p>
-      </div>
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-rose-300 to-pink-500 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
+      <div>
+        <div class="h-56 bg-gradient-to-br from-rose-300 to-pink-500 rounded-2xl flex items-center justify-center mb-3">
           <span class="text-7xl">🎂</span>
         </div>
-        <p class="text-gray-700 font-semibold">Dominique finishing a honey cardamom celebration cake</p>
+        <p class="text-center text-stone-600 font-semibold">Custom wedding cake — lemon lavender, three tiers</p>
       </div>
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-orange-300 to-amber-500 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
-          <span class="text-7xl">🧁</span>
+      <div>
+        <div class="h-56 bg-gradient-to-br from-yellow-300 to-amber-400 rounded-2xl flex items-center justify-center mb-3">
+          <span class="text-7xl">🥐</span>
         </div>
-        <p class="text-gray-700 font-semibold">Weekend cupcake spread — vanilla, lemon, and mocha</p>
+        <p class="text-center text-stone-600 font-semibold">Morning lamination — 81 butter layers, folded by hand</p>
       </div>
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-green-200 to-teal-400 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
+      <div>
+        <div class="h-56 bg-gradient-to-br from-orange-300 to-red-400 rounded-2xl flex items-center justify-center mb-3">
+          <span class="text-7xl">🍰</span>
+        </div>
+        <p class="text-center text-stone-600 font-semibold">Raspberry almond cake — sliced and ready for the case</p>
+      </div>
+      <div>
+        <div class="h-56 bg-gradient-to-br from-lime-300 to-green-400 rounded-2xl flex items-center justify-center mb-3">
+          <span class="text-7xl">🌾</span>
+        </div>
+        <p class="text-center text-stone-600 font-semibold">Heritage grain flour delivery from Ridgeline Mills, Westbrook</p>
+      </div>
+      <div>
+        <div class="h-56 bg-gradient-to-br from-purple-300 to-violet-500 rounded-2xl flex items-center justify-center mb-3">
           <span class="text-7xl">☕</span>
         </div>
-        <p class="text-gray-700 font-semibold">Our cozy café corner with Counter Culture coffee</p>
+        <p class="text-center text-stone-600 font-semibold">The morning café counter — where regulars begin their day</p>
       </div>
-
-      <div class="text-center">
-        <div class="bg-gradient-to-br from-purple-300 to-indigo-400 h-56 rounded-2xl flex items-center justify-center mb-3 shadow-md">
-          <span class="text-7xl">👨‍🍳</span>
-        </div>
-        <p class="text-gray-700 font-semibold">James shaping the 4am dough — every morning, no exceptions</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -335,37 +309,36 @@
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="py-24 bg-amber-50 px-6">
   <div class="max-w-7xl mx-auto">
-    <p class="text-amber-600 uppercase tracking-widest text-sm font-bold text-center mb-3">What People Are Saying</p>
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-14" style="font-family:'Playfair Display',serif;">Loved by Our Neighbors</h2>
+    <div class="text-center mb-16">
+      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">What People Say</p>
+      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Loved by Maplewood</h2>
+      <p class="text-stone-500 text-lg max-w-xl mx-auto">Don't take our word for it — here's what our neighbors have to say.</p>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-shadow">
-        <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-        <p class="text-gray-700 leading-relaxed mb-6 italic">"I moved to Maplewood two years ago and finding Miller's was the best thing about this town. The sourdough boule is genuinely the best I've had outside of San Francisco — serious shatteringly crisp crust, tangy crumb, absolute perfection. I order two every Saturday and one is gone before I even get home. James and his team have created something truly special here."</p>
-        <div>
-          <p class="font-bold text-amber-900">Rachel Thornton</p>
-          <p class="text-sm text-gray-500">Maplewood resident & food blogger</p>
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
+        <p class="text-stone-600 leading-relaxed mb-6">"I moved to Maplewood two years ago and finding Miller's Bakery made me feel like I'd finally arrived home. I get the Heritage Sourdough every Saturday — the crust shatters beautifully and the crumb is perfectly chewy. Last month I ordered a custom birthday cake for my daughter, and Claire absolutely knocked it out of the park. Three layers of chocolate ganache with her name piped in gold. Genuinely the best bakery I've visited anywhere in New England."</p>
+        <div class="border-t border-amber-100 pt-4">
+          <p class="font-bold text-stone-800">Sarah Okonkwo</p>
+          <p class="text-stone-400 text-sm">Maplewood resident, regular Saturday customer</p>
         </div>
       </div>
-
-      <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-shadow">
-        <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-        <p class="text-gray-700 leading-relaxed mb-6 italic">"We ordered a custom three-tier honey cardamom cake for our wedding reception and Dominique completely blew us away. She took our vague description — 'sort of romantic, kind of wildflower-y' — and turned it into the most stunning cake I've ever seen. Every single guest asked for the bakery card. The flavor was even better than the looks, which I honestly didn't think was possible."</p>
-        <div>
-          <p class="font-bold text-amber-900">Marcus & Priya Delacroix</p>
-          <p class="text-sm text-gray-500">Newlyweds, South Orange NJ</p>
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
+        <p class="text-stone-600 leading-relaxed mb-6">"My wife and I had Miller's Bakery make our wedding cake and it was an absolute dream. We met with Claire three times to nail down the flavors — lemon curd and lavender — and she remembered every detail we mentioned in our very first conversation. The cake was not only stunning but genuinely the best thing anyone ate at our reception. Seven months later, guests still bring it up. We stop in every Sunday for croissants and a coffee and it never disappoints."</p>
+        <div class="border-t border-amber-100 pt-4">
+          <p class="font-bold text-stone-800">Marcus & Delia Tran</p>
+          <p class="text-stone-400 text-sm">Newlyweds, Elmwood Avenue neighbors</p>
         </div>
       </div>
-
-      <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-shadow">
-        <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
-        <p class="text-gray-700 leading-relaxed mb-6 italic">"My kids flat-out refuse to eat any other cinnamon rolls now and honestly I don't blame them. Miller's morning buns have that perfect caramelized edge you only get when someone actually cares about what they're making. We come every Sunday as a family ritual — Clara always has a sample waiting for the little ones. The coffee is excellent too, which means I actually look forward to the 7am school run."</p>
-        <div>
-          <p class="font-bold text-amber-900">Stephanie Park</p>
-          <p class="text-sm text-gray-500">Mom of three, Maplewood local since 2016</p>
+      <div class="bg-white rounded-3xl shadow-md p-8">
+        <p class="text-amber-400 text-2xl mb-4">★★★★★</p>
+        <p class="text-stone-600 leading-relaxed mb-6">"I've been a professional food critic for twelve years and I don't give five stars lightly. But the Kouign-Amann at Miller's is genuinely world-class — I've had the same pastry in Brittany and this stands up to it completely. The caramelization is perfect, not bitter, with that extraordinary shattering pull-apart texture. Dorothy's Cinnamon Roll is also not to be overlooked: the brown butter cream cheese icing alone is worth the drive from Portland. This bakery is a regional treasure."</p>
+        <div class="border-t border-amber-100 pt-4">
+          <p class="font-bold text-stone-800">James Hollingsworth</p>
+          <p class="text-stone-400 text-sm">Food writer, New England Table Magazine</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -373,159 +346,144 @@
 <!-- HOURS & LOCATION -->
 <section id="hours" class="py-24 bg-white px-6">
   <div class="max-w-7xl mx-auto">
-    <p class="text-amber-600 uppercase tracking-widest text-sm font-bold text-center mb-3">Find Us</p>
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-14" style="font-family:'Playfair Display',serif;">Hours & Location</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-
-      <!-- Hours + Address -->
+    <div class="text-center mb-16">
+      <p class="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">Find Us</p>
+      <h2 class="text-5xl font-black text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Hours & Location</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       <div>
-        <h3 class="text-2xl font-bold text-amber-800 mb-6" style="font-family:'Playfair Display',serif;">Bakery Hours</h3>
-        <div class="space-y-3 mb-10">
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Monday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 4:00 PM</span>
-          </div>
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Tuesday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 4:00 PM</span>
-          </div>
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Wednesday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 4:00 PM</span>
-          </div>
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Thursday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 4:00 PM</span>
-          </div>
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Friday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 6:00 PM</span>
-          </div>
-          <div class="flex justify-between border-b border-amber-100 pb-2">
-            <span class="font-semibold text-gray-700">Saturday</span>
-            <span class="text-amber-700 font-bold">6:30 AM – 5:00 PM</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="font-semibold text-gray-700">Sunday</span>
-            <span class="text-amber-700 font-bold">7:00 AM – 3:00 PM</span>
-          </div>
-        </div>
-
-        <div class="bg-amber-50 rounded-2xl p-6">
-          <h3 class="text-xl font-bold text-amber-800 mb-4" style="font-family:'Playfair Display',serif;">Visit Us</h3>
-          <div class="flex items-start gap-3 mb-3">
-            <span class="text-2xl mt-0.5">📍</span>
-            <div>
-              <p class="font-bold text-gray-800">Miller's Bakery</p>
-              <p class="text-gray-600">247 Elm Street</p>
-              <p class="text-gray-600">Maplewood, NJ 07040</p>
+        <div class="bg-amber-50 rounded-3xl p-8 mb-8">
+          <h3 class="text-2xl font-bold text-stone-800 mb-6" style="font-family:'Playfair Display',serif;">Bakery Hours</h3>
+          <div class="space-y-3 text-stone-600">
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Monday</span><span>7:00 AM – 5:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Tuesday</span><span>7:00 AM – 5:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Wednesday</span><span>7:00 AM – 5:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Thursday</span><span>7:00 AM – 5:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Friday</span><span>7:00 AM – 6:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-amber-100 pb-3">
+              <span class="font-semibold">Saturday</span><span>7:00 AM – 6:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-semibold">Sunday</span><span>8:00 AM – 2:00 PM</span>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <span class="text-2xl">📞</span>
-            <a href="tel:+19735551847" class="text-amber-700 font-bold hover:text-amber-900">(973) 555-1847</a>
+        </div>
+        <div class="bg-amber-50 rounded-3xl p-8">
+          <h3 class="text-2xl font-bold text-stone-800 mb-4" style="font-family:'Playfair Display',serif;">Contact Info</h3>
+          <div class="space-y-3 text-stone-600">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">📍</span>
+              <div>
+                <p class="font-semibold text-stone-800">412 Elmwood Avenue</p>
+                <p>Maplewood, NH 03104</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">📞</span>
+              <a href="tel:+16035559842" class="text-amber-700 font-semibold hover:underline">(603) 555-9842</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">✉️</span>
+              <a href="mailto:hello@millersbakery.com" class="text-amber-700 font-semibold hover:underline">hello@millersbakery.com</a>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Map Placeholder -->
-      <div class="bg-gradient-to-br from-green-100 via-teal-100 to-blue-100 rounded-2xl h-96 md:h-full min-h-96 flex flex-col items-center justify-center shadow-inner border-2 border-amber-200">
-        <span class="text-7xl mb-4">🗺️</span>
-        <p class="text-gray-600 font-bold text-lg text-center">247 Elm Street</p>
-        <p class="text-gray-500 text-center">Maplewood, NJ 07040</p>
-        <p class="text-sm text-gray-400 mt-2 text-center px-8">Corner of Elm & Baker Ave<br>Free parking on Baker Ave</p>
-        <a href="https://maps.google.com" target="_blank" class="mt-6 bg-amber-700 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-amber-800 transition-colors">Open in Google Maps</a>
+      <div>
+        <div class="h-96 bg-gradient-to-br from-green-300 via-teal-400 to-blue-400 rounded-3xl flex flex-col items-center justify-center shadow-lg">
+          <span class="text-8xl mb-4">🗺️</span>
+          <p class="text-white font-bold text-xl mb-1" style="font-family:'Playfair Display',serif;">412 Elmwood Avenue</p>
+          <p class="text-teal-100 font-medium">Maplewood, NH 03104</p>
+          <p class="text-teal-100 text-sm mt-2">Corner of Elmwood & Birch St.</p>
+          <a href="https://maps.google.com" target="_blank" class="mt-6 bg-white text-teal-700 font-bold px-6 py-2 rounded-full text-sm hover:bg-teal-50 transition-colors">Get Directions</a>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-amber-50 px-6">
+<section id="contact" class="py-24 bg-gradient-to-br from-amber-500 to-orange-400 px-6">
   <div class="max-w-3xl mx-auto">
-    <p class="text-amber-600 uppercase tracking-widest text-sm font-bold text-center mb-3">Get in Touch</p>
-    <h2 class="text-4xl font-black text-center text-amber-900 mb-4" style="font-family:'Playfair Display',serif;">Order Ahead or Just Say Hello</h2>
-    <p class="text-center text-gray-600 mb-12">Special orders, event cakes, wholesale inquiries, or just want to tell us your favorite item? We'd love to hear from you. We respond within one business day.</p>
-
-    <form class="bg-white rounded-2xl shadow-lg p-10 space-y-6">
+    <div class="text-center mb-12">
+      <p class="text-amber-100 font-semibold uppercase tracking-widest text-sm mb-3">Get In Touch</p>
+      <h2 class="text-5xl font-black text-white mb-4" style="font-family:'Playfair Display',serif;">Order Something Special</h2>
+      <p class="text-amber-100 text-lg">Custom cakes, catering orders, wholesale inquiries — we'd love to hear from you. We respond to all messages within one business day.</p>
+    </div>
+    <form class="bg-white rounded-3xl shadow-xl p-10 space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label class="block text-sm font-bold text-gray-700 mb-2" for="name">Full Name *</label>
-          <input type="text" id="name" name="name" placeholder="Rachel Thornton" class="w-full border-2 border-amber-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-amber-500 transition-colors" required>
+          <label class="block text-stone-700 font-semibold mb-2 text-sm">Full Name</label>
+          <input type="text" placeholder="Jane Smith" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
         </div>
         <div>
-          <label class="block text-sm font-bold text-gray-700 mb-2" for="email">Email Address *</label>
-          <input type="email" id="email" name="email" placeholder="rachel@example.com" class="w-full border-2 border-amber-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-amber-500 transition-colors" required>
+          <label class="block text-stone-700 font-semibold mb-2 text-sm">Email Address</label>
+          <input type="email" placeholder="jane@example.com" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
         </div>
       </div>
       <div>
-        <label class="block text-sm font-bold text-gray-700 mb-2" for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(973) 555-0000" class="w-full border-2 border-amber-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-amber-500 transition-colors">
+        <label class="block text-stone-700 font-semibold mb-2 text-sm">Phone Number</label>
+        <input type="tel" placeholder="(603) 555-0000" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow" />
       </div>
       <div>
-        <label class="block text-sm font-bold text-gray-700 mb-2" for="subject">Subject</label>
-        <select id="subject" name="subject" class="w-full border-2 border-amber-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-amber-500 transition-colors">
-          <option value="">Select a topic...</option>
-          <option value="custom-cake">Custom Cake Order</option>
-          <option value="pickup">Pickup Order</option>
-          <option value="wholesale">Wholesale Inquiry</option>
-          <option value="event">Event Catering</option>
-          <option value="other">General Question</option>
-        </select>
+        <label class="block text-stone-700 font-semibold mb-2 text-sm">Your Message or Order Details</label>
+        <textarea rows="5" placeholder="Tell us about your order — event date, number of guests, flavor preferences, dietary needs, or just say hello!" class="w-full border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-shadow resize-none"></textarea>
       </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-700 mb-2" for="message">Message *</label>
-        <textarea id="message" name="message" rows="5" placeholder="Tell us what you're looking for — the more detail the better! For custom cakes please include date needed, number of servings, and any flavor or design ideas." class="w-full border-2 border-amber-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-amber-500 transition-colors resize-none" required></textarea>
-      </div>
-      <button type="submit" class="w-full bg-amber-700 text-white text-lg font-bold py-4 rounded-xl hover:bg-amber-800 transition-colors shadow-md">Send Your Message 🥖</button>
+      <button type="submit" class="w-full bg-amber-600 text-white font-bold py-4 rounded-full text-lg hover:bg-amber-700 transition-colors shadow-md">Send Your Message 🥐</button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-amber-900 text-amber-100 py-16 px-6">
+<footer class="bg-stone-900 text-stone-300 py-16 px-6">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-3xl">🥖</span>
-          <span class="text-2xl font-bold text-white" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
+          <span class="text-3xl">🥐</span>
+          <span class="text-2xl font-black text-white" style="font-family:'Playfair Display',serif;">Miller's Bakery</span>
         </div>
-        <p class="text-amber-300 text-sm leading-relaxed">Baked from scratch, every morning, with love and a lot of butter. Serving Maplewood since 2009.</p>
+        <p class="text-stone-400 leading-relaxed">Baked with love, served with pride. Maplewood's neighborhood bakery since 1987.</p>
       </div>
       <div>
-        <h4 class="font-bold text-white mb-4 text-lg">Quick Links</h4>
-        <div class="space-y-2 text-sm">
-          <a href="#featured" class="block text-amber-300 hover:text-white transition-colors">Customer Favorites</a>
-          <a href="#menu" class="block text-amber-300 hover:text-white transition-colors">Full Menu</a>
-          <a href="#about" class="block text-amber-300 hover:text-white transition-colors">Our Story</a>
-          <a href="#hours" class="block text-amber-300 hover:text-white transition-colors">Hours & Location</a>
-          <a href="#contact" class="block text-amber-300 hover:text-white transition-colors">Order Ahead</a>
+        <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
+        <div class="space-y-2 text-stone-400">
+          <a href="#featured" class="block hover:text-amber-400 transition-colors">Customer Favorites</a>
+          <a href="#about" class="block hover:text-amber-400 transition-colors">Our Story</a>
+          <a href="#menu" class="block hover:text-amber-400 transition-colors">Full Menu</a>
+          <a href="#contact" class="block hover:text-amber-400 transition-colors">Custom Orders</a>
+          <a href="#hours" class="block hover:text-amber-400 transition-colors">Hours & Location</a>
         </div>
       </div>
       <div>
-        <h4 class="font-bold text-white mb-4 text-lg">Follow Along</h4>
-        <div class="flex gap-4 mb-6">
-          <a href="#" class="bg-amber-700 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors">📸 Instagram</a>
-          <a href="#" class="bg-amber-700 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors">👍 Facebook</a>
+        <h4 class="text-white font-bold mb-4 text-lg">Follow Along</h4>
+        <div class="space-y-2 text-stone-400">
+          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>📸</span> @millersbakery on Instagram</a>
+          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>👍</span> Miller's Bakery on Facebook</a>
+          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>⭐</span> Review us on Google</a>
+          <a href="#" class="flex items-center gap-2 hover:text-amber-400 transition-colors"><span>🌟</span> Find us on Yelp</a>
         </div>
-        <div class="flex gap-4">
-          <a href="#" class="bg-amber-700 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors">⭐ Yelp</a>
-          <a href="#" class="bg-amber-700 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors">📍 Google</a>
-        </div>
-        <p class="text-amber-400 text-xs mt-4">@millersbakery · Tag us in your morning bun photos!</p>
       </div>
     </div>
-    <div class="border-t border-amber-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-amber-400 text-sm">247 Elm Street, Maplewood, NJ 07040 · (973) 555-1847</p>
-      <p class="text-amber-400 text-sm" id="footer-copy"></p>
+    <div class="border-t border-stone-700 pt-8 text-center text-stone-500 text-sm">
+      <p id="footer-copy">© Miller's Bakery — 412 Elmwood Avenue, Maplewood, NH 03104 — (603) 555-9842</p>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('footer-copy').textContent = '© ' + new Date().getFullYear() + " Miller's Bakery. All rights reserved. Baked with 🧡";
+  const year = new Date().getFullYear();
+  document.getElementById('footer-copy').textContent = '© ' + year + ' Miller\'s Bakery — 412 Elmwood Avenue, Maplewood, NH 03104 — (603) 555-9842. All rights reserved.';
 </script>
 
 
