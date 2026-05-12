@@ -12,6 +12,51 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .fade-in { animation: fadeIn 1s ease forwards; }
+
+    /* ── Realistic food photo placeholders using Unsplash ── */
+    .photo-ice-cream-classic {
+      background: url('https://images.unsplash.com/photo-1567206563114-c179706a56bf?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-lemonade {
+      background: url('https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-milkshake {
+      background: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-ice-cream-scoop {
+      background: url('https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-outdoor-seating {
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-blackberry-shake {
+      background: url('https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-garden {
+      background: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-lemonade-pour {
+      background: url('https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-apple-orchard {
+      background: url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-about-creamery {
+      background: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80') center/cover no-repeat;
+    }
+    .photo-waffle-cone {
+      background: url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80') center/cover no-repeat;
+    }
+    .photo-peach-icecream {
+      background: url('https://images.unsplash.com/photo-1594148260862-27bd2a07b5f3?w=600&q=80') center/cover no-repeat;
+    }
+
+    .photo-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.05) 60%, transparent 100%);
+    }
+    .photo-card:hover .photo-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    }
   </style>
 </head>
 <body style="font-family: 'Nunito', sans-serif;" class="bg-amber-50 text-gray-800">
@@ -41,11 +86,9 @@
 
 <!-- ═══════════════════════════════════════════════ HERO ═══════════════════════════════════════════════ -->
 <section class="min-h-screen bg-gradient-to-br from-red-400 via-pink-300 to-amber-200 flex items-center justify-center relative overflow-hidden">
-  <div class="absolute top-10 left-10 text-8xl opacity-20">🍦</div>
-  <div class="absolute bottom-10 right-10 text-8xl opacity-20">🍎</div>
-  <div class="absolute top-1/2 left-5 text-6xl opacity-10">🌸</div>
-  <div class="absolute top-20 right-20 text-6xl opacity-10">🌿</div>
-  <div class="text-center px-6 max-w-4xl mx-auto fade-in">
+  <div class="absolute inset-0 opacity-20" style="background: url('https://images.unsplash.com/photo-1488900128323-21503983a07e?w=1600&q=60') center/cover no-repeat;"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-red-400/80 via-pink-300/75 to-amber-200/80"></div>
+  <div class="relative text-center px-6 max-w-4xl mx-auto fade-in">
     <div class="inline-block bg-white bg-opacity-30 rounded-full px-5 py-2 text-white font-bold text-sm mb-6 uppercase tracking-widest">Jonesborough, Tennessee's Sweetest Spot</div>
     <h1 class="text-6xl md:text-8xl font-black text-white mb-6 leading-tight drop-shadow-lg" style="font-family:'Playfair Display',serif;">
       Scoop Up<br/>Something<br/><span class="text-amber-100">Special</span>
@@ -69,10 +112,14 @@
       <p class="text-gray-500 text-lg font-semibold">The scoops our regulars can't stop talking about</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
-        <div class="h-48 bg-gradient-to-br from-pink-300 to-rose-400 flex items-center justify-center">
-          <span class="text-7xl">🍦</span>
+
+      <!-- Card 1: Ice Cream -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow group">
+        <div class="h-56 photo-ice-cream-classic relative overflow-hidden">
+          <div class="absolute inset-0 photo-overlay transition-all duration-300"></div>
+          <div class="absolute bottom-3 left-4">
+            <span class="bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">Fan Favorite</span>
+          </div>
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">Apple Creek Classic</h3>
@@ -83,10 +130,14 @@
           </div>
         </div>
       </div>
-      <!-- Card 2 -->
-      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
-        <div class="h-48 bg-gradient-to-br from-yellow-200 to-amber-400 flex items-center justify-center">
-          <span class="text-7xl">🍋</span>
+
+      <!-- Card 2: Lemonade -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow group">
+        <div class="h-56 photo-lemonade relative overflow-hidden">
+          <div class="absolute inset-0 photo-overlay transition-all duration-300"></div>
+          <div class="absolute bottom-3 left-4">
+            <span class="bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">Refreshing</span>
+          </div>
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">Sunshine Lemonade</h3>
@@ -97,10 +148,14 @@
           </div>
         </div>
       </div>
-      <!-- Card 3 -->
-      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
-        <div class="h-48 bg-gradient-to-br from-purple-300 to-indigo-400 flex items-center justify-center">
-          <span class="text-7xl">🥤</span>
+
+      <!-- Card 3: Milkshake -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow group">
+        <div class="h-56 photo-milkshake relative overflow-hidden">
+          <div class="absolute inset-0 photo-overlay transition-all duration-300"></div>
+          <div class="absolute bottom-3 left-4">
+            <span class="bg-purple-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">Must Try</span>
+          </div>
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-black text-gray-800 mb-2" style="font-family:'Playfair Display',serif;">The Creek Shake</h3>
@@ -111,6 +166,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -127,13 +183,17 @@
 
         <p class="text-gray-700 text-lg leading-relaxed mb-6">Every recipe was developed right here in Tennessee, inspired by the flavors of Appalachian life — crisp orchard apples, wild blackberries, honeysuckle, and fresh peaches from nearby farms. Sarah spent years refining the base recipes until they hit that perfect balance of richness and freshness. Chris handled the creative flavors, dreaming up new combinations each season and testing them on their most honest critics: the neighborhood kids.</p>
 
-        <p class="text-gray-700 text-lg leading-relaxed mb-6">Our mission has always been more than ice cream. We wanted to build a gathering place — a spot where people linger on a bench under the trees, where laughter floats on a summer breeze, and where a $4 scoop can make a hard day feel a little lighter. We believe in quality ingredients, honest recipes, and the kind of warm hospitality that keeps people coming back.</p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6">Our mission has always been more than ice cream. We wanted to build a gathering place — a spot where people linger on a bench under the trees, where laughter floats on a summer breeze, and where a $4 scoop can make a hard day feel a little lighter.</p>
 
-        <p class="text-gray-700 text-lg leading-relaxed">We rotate our flavors with the seasons because we believe food should reflect the world around us. You'll always find a few beloved classics on the board, but there's always something new to discover at Apple Creek. Follow us on Facebook to see what's scooping this week — we love sharing the news and hearing your reactions when a new flavor drops. Thank you, Jonesborough, for making us your sweet escape.</p>
+        <p class="text-gray-700 text-lg leading-relaxed">We rotate our flavors with the seasons because we believe food should reflect the world around us. Follow us on Facebook to see what's scooping this week — we love sharing the news and hearing your reactions when a new flavor drops. Thank you, Jonesborough, for making us your sweet escape.</p>
       </div>
       <div class="flex flex-col gap-6">
-        <div class="h-80 bg-gradient-to-br from-red-300 via-pink-300 to-amber-300 rounded-3xl flex items-center justify-center shadow-xl">
-          <span class="text-9xl">🍎</span>
+        <!-- Real photo of ice cream shop / creamery atmosphere -->
+        <div class="h-80 photo-about-creamery rounded-3xl shadow-xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="text-white font-black text-lg drop-shadow-lg">Handcrafted with love in Jonesborough, TN</p>
+          </div>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-gradient-to-br from-green-200 to-teal-300 rounded-2xl p-6 text-center shadow-lg">
@@ -158,7 +218,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ MENU / SERVICES ═══════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ MENU ═══════════════════════════════════════════════ -->
 <section id="menu" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14">
@@ -167,12 +227,30 @@
       <p class="text-gray-500 text-lg font-medium">Flavors rotate seasonally — follow our Facebook for weekly updates!</p>
     </div>
 
+    <!-- Menu header photos -->
+    <div class="grid grid-cols-3 gap-4 mb-12 rounded-3xl overflow-hidden shadow-xl h-52">
+      <div class="photo-ice-cream-scoop relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-4 left-4"><p class="text-white font-black text-base drop-shadow">Ice Cream Scoops</p></div>
+      </div>
+      <div class="photo-milkshake relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-4 left-4"><p class="text-white font-black text-base drop-shadow">Hand-Spun Shakes</p></div>
+      </div>
+      <div class="photo-lemonade-pour relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-4 left-4"><p class="text-white font-black text-base drop-shadow">Lemonade & Treats</p></div>
+      </div>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
       <!-- Category 1: Ice Cream -->
       <div class="bg-gradient-to-b from-pink-50 to-white rounded-3xl p-8 shadow-lg border border-pink-100">
+        <div class="h-40 photo-ice-cream-scoop rounded-2xl mb-6 relative overflow-hidden shadow-md">
+          <div class="absolute inset-0 bg-gradient-to-t from-rose-900/40 to-transparent"></div>
+        </div>
         <div class="text-center mb-6">
-          <div class="text-5xl mb-3">🍦</div>
           <h3 class="text-2xl font-black text-red-600" style="font-family:'Playfair Display',serif;">Ice Cream Scoops</h3>
           <p class="text-gray-500 text-sm font-medium mt-1">Single · Double · Triple</p>
         </div>
@@ -220,8 +298,10 @@
 
       <!-- Category 2: Milkshakes -->
       <div class="bg-gradient-to-b from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100">
+        <div class="h-40 photo-milkshake rounded-2xl mb-6 relative overflow-hidden shadow-md">
+          <div class="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+        </div>
         <div class="text-center mb-6">
-          <div class="text-5xl mb-3">🥤</div>
           <h3 class="text-2xl font-black text-purple-600" style="font-family:'Playfair Display',serif;">Hand-Spun Shakes</h3>
           <p class="text-gray-500 text-sm font-medium mt-1">Thick · Creamy · Indulgent</p>
         </div>
@@ -269,8 +349,10 @@
 
       <!-- Category 3: Lemonade & More -->
       <div class="bg-gradient-to-b from-yellow-50 to-white rounded-3xl p-8 shadow-lg border border-yellow-100">
+        <div class="h-40 photo-lemonade-pour rounded-2xl mb-6 relative overflow-hidden shadow-md">
+          <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/40 to-transparent"></div>
+        </div>
         <div class="text-center mb-6">
-          <div class="text-5xl mb-3">🍋</div>
           <h3 class="text-2xl font-black text-yellow-600" style="font-family:'Playfair Display',serif;">Lemonade & Treats</h3>
           <p class="text-gray-500 text-sm font-medium mt-1">Fresh-Squeezed · Cool & Bright</p>
         </div>
@@ -333,54 +415,89 @@
       <h2 class="text-5xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Sweet Moments at Apple Creek</h2>
       <p class="text-gray-500 text-lg font-medium">From our creamery to your feed — the colors, smiles, and scoops we love</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-rose-300 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🍦</span>
+    <!-- Gallery grid with real photos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-ice-cream-classic relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Signature Apple Cinnamon Scoop</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Our most-photographed flavor — for good reason</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">Signature Apple Cinnamon Scoop</p>
-        <p class="text-center text-gray-400 text-sm">Our most-photographed flavor — for good reason</p>
       </div>
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🌞</span>
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-outdoor-seating relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Sunny Outdoor Seating</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Benches under the trees on a perfect Tennessee day</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">Sunny Outdoor Seating</p>
-        <p class="text-center text-gray-400 text-sm">Benches under the trees on a perfect Tennessee day</p>
       </div>
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-purple-300 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🥤</span>
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-blackberry-shake relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Hand-Spun Milkshakes</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Loaded, thick, and absolutely gorgeous</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">Midnight Blackberry Shake</p>
-        <p class="text-center text-gray-400 text-sm">Hand-spun, loaded, and absolutely gorgeous</p>
       </div>
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-green-300 to-teal-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🍃</span>
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-garden relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">The Creamery Garden</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Lush greenery surrounds our cozy Forest Circle location</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">The Creamery Garden</p>
-        <p class="text-center text-gray-400 text-sm">Lush greenery surrounds our cozy Forest Circle location</p>
       </div>
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-amber-200 to-yellow-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🍋</span>
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-lemonade relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Fresh Lemonade</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Hand-squeezed every morning, sipped all afternoon</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">Fresh Lemonade Pour</p>
-        <p class="text-center text-gray-400 text-sm">Hand-squeezed every morning, sipped all afternoon</p>
       </div>
 
-      <div class="group cursor-pointer">
-        <div class="h-56 bg-gradient-to-br from-red-300 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-          <span class="text-7xl">🍎</span>
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-64 photo-apple-orchard relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Apple Season at the Creamery</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Fall is magical — and so are our autumn specials</p>
+          </div>
         </div>
-        <p class="text-center text-gray-700 font-bold mt-3">Apple Season at the Creamery</p>
-        <p class="text-center text-gray-400 text-sm">Fall is magical — and so are our autumn specials</p>
+      </div>
+
+      <!-- Wider feature row -->
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:col-span-2">
+        <div class="h-56 photo-waffle-cone relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-lg drop-shadow-lg">Fresh-Baked Waffle Cones — Made In-House Daily</p>
+            <p class="text-white/80 text-sm font-medium mt-1">Crispy, golden, fragrant — the perfect vessel for a generous scoop</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div class="h-56 photo-peach-icecream relative">
+          <div class="photo-overlay absolute inset-0 transition-all duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white font-black text-base drop-shadow-lg">Tennessee Peach Scoop</p>
+            <p class="text-white/80 text-xs font-medium mt-1">Summer in every single bite</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -453,33 +570,47 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
       <div class="bg-white rounded-3xl p-10 shadow-xl">
-        <h3 class="text-2xl font-black text-gray-800 mb-6 flex items-center gap-2" style="font-family:'Playfair Display',serif;"><span>🕐</span> Hours of Operation</h3>
+        <h3 class="text-2xl font-black text-gray-800 mb-2 flex items-center gap-2" style="font-family:'Playfair Display',serif;"><span>🕐</span> Hours of Operation</h3>
+
+        <!-- Hours notice -->
+        <div class="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-4 flex gap-3 items-start">
+          <span class="text-2xl mt-0.5">📘</span>
+          <div>
+            <p class="text-blue-800 font-black text-sm mb-1">Hours Change Regularly — Check Facebook First!</p>
+            <p class="text-blue-700 text-sm leading-relaxed">Hours vary week to week based on availability and the season. The hours below are a general guide, but <strong>always check the <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="underline hover:text-blue-900">Facebook page</a> for confirmed hours before heading out</strong> — the latest updates are posted there directly.</p>
+          </div>
+        </div>
+
         <div class="space-y-3 text-gray-700 font-semibold">
           <div class="flex justify-between border-b border-gray-100 pb-2">
             <span>Monday</span><span class="text-gray-400">Closed</span>
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
-            <span>Tuesday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+            <span>Tuesday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
-            <span>Wednesday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+            <span>Wednesday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
-            <span>Thursday</span><span class="text-red-500 font-bold">12:00 PM – 8:00 PM</span>
+            <span>Thursday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
-            <span>Friday</span><span class="text-red-500 font-bold">12:00 PM – 9:00 PM</span>
+            <span>Friday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
-            <span>Saturday</span><span class="text-red-500 font-bold">11:00 AM – 9:00 PM</span>
+            <span>Saturday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
           <div class="flex justify-between pb-2">
-            <span>Sunday</span><span class="text-red-500 font-bold">12:00 PM – 7:00 PM</span>
+            <span>Sunday</span><span class="text-red-500 font-bold">Varies — check Facebook</span>
           </div>
         </div>
-        <div class="mt-6 bg-amber-50 rounded-xl p-4 border border-amber-200">
-          <p class="text-amber-700 font-bold text-sm">📢 Hours may vary seasonally. Always check our <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="underline">Facebook page</a> for the latest updates!</p>
+
+        <div class="mt-5">
+          <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="flex items-center justify-center gap-2 w-full bg-blue-600 text-white font-black py-3 rounded-xl hover:bg-blue-700 transition-colors shadow">
+            📘 See Today's Hours on Facebook
+          </a>
         </div>
+
         <div class="mt-6 space-y-3">
           <div class="flex items-center gap-3 text-gray-700">
             <span class="text-2xl">📍</span>
@@ -504,11 +635,13 @@
       </div>
 
       <div class="flex flex-col gap-6">
-        <div class="h-72 bg-gradient-to-br from-green-200 to-teal-400 rounded-3xl flex flex-col items-center justify-center shadow-xl text-center p-8">
-          <span class="text-7xl mb-4">🗺️</span>
-          <p class="text-teal-800 font-black text-xl mb-1">211 Forest Circle</p>
-          <p class="text-teal-700 font-bold">Jonesborough, TN 37659</p>
-          <a href="https://www.google.com/maps/search/211+Forest+Circle+Jonesborough+TN" target="_blank" class="mt-4 bg-white text-teal-700 font-bold px-6 py-2 rounded-full hover:bg-teal-50 transition-colors shadow">Open in Google Maps →</a>
+        <div class="h-72 photo-garden rounded-3xl relative overflow-hidden shadow-xl">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-center">
+            <p class="text-white font-black text-2xl mb-1 drop-shadow-lg">211 Forest Circle</p>
+            <p class="text-white/90 font-bold mb-4">Jonesborough, TN 37659</p>
+            <a href="https://www.google.com/maps/search/211+Forest+Circle+Jonesborough+TN" target="_blank" class="inline-block bg-white text-teal-700 font-bold px-6 py-2 rounded-full hover:bg-teal-50 transition-colors shadow">Open in Google Maps →</a>
+          </div>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl">
           <h3 class="text-xl font-black text-gray-800 mb-4" style="font-family:'Playfair Display',serif;">🌳 About Our Space</h3>
@@ -575,147 +708,28 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ FACEBOOK FEED PLACEHOLDER ═══════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ FACEBOOK SECTION ═══════════════════════════════════════════════ -->
 <section class="py-16 bg-white">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center mb-10">
-      <h2 class="text-4xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">Latest from Our Facebook</h2>
-      <p class="text-gray-500 font-medium text-lg">We post our weekly flavors, hours, and sweet surprises right here — follow along so you never miss a scoop!</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
-          <div>
-            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
-            <p class="text-gray-400 text-xs">This week's flavors are HERE! 🍦🍎</p>
-          </div>
-        </div>
-        <p class="text-gray-600 text-sm leading-relaxed">"Good morning, Jonesborough! 🌞 We're scooping Apple Cinnamon Classic, Tennessee Peach, and a NEW seasonal — Brown Butter Toffee Crunch! Come on by — we're open 12–8 today. See you soon! 🍦"</p>
-        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
-      </div>
-      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
-          <div>
-            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
-            <p class="text-gray-400 text-xs">Weekend hours + special flavor alert!</p>
-          </div>
-        </div>
-        <p class="text-gray-600 text-sm leading-relaxed">"Happy Saturday! We're open 11AM–9PM today — the perfect day for a scoop under the trees. 🌳 Loving all the families stopping by! Reminder: Strawberry Swirl Lemonade is limited this week, grab it before it's gone! 🍋"</p>
-        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
-      </div>
-      <div class="bg-gradient-to-b from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 shadow-md">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-sm">f</div>
-          <div>
-            <p class="font-black text-gray-800 text-sm">Apple Creek Creamery</p>
-            <p class="text-gray-400 text-xs">Thank you Jonesborough! ❤️</p>
-          </div>
-        </div>
-        <p class="text-gray-600 text-sm leading-relaxed">"We are absolutely blown away by the community love we've received! Thank you to every single person who has stopped by and shared your kind words. You make every scoop worth it. We'll see you this week! 🍦❤️ #AppleCreekCreamery"</p>
-        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-4 inline-block text-blue-600 font-bold text-sm hover:underline">View on Facebook →</a>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-8 py-4 rounded-full hover:bg-blue-700 transition-colors shadow-lg text-lg">
-        <span>📘</span> Follow Us on Facebook for Real-Time Updates
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════ FOOTER ═══════════════════════════════════════════════ -->
-<footer class="bg-gray-900 text-white pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-
-      <div class="md:col-span-2">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-400 to-pink-300 flex items-center justify-center text-3xl shadow">🍎</div>
-          <div>
-            <p class="text-2xl font-black text-white" style="font-family:'Playfair Display',serif;">Apple Creek Creamery</p>
-          </div>
-        </div>
-        <p class="text-gray-400 font-medium leading-relaxed mb-4 max-w-sm">Handcrafted small-batch ice cream, fresh-squeezed lemonade, and hand-spun milkshakes served with a warm smile in the heart of Jonesborough, Tennessee.</p>
-        <p class="text-red-400 font-bold italic text-lg">"Where every scoop is made with love." 🍦</p>
-      </div>
-
-      <div>
-        <h4 class="font-black text-white text-lg mb-5 uppercase tracking-wide">Quick Links</h4>
-        <ul class="space-y-3 text-gray-400 font-semibold">
-          <li><a href="#featured" class="hover:text-red-400 transition-colors">Specialties</a></li>
-          <li><a href="#about" class="hover:text-red-400 transition-colors">Our Story</a></li>
-          <li><a href="#menu" class="hover:text-red-400 transition-colors">Menu Board</a></li>
-          <li><a href="#gallery" class="hover:text-red-400 transition-colors">Gallery</a></li>
-          <li><a href="#testimonials" class="hover:text-red-400 transition-colors">Reviews</a></li>
-          <li><a href="#hours" class="hover:text-red-400 transition-colors">Hours & Location</a></li>
-          <li><a href="#contact" class="hover:text-red-400 transition-colors">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-black text-white text-lg mb-5 uppercase tracking-wide">Connect With Us</h4>
-        <div class="space-y-4">
-          <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors font-semibold">
-            <span class="text-2xl">📘</span> Facebook
-          </a>
-          <a href="tel:8888888888" class="flex items-center gap-3 text-gray-400 hover:text-red-400 transition-colors font-semibold">
-            <span class="text-2xl">📞</span> (888) 888-8888
-          </a>
-          <a href="mailto:chrisp3950@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-red-400 transition-colors font-semibold">
-            <span class="text-2xl">📧</span> chrisp3950@gmail.com
-          </a>
-          <div class="flex items-center gap-3 text-gray-400 font-semibold">
-            <span class="text-2xl">📍</span>
-            <span>211 Forest Circle<br/>Jonesborough, TN 37659</span>
-          </div>
-        </div>
-      </div>
-
+      <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 font-bold text-sm px-4 py-2 rounded-full mb-4 uppercase tracking-widest">📘 Follow Along on Facebook</div>
+      <h2 class="text-4xl font-black text-gray-800 mb-3" style="font-family:'Playfair Display',serif;">The Best Way to Stay in the Loop</h2>
+      <p class="text-gray-500 font-medium text-lg max-w-2xl mx-auto">Apple Creek Creamery posts daily hours, weekly flavor announcements, and all the latest news directly on Facebook. It's the best — and most reliable — place to find out what's happening before you visit.</p>
     </div>
 
-    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-gray-500 text-sm font-medium" id="copyright">© Apple Creek Creamery. All rights reserved.</p>
-      <div class="flex gap-6 text-gray-500 text-sm font-medium">
-        <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-gray-300 transition-colors">Terms of Use</a>
-        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="hover:text-blue-400 transition-colors">Facebook</a>
+    <!-- "Why follow us" callout -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 mb-10 text-white flex flex-col md:flex-row items-center gap-8 shadow-xl">
+      <div class="text-7xl">📘</div>
+      <div class="flex-1">
+        <h3 class="text-2xl font-black mb-2">Hours Are Posted on Facebook — Always Check Before You Go!</h3>
+        <p class="text-blue-100 leading-relaxed text-lg">Because hours vary from week to week, the most current schedule is always posted on the Facebook page. Checking there before your visit means you'll never make a trip for nothing. Tap below to follow the page and turn on notifications!</p>
+        <a href="https://www.facebook.com/Applecreekcreamery/" target="_blank" class="mt-5 inline-flex items-center gap-2 bg-white text-blue-700 font-black px-7 py-3 rounded-full hover:bg-blue-50 transition-colors shadow text-lg">
+          📘 Open Facebook Page
+        </a>
       </div>
     </div>
-  </div>
-</footer>
 
-<script>
-  // Dynamic copyright year
-  const year = new Date().getFullYear();
-  document.getElementById('copyright').textContent = `© ${year} Apple Creek Creamery. All rights reserved.`;
-
-  // Mobile menu note: basic functionality
-  document.querySelector('.md\\:hidden').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) {
-      mobileMenu.classList.toggle('hidden');
-    }
-  });
-</script>
-
-
-<style>
-#and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
-background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
-display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-font-family:system-ui,sans-serif;font-size:14px;color:#f1f5f9}
-#and-preview-banner strong{color:#6366f1}
-#and-preview-banner a{background:#6366f1;color:#fff;padding:8px 18px;border-radius:8px;
-text-decoration:none;font-weight:600;white-space:nowrap}
-#and-preview-banner a:hover{background:#4f52d3}
-</style>
-<div id="and-preview-banner">
-  <span>👋 <strong>This is your free preview</strong> — built overnight by All Night Design.
-  Purchase to go live on your own domain and remove this banner.</span>
-  <a href="https://allnightdesign.com/stripe/checkout?client_id=5">Get Started →</a>
-</div>
-
-</body>
-</html>
+    <!-- Sample post cards (static snapshots — not live) -->
+    <div class="mb-6 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 flex gap-3 items-start">
+      <span class="text-xl mt-0.5">ℹ️</span>
+      <p class="text-amber-800 text-sm font-semibold leading-relaxed"><strong>Note:</strong> The posts below are examples to show what you'll find on Facebook. They are <em>not</em> automatically updated — this website is a static snapshot. For real-time posts, current hours, and today
