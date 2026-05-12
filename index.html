@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Miller's Bakery – Johnson City's Favorite Handcrafted Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miller's Bakery | Fresh Handcrafted Baked Goods – Johnson City</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:    #fdf6ec;
-      --blush:    #f7cac9;
-      --rose:     #e8a598;
-      --sage:     #b5c9b0;
-      --sage-dk:  #7a9e76;
-      --butter:   #f9e4b7;
-      --warm-brn: #7a5230;
-      --dk-brn:   #4a2f1a;
+      --rose:     #f9c9c9;
+      --rose-dark:#e8a0a0;
+      --cream:    #fdf6ee;
+      --butter:   #fde9b8;
+      --butter-dark:#f5c97a;
+      --mint:     #c8e6d4;
+      --mint-dark:#8ecbaa;
+      --lavender: #ddd0f0;
+      --brown:    #6b3f1f;
+      --brown-light:#9e6340;
       --text:     #3d2b1f;
-      --light-txt:#7a6050;
+      --text-light:#7a5c47;
       --white:    #ffffff;
     }
 
@@ -26,127 +28,181 @@
 
     body {
       font-family: 'Lato', sans-serif;
-      background-color: var(--cream);
+      background: var(--cream);
       color: var(--text);
-      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     /* ─── NAV ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 999;
-      background: rgba(253, 246, 236, 0.95);
+      z-index: 1000;
+      background: rgba(253,246,238,0.95);
       backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--blush);
-      padding: 0 2rem;
+      border-bottom: 2px solid var(--butter);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      padding: 0.85rem 2rem;
+      transition: box-shadow 0.3s;
     }
+    nav.scrolled { box-shadow: 0 2px 18px rgba(107,63,31,0.10); }
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 700;
-      color: var(--dk-brn);
+      color: var(--brown);
       text-decoration: none;
-      letter-spacing: .5px;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
     }
+    .nav-logo span.icon { font-size: 1.6rem; }
 
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
       text-decoration: none;
-      color: var(--warm-brn);
-      font-size: .95rem;
+      color: var(--text-light);
       font-weight: 700;
-      letter-spacing: .5px;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      transition: color .2s;
+      transition: color 0.25s;
     }
+    .nav-links a:hover { color: var(--brown); }
 
-    .nav-links a:hover { color: var(--rose); }
+    .nav-cta {
+      background: var(--butter-dark);
+      color: var(--brown) !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      transition: background 0.25s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--rose-dark) !important; transform: scale(1.04); }
 
-    .nav-toggle {
+    .hamburger {
       display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
       flex-direction: column;
       gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 3px;
+      background: var(--brown);
+      border-radius: 3px;
+      transition: all 0.3s;
     }
 
-    .nav-toggle span {
-      display: block;
-      width: 26px;
-      height: 2px;
-      background: var(--warm-brn);
-      border-radius: 2px;
-      transition: all .3s;
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--cream);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--brown);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .mobile-close {
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      background: none; border: none;
+      font-size: 2rem;
+      color: var(--brown);
+      cursor: pointer;
     }
 
     /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--butter) 0%, var(--blush) 50%, var(--sage) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--butter) 45%, var(--mint) 100%);
+      padding: 7rem 1.5rem 4rem;
+      text-align: center;
     }
 
-    #hero::before {
-      content: '';
+    .hero-blobs {
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23f7cac9' fill-opacity='.35'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23b5c9b0' fill-opacity='.25'/%3E%3Ccircle cx='70' cy='70' r='2' fill='%23f9e4b7' fill-opacity='.4'/%3E%3C/g%3E%3C/svg%3E") repeat;
-      opacity: .6;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.35;
+      filter: blur(60px);
+    }
+    .blob1 { width: 420px; height: 420px; background: var(--rose); top: -80px; left: -100px; animation: float 8s ease-in-out infinite; }
+    .blob2 { width: 340px; height: 340px; background: var(--butter); bottom: -60px; right: -80px; animation: float 10s ease-in-out infinite reverse; }
+    .blob3 { width: 260px; height: 260px; background: var(--mint); top: 40%; left: 60%; animation: float 12s ease-in-out infinite 2s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-30px) scale(1.05); }
     }
 
-    .hero-inner { position: relative; max-width: 760px; }
+    .hero-inner { position: relative; z-index: 1; max-width: 740px; }
 
     .hero-badge {
       display: inline-block;
       background: var(--white);
-      color: var(--rose);
-      font-size: .8rem;
+      color: var(--brown-light);
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: .4rem 1.2rem;
-      border-radius: 999px;
+      padding: 0.35rem 1.1rem;
+      border-radius: 50px;
       margin-bottom: 1.4rem;
-      box-shadow: 0 2px 12px rgba(232,165,152,.25);
-      animation: fadeDown .8s ease both;
+      box-shadow: 0 2px 12px rgba(107,63,31,0.12);
+      animation: fadeUp 0.7s ease both;
     }
 
-    .hero-title {
+    .hero-emoji { font-size: 3.5rem; margin-bottom: 0.6rem; display: block; animation: fadeUp 0.7s ease 0.1s both; }
+
+    h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
       font-weight: 700;
-      color: var(--dk-brn);
-      line-height: 1.15;
+      color: var(--brown);
+      line-height: 1.12;
       margin-bottom: 1.2rem;
-      animation: fadeDown .9s .1s ease both;
+      animation: fadeUp 0.7s ease 0.2s both;
     }
-
-    .hero-title span { color: var(--sage-dk); }
+    h1 em { color: var(--brown-light); font-style: normal; }
 
     .hero-sub {
-      font-size: 1.15rem;
-      color: var(--warm-brn);
-      max-width: 560px;
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+      color: var(--text-light);
+      line-height: 1.65;
+      max-width: 580px;
       margin: 0 auto 2.2rem;
-      animation: fadeDown 1s .2s ease both;
+      animation: fadeUp 0.7s ease 0.3s both;
     }
 
     .hero-btns {
@@ -154,658 +210,532 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      animation: fadeDown 1s .35s ease both;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: .8rem 2rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: .95rem;
-      text-decoration: none;
-      transition: all .25s;
-      letter-spacing: .5px;
+      animation: fadeUp 0.7s ease 0.4s both;
     }
 
     .btn-primary {
-      background: var(--warm-brn);
+      background: var(--brown);
       color: var(--white);
-      box-shadow: 0 4px 16px rgba(122,82,48,.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--dk-brn);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(74,47,26,.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--warm-brn);
-      border: 2px solid var(--warm-brn);
-    }
-
-    .btn-outline:hover {
-      background: var(--warm-brn);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .hero-wave {
-      position: absolute;
-      bottom: -1px; left: 0; right: 0;
-    }
-
-    /* ─── SECTIONS SHARED ─── */
-    section { padding: 5rem 2rem; }
-
-    .container { max-width: 1100px; margin: 0 auto; }
-
-    .section-label {
-      display: inline-block;
-      font-size: .78rem;
+      padding: 0.85rem 2.1rem;
+      border-radius: 50px;
+      text-decoration: none;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 18px rgba(107,63,31,0.25);
+    }
+    .btn-primary:hover { background: var(--brown-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,63,31,0.3); }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--brown);
+      padding: 0.85rem 2.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: background 0.25s, transform 0.2s;
+      box-shadow: 0 2px 12px rgba(107,63,31,0.10);
+    }
+    .btn-secondary:hover { background: var(--butter); transform: translateY(-2px); }
+
+    .hero-hours {
+      margin-top: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.7);
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 700;
+      animation: fadeUp 0.7s ease 0.5s both;
+      backdrop-filter: blur(4px);
+    }
+    .hero-hours .dot { width: 8px; height: 8px; background: var(--mint-dark); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 5.5rem 1.5rem; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: .7rem;
+      color: var(--brown-light);
+      background: var(--butter);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
     }
-
-    .section-title {
+    h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--dk-brn);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      color: var(--brown);
+      line-height: 1.2;
       margin-bottom: 1rem;
-      line-height: 1.25;
     }
-
     .section-intro {
+      max-width: 600px;
+      color: var(--text-light);
       font-size: 1.05rem;
-      color: var(--light-txt);
-      max-width: 620px;
+      line-height: 1.7;
     }
+    .section-center { text-align: center; margin: 0 auto; }
 
     /* ─── ABOUT ─── */
     #about { background: var(--white); }
-
     .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
-      margin-top: 3rem;
     }
-
-    .about-illustration {
-      background: linear-gradient(135deg, var(--butter), var(--blush));
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--butter) 100%);
       border-radius: 24px;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 7rem;
-      box-shadow: 0 12px 40px rgba(247,202,201,.5);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(107,63,31,0.12);
       position: relative;
       overflow: hidden;
     }
-
-    .about-illustration::after {
+    .about-card::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 60%, rgba(181,201,176,.4));
-      border-radius: 24px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      top: -60px; right: -60px;
     }
-
-    .about-text h3 {
+    .about-card-emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
+    .about-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
-      color: var(--dk-brn);
-      margin-bottom: .8rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+    .about-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
+
+    .about-since {
+      position: absolute;
+      bottom: -16px; right: 24px;
+      background: var(--brown);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(107,63,31,0.25);
     }
 
-    .about-text p { color: var(--light-txt); margin-bottom: 1rem; }
-
-    .about-details {
+    .about-text .section-tag { display: inline-block; }
+    .about-text p {
+      color: var(--text-light);
+      line-height: 1.75;
+      font-size: 1.02rem;
+      margin-bottom: 1.2rem;
+    }
+    .about-highlights {
       display: flex;
       flex-direction: column;
-      gap: .6rem;
+      gap: 0.75rem;
       margin-top: 1.5rem;
     }
-
-    .detail-item {
-      display: flex;
-      align-items: flex-start;
-      gap: .8rem;
-      font-size: .95rem;
-      color: var(--text);
-    }
-
-    .detail-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--butter);
+    .highlight-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
+      gap: 0.75rem;
+      background: var(--cream);
+      padding: 0.65rem 1.1rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
     }
+    .highlight-item .hi { font-size: 1.2rem; }
 
-    .detail-info strong { display: block; font-size: .85rem; color: var(--warm-brn); }
-
-    /* ─── SPECIALTIES ─── */
-    #specialties { background: var(--cream); }
-
-    .spec-header { text-align: center; margin-bottom: 3rem; }
-    .spec-header .section-intro { margin: 0 auto; }
-
-    .spec-grid {
+    /* ─── OFFERINGS ─── */
+    #offerings { background: var(--cream); }
+    .offerings-header { text-align: center; margin-bottom: 3.5rem; }
+    .cards-grid {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.8rem;
     }
-
-    .spec-card {
+    .offering-card {
       background: var(--white);
       border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(122,82,48,.08);
-      transition: transform .3s, box-shadow .3s;
-      border-top: 4px solid transparent;
+      padding: 2.2rem 1.8rem;
+      box-shadow: 0 4px 24px rgba(107,63,31,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
     }
-
-    .spec-card:nth-child(1) { border-top-color: var(--blush); }
-    .spec-card:nth-child(2) { border-top-color: var(--sage); }
-    .spec-card:nth-child(3) { border-top-color: var(--butter); }
-
-    .spec-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(122,82,48,.14);
+    .offering-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 0 0 20px 20px;
     }
+    .offering-card.c1::after { background: var(--rose-dark); }
+    .offering-card.c2::after { background: var(--butter-dark); }
+    .offering-card.c3::after { background: var(--mint-dark); }
+    .offering-card.c4::after { background: var(--lavender); }
 
-    .spec-emoji { font-size: 2.8rem; margin-bottom: 1rem; }
-
-    .spec-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--dk-brn);
-      margin-bottom: .5rem;
-    }
-
-    .spec-card p { color: var(--light-txt); font-size: .95rem; }
-
-    /* ─── HOURS & ORDERING ─── */
-    #visit {
-      background: linear-gradient(135deg, var(--blush) 0%, var(--butter) 100%);
-    }
-
-    .visit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .visit-card {
-      background: rgba(255,255,255,.7);
-      border-radius: 20px;
-      padding: 2rem 2.2rem;
-      backdrop-filter: blur(4px);
-    }
-
-    .visit-card h3 {
+    .offering-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(107,63,31,0.14); }
+    .card-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
+    .offering-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
-      color: var(--dk-brn);
+      color: var(--brown);
+      margin-bottom: 0.65rem;
+    }
+    .offering-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.65; }
+
+    /* ─── SPECIAL ORDER BANNER ─── */
+    .special-banner {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      background: linear-gradient(135deg, var(--butter) 0%, var(--rose) 100%);
+      border-radius: 20px;
+      padding: 2.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 4px 24px rgba(107,63,31,0.10);
+    }
+    .special-banner .sb-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .special-banner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+    }
+    .special-banner p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
+
+    /* ─── HOURS & LOCATION ─── */
+    #visit { background: var(--white); }
+    .visit-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .visit-box {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 2.2rem;
+    }
+    .visit-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--brown);
       margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: .6rem;
+      gap: 0.5rem;
     }
-
-    .hours-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-
+    .hours-list { list-style: none; }
     .hours-list li {
       display: flex;
       justify-content: space-between;
-      font-size: .95rem;
-      color: var(--text);
-      padding-bottom: .5rem;
-      border-bottom: 1px dashed rgba(122,82,48,.2);
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed var(--butter-dark);
+      font-size: 0.95rem;
+      color: var(--text-light);
     }
-
     .hours-list li:last-child { border-bottom: none; }
+    .hours-list li span:first-child { font-weight: 700; color: var(--text); }
+    .closed { color: var(--rose-dark) !important; }
 
-    .hours-list .day { font-weight: 700; color: var(--warm-brn); }
-    .hours-list .closed { color: #c0808080; font-style: italic; }
-
-    .order-note {
-      background: var(--warm-brn);
-      color: var(--white);
-      border-radius: 16px;
-      padding: 1.4rem 1.6rem;
-      margin-top: 1.2rem;
-      font-size: .92rem;
-      line-height: 1.6;
-    }
-
-    .order-note strong { display: block; margin-bottom: .3rem; font-size: 1rem; }
-
-    /* ─── SOCIAL / FOLLOW ─── */
-    #follow {
-      background: var(--white);
-      text-align: center;
-    }
-
-    .follow-inner { max-width: 600px; margin: 0 auto; }
-
-    .follow-inner p { color: var(--light-txt); font-size: 1.05rem; margin: 1rem 0 2rem; }
-
-    .social-btns {
+    .address-block { margin-top: 1rem; }
+    .address-block p {
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 1.8;
       display: flex;
-      gap: 1rem;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .address-block .addr-icon { font-size: 1.2rem; margin-top: 2px; }
+
+    .map-placeholder {
+      background: linear-gradient(135deg, var(--mint) 0%, var(--lavender) 100%);
+      border-radius: 16px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--brown-light);
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .map-placeholder:hover { opacity: 0.85; }
+    .map-placeholder .map-icon { font-size: 2rem; }
+
+    /* ─── SOCIAL ─── */
+    #social { background: linear-gradient(135deg, var(--lavender) 0%, var(--rose) 100%); }
+    .social-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .social-inner p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
-
     .social-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: .6rem;
-      padding: .8rem 1.8rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: .95rem;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
       text-decoration: none;
-      transition: all .25s;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(107,63,31,0.15);
     }
-
-    .social-btn-fb {
-      background: #e8f0fe;
-      color: #1a73e8;
-    }
-
-    .social-btn-ig {
-      background: #fce4ec;
-      color: #c2185b;
-    }
-
-    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(107,63,31,0.2); }
+    .fb-btn { background: #1877f2; color: #fff; }
+    .ig-btn { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .social-btn .s-icon { font-size: 1.2rem; }
 
     /* ─── CONTACT ─── */
     #contact { background: var(--cream); }
-
-    .contact-grid {
+    .contact-inner {
+      max-width: 980px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 4rem;
+      gap: 3.5rem;
       align-items: start;
-      margin-top: 3rem;
     }
-
-    .contact-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--dk-brn);
-      margin-bottom: 1.2rem;
+    .contact-info h2 { margin-bottom: 0.8rem; }
+    .contact-info p {
+      color: var(--text-light);
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
     }
-
-    .contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .contact-list li {
+    .contact-detail {
       display: flex;
       align-items: center;
-      gap: .8rem;
-      color: var(--text);
-      font-size: .97rem;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
     }
-
-    .contact-list .ci {
-      width: 40px;
-      height: 40px;
+    .contact-detail .cd-icon {
+      width: 42px; height: 42px;
+      background: var(--white);
       border-radius: 50%;
-      background: var(--blush);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
+      box-shadow: 0 2px 10px rgba(107,63,31,0.10);
       flex-shrink: 0;
     }
+    .contact-detail span { color: var(--text-light); }
+    .contact-detail a { color: var(--brown); text-decoration: none; font-weight: 700; }
+    .contact-detail a:hover { text-decoration: underline; }
 
-    .contact-list a { color: var(--warm-brn); text-decoration: none; font-weight: 700; }
-    .contact-list a:hover { text-decoration: underline; }
-
-    .contact-form {
+    .contact-form-wrap {
       background: var(--white);
       border-radius: 24px;
-      padding: 2.4rem;
-      box-shadow: 0 8px 32px rgba(122,82,48,.1);
+      padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(107,63,31,0.09);
     }
-
-    .contact-form h3 {
+    .contact-form-wrap h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--dk-brn);
-      margin-bottom: 1.4rem;
+      font-size: 1.35rem;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
     }
-
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: .4rem;
-      margin-bottom: 1rem;
-    }
-
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1rem; }
     .form-group label {
-      font-size: .85rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: var(--warm-brn);
-      letter-spacing: .5px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-
     .form-group input,
-    .form-group textarea,
-    .form-group select {
-      padding: .75rem 1rem;
-      border: 2px solid #e8d5c8;
-      border-radius: 10px;
+    .form-group select,
+    .form-group textarea {
+      border: 2px solid var(--butter);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
       font-family: 'Lato', sans-serif;
-      font-size: .95rem;
+      font-size: 0.95rem;
       color: var(--text);
       background: var(--cream);
-      transition: border-color .2s;
       outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--rose);
-    }
-
-    .form-group textarea { resize: vertical; min-height: 120px; }
-
-    .form-submit {
+      transition: border-color 0.25s;
       width: 100%;
-      padding: .9rem;
-      background: var(--warm-brn);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--brown-light); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--brown);
       color: var(--white);
       border: none;
-      border-radius: 999px;
+      border-radius: 50px;
+      padding: 0.95rem;
       font-family: 'Lato', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      letter-spacing: .5px;
-      transition: all .25s;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 18px rgba(107,63,31,0.25);
+      margin-top: 0.5rem;
+      letter-spacing: 0.03em;
     }
-
-    .form-submit:hover {
-      background: var(--dk-brn);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(74,47,26,.3);
-    }
+    .btn-submit:hover { background: var(--brown-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(107,63,31,0.3); }
 
     .form-success {
       display: none;
-      background: var(--sage);
-      color: var(--dk-brn);
-      padding: 1rem 1.4rem;
-      border-radius: 12px;
-      font-weight: 700;
-      margin-top: 1rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
+    .form-success .fs-icon { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
+    .form-success h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p { color: var(--text-light); font-size: 0.97rem; }
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--dk-brn);
-      color: rgba(255,255,255,.7);
+      background: var(--brown);
+      color: rgba(255,255,255,0.75);
       text-align: center;
-      padding: 2.5rem 2rem;
+      padding: 3rem 1.5rem;
     }
-
-    footer .footer-logo {
+    .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--white);
-      margin-bottom: .4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: block;
     }
-
-    footer p { font-size: .88rem; }
-    footer a { color: var(--blush); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .footer-tagline {
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.6);
     }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--butter); }
+    .footer-copy { font-size: 0.83rem; color: rgba(255,255,255,0.45); }
 
-    .fade-up {
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity .7s ease, transform .7s ease;
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
-
-    .fade-up.visible {
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 68px; left: 0; right: 0;
-        background: var(--cream);
-        padding: 1.5rem 2rem;
-        border-bottom: 2px solid var(--blush);
-        gap: 1.2rem;
-        animation: fadeDown .3s ease;
-      }
-      .nav-toggle { display: flex; }
-
-      .about-grid,
-      .visit-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-visual { max-width: 400px; margin: 0 auto; }
+      .visit-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
+    }
 
-      .about-illustration { aspect-ratio: 16/9; }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 0.85rem 1.2rem; }
+      section { padding: 4rem 1.2rem; }
+      .special-banner { flex-direction: column; text-align: center; }
+      .contact-form-wrap { padding: 1.8rem 1.2rem; }
     }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#hero">Miller's Bakery</a>
-  <ul class="nav-links" id="navLinks">
+<nav id="navbar">
+  <a class="nav-logo" href="#hero"><span class="icon">🥐</span> Miller's Bakery</a>
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#specialties">Menu</a></li>
+    <li><a href="#offerings">Our Bakes</a></li>
     <li><a href="#visit">Visit Us</a></li>
-    <li><a href="#contact">Order</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">🥐 Baked Fresh Every Morning</div>
-    <h1 class="hero-title">
-      Handcrafted with Heart,<br><span>Served with Love</span>
-    </h1>
-    <p class="hero-sub">
-      Johnson City's favorite neighborhood bakery — bringing fresh sourdough, custom cakes, and seasonal pastries to your table since 2018.
-    </p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-primary">Place a Special Order</a>
-      <a href="#specialties" class="btn btn-outline">See What's Baking</a>
-    </div>
-  </div>
-  <svg class="hero-wave" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0 40 C360 80 1080 0 1440 40 L1440 80 L0 80 Z" fill="#ffffff"/>
-  </svg>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-illustration">
-        🍞
-      </div>
-      <div class="about-text fade-up">
-        <span class="section-label">Our Story</span>
-        <h2 class="section-title">A Community Staple Since 2018</h2>
-        <p>
-          Miller's Bakery was born out of a simple idea: that everyone deserves real, handcrafted food made with care. Since we opened our doors in Johnson City, we've been mixing, kneading, and baking from scratch every single morning — no shortcuts, no preservatives, just good honest baking.
-        </p>
-        <p>
-          Whether you're a regular stopping in for your Tuesday sourdough loaf or a newcomer ordering your first custom wedding cake, our small team treats every order like it's the most important thing in the oven. Because to us, it is.
-        </p>
-        <div class="about-details">
-          <div class="detail-item">
-            <div class="detail-icon">📍</div>
-            <div class="detail-info">
-              <strong>Find Us</strong>
-              142 Main Street, Johnson City
-            </div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-icon">📅</div>
-            <div class="detail-info">
-              <strong>Open</strong>
-              Tue–Sat: 7am–4pm &nbsp;|&nbsp; Sun: 8am–2pm
-            </div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-icon">📞</div>
-            <div class="detail-info">
-              <strong>Call or Text</strong>
-              <a href="tel:8888888888" style="color:var(--warm-brn);font-weight:700;">(888) 888-8888</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIALTIES -->
-<section id="specialties">
-  <div class="container">
-    <div class="spec-header fade-up">
-      <span class="section-label">What We Bake</span>
-      <h2 class="section-title">Fresh From Our Oven</h2>
-      <p class="section-intro">
-        Every item is made from scratch using quality ingredients. From daily staples to once-in-a-lifetime celebration cakes, we pour love into every recipe.
-      </p>
-    </div>
-    <div class="spec-grid">
-      <div class="spec-card fade-up">
-        <div class="spec-emoji">🎂</div>
-        <h3>Custom Celebration Cakes</h3>
-        <p>
-          Birthdays, weddings, anniversaries — our custom cakes are designed and baked just for your moment. Flavors, fillings, and decorations tailored to you. Order with 48 hours notice.
-        </p>
-      </div>
-      <div class="spec-card fade-up">
-        <div class="spec-emoji">🥖</div>
-        <h3>Freshly Baked Sourdough</h3>
-        <p>
-          Our sourdough is made from a long-fermented starter, shaped by hand, and baked in-house every single morning. Crusty on the outside, perfectly chewy inside — a customer favorite.
-        </p>
-      </div>
-      <div class="spec-card fade-up">
-        <div class="spec-emoji">🥐</div>
-        <h3>Seasonal Pastries & Treats</h3>
-        <p>
-          From flaky croissants and fruit tarts to holiday-inspired creations, our pastry case changes with the seasons. Follow us on social media to see what's fresh this week.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VISIT / HOURS -->
-<section id="visit">
-  <div class="container">
-    <div class="fade-up">
-      <span class="section-label">Plan Your Visit</span>
-      <h2 class="section-title">Hours & How to Order</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="visit-card fade-up">
-        <h3>🕐 Store Hours</h3>
-        <ul class="hours-list">
-          <li><span class="day">Monday</span><span class="closed">Closed</span></li>
-          <li><span class="day">Tuesday</span><span>7:00 am – 4:00 pm</span></li>
-          <li><span class="day">Wednesday</span><span>7:00 am – 4:00 pm</span></li>
-          <li><span class="day">Thursday</span><span>7:00 am – 4:00 pm</span></li>
-          <li><span class="day">Friday</span><span>7:00 am – 4:00 pm</span></li>
-          <li><span class="day">Saturday</span><span>7:00 am – 4:00 pm</span></li>
-          <li><span class="day">Sunday</span><span>8:00 am – 2:00 pm</span></li>
-        </ul>
-      </div>
-      <div class="visit-card fade-up">
-        <h3>🛒 Special Orders</h3>
-        <p style="color:var(--light-txt); font-size:.97rem; margin-bottom:1rem;">
-          Need something extra special? We love a good custom order! Whether it's a dozen cookies for the office or a three-tier wedding cake, we're here for it.
-        </p>
-        <p style="color:var(--light-txt); font-size:.97rem; margin-bottom:1rem;">
-          Just give us <strong>48 hours notice</strong> and we'll make it happen. Call us, stop by the shop at 142 Main Street, or send us a message below.
-        </p>
-        <div class="order-note">
-          <strong>📞 Ready to order?</strong>
-          Call or text us at <a href="tel:8888888888" style="color:var(--butter);">(888) 888-8888</a> and we'll take great care of you.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOCIAL / FOLLOW -->
-<section id="follow">
-  <div class="container">
-    <div class="follow-inner fade-up">
-      <span class="section-label">Stay in the Loop</span>
-      <h2 class="section-title">Follow Along Daily</h2>
-      <p>
-        Wondering what just came out of the oven this morning? Follow us on Facebook and Instagram for daily specials, seasonal creations, and a peek behind the counter at Miller's Bakery.
-      </p>
-      <div class="social-btns">
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn social-btn-fb">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#about" class="mobile-link
 <style>
 #and-preview-banner{position:fixed;bottom:0;left:0;right:0;z-index:99999;
 background:#0f172a;border-top:2px solid #6366f1;padding:14px 24px;
